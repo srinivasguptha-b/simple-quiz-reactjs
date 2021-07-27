@@ -7,6 +7,7 @@ import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import Navmenu from './NavMenu';
 import QuizMain from './QuizMain';
+import Home from './Home';
 export default function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userData, setUserData] = useState({});
@@ -22,39 +23,6 @@ export default function App() {
         setIsAuthenticated(false);
         localStorage.setItem('userdata', '');
     }
-
-    const Home = () => {
-        return (
-            <>
-                <Container>
-                    <div className='row p-5 my-5 text-white rounded'>
-                        <div className='col-md-12 text-center'>
-                            {isAuthenticated ? (
-                                <p>Welcome {userData.name} </p>
-                            ) : (
-                                    <>Please Login</>
-                                )}
-                        </div>
-                    </div>
-                </Container>
-            </>
-        );
-    }
-
-    const NotFound = () => {
-        return (
-            <Route render={({ staticContext }) => {
-                if (staticContext) {
-                    staticContext.status = 404;
-                }
-                return (
-                    <div>
-                        <h1>404 : Not Found</h1>
-                    </div>
-                )
-            }} />
-        );
-    };
 
     return (
         <AppContext.Provider value={{ isAuthenticated, setIsAuthenticated, userData, setUserData }}>

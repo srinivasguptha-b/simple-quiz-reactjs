@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import AppContext from './libs/contextLib';
 import LoginPage from './LoginPage';
 import NextQueue from './NextQueue';
+import NotFound from './NotFound';
 import { Button, Image } from 'react-bootstrap';
 import { useParams, useHistory } from 'react-router-dom';
 const QuizMain = () => {
@@ -57,7 +58,7 @@ const QuizMain = () => {
     const currentVideo = video_url;
     const [isloading, setIsLoading] = useState(true);
     const [ansToggle, setAnsToggle] = useState(false);
-    const [videoData, setVideoData] = useState({});
+    const [videoData, setVideoData] = useState([]);
 
     useEffect(() => {
         if (isAuthenticated) {
@@ -75,7 +76,7 @@ const QuizMain = () => {
                 .then(d => {
                     setIsLoading(false);
                     if (d.error === -1) {
-                        history.push("/");
+                        //history.push("/");
                     } else {
                         if (d.error === 0) {
                             let answeredCountLocal = d.data.answer_count;
@@ -200,7 +201,7 @@ const QuizMain = () => {
 
     return (
         <>
-            {!isAuthenticated ? <LoginPage /> : isloading ? <> Please Wait., Loading..!</> :
+            {!isAuthenticated ? <LoginPage /> : videoData.length == 0 ? <NotFound /> : isloading ? <> Please Wait., Loading..!</> :
                 <>
                     <div className='row w-100 text-white'>
                         <div className='col-md-2'></div>
