@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import AppContext from './libs/contextLib';
 import LoginPage from './LoginPage';
+import NextQueue from './NextQueue';
 import { Button, Image } from 'react-bootstrap';
 import { useParams, useHistory } from 'react-router-dom';
 const QuizMain = () => {
@@ -56,6 +57,7 @@ const QuizMain = () => {
     const currentVideo = video_url;
     const [isloading, setIsLoading] = useState(true);
     const [ansToggle, setAnsToggle] = useState(false);
+    const [videoData, setVideoData] = useState({});
 
     useEffect(() => {
         if (isAuthenticated) {
@@ -89,6 +91,9 @@ const QuizMain = () => {
                                 } else {
                                     setShowScore(true);
                                 }
+                            }
+                            if (d.data.video) {
+                                setVideoData(d.data.video);
                             }
                         } else {
                             alert("Something Went wrong, please try again!");
@@ -192,82 +197,66 @@ const QuizMain = () => {
             setAnsToggle(false);
         }
     }
-    const AnswerButton = (answerOption) => {
-        let chkvarient = "secondary";
-        if (answered.indexOf(currentQuestion) > -1) {
-            if (answerOption.isCorrect) {
-                chkvarient = "success";
-            } else {
-                clicked.map(v => {
-                    if (v.qtnindex === currentQuestion) {
-                        if (v.ansindex === answerOption.index) {
-                            chkvarient = "danger"
-                        }
-                    }
-                });
-            }
 
-        } else {
-            chkvarient = "secondary"
-        }
-        return (
-            <Button variant={chkvarient} className="mb-2 w-100" onClick={() => handleAnswerOptionClick(answerOption)} disabled={(answered.indexOf(currentQuestion) > -1) ? "disabled" : ""}> {answerOption.answerText} </Button>
-        );
-    }
     return (
         <>
             {!isAuthenticated ? <LoginPage /> : isloading ? <> Please Wait., Loading..!</> :
-                <div className='row w-100 text-white'>
-                    <div className='col-md-2'></div>
-                    <div className='main col-md-8 d-flex align-items-center justify-content-center'>
-                        <div className="col-md-12">
-                            <div className="col-md-12 oi-dw-banner d-flex flex-row" style={{ backgroundImage: "url(" + process.env.PUBLIC_URL + "/oidw-header-bg.jpg)" }}>
-                                <div className="col-md-6 d-flex align-items-center justify-content-center"><Image src={process.env.PUBLIC_URL + '/oi-dw-logo.png'} fluid /></div>
-                                <div className="col-md-6 d-flex align-items-center justify-content-center text-center">
-                                    <span className="watchwintext">"Watch to Win Contest"</span>
-                                </div>
+                <>
+                    <div className='row w-100 text-white'>
+                        <div className='col-md-2'></div>
+                        <div className='main col-md-8 d-flex align-items-center justify-content-center'>
+                            <div className="col-md-12">
+                                <div className="col-md-12 oi-dw-banner d-flex flex-row" style={{ backgroundImage: "url(" + process.env.PUBLIC_URL + "/oidw-header-bg.jpg)" }}>
+                                    <div className="col-md-6 d-flex align-items-center justify-content-center"><Image src={process.env.PUBLIC_URL + '/oi-dw-logo.png'} fluid /></div>
+                                    <div className="col-md-6 d-flex align-items-center justify-content-center text-center">
+                                        <span className="watchwintext">"Watch to Win Contest"</span>
+                                    </div>
 
+                                </div>
                             </div>
+                            {showScore ? (<>
+                                <div className='col-md-12 text-center mt-4'>
+                                    <h2 className="mb-3">You scored {score} out of {questions.length}</h2>
+                                    <p>Participated in {participated}</p>
+                                    <p>Total scored {totalScore}</p>
+                                </div>
+                            </>) : (<>
+                                <div className='col-md-12 mb-2'>
+                                    <p className="pt-4">
+                                        {videoData.title}
+                                    </p>
+                                </div>
+                                <div className="col-md-12 oidw-quiz-block p-4">
+                                    <div className='mb-2'>
+                                        <div className='col-md-12 oidw-quiz-no d-flex flex-row'>
+                                            <div className="col-md-2 text-center"><i>{currentQuestion + 1}</i></div>
+                                            <div className='question col-md-10'>Q. {questions[currentQuestion].questionText}</div>
+                                        </div>
+                                    </div>
+                                    <div className='col-md-12 options mb-5'>
+                                        <ul>
+                                            {questions[currentQuestion].answerOptions.map((answerOption, i) => (
+                                                <AnswerButtonNew index={i} {...answerOption} />
+                                            ))}
+                                        </ul>
+                                    </div>
+                                    <div className="option-bottom clearfix nextques">
+                                        <div className="next-question">
+                                            <button type="button" name="button" onClick={gotoNextQuestion}>
+                                                {currentQuestion + 1 < questions.length ? <>
+                                                    Next Question <span className="oidw-arrow-right"></span></> : <> Finish </>}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>)}
                         </div>
-                        {showScore ? (<>
-                            <div className='col-md-12 text-center mt-4'>
-                                <h2 className="mb-3">You scored {score} out of {questions.length}</h2>
-                                <p>Participated in {participated}</p>
-                                <p>Total scored {totalScore}</p>
-                            </div>
-                        </>) : (<>
-                            <div className='col-md-12 mb-2'>
-                                <p className="pt-4">
-                                    The idea is a box with zero width and height. The actual width and height of the arrow is determined by the width of the border. In an up arrow, for example, the bottom border is colored while the left and right are transparent, which forms the triangle.
-                                </p>
-                            </div>
-                            <div className="col-md-12 oidw-quiz-block p-4">
-                                <div className='mb-2'>
-                                    <div className='col-md-12 oidw-quiz-no d-flex flex-row'>
-                                        <div className="col-md-2 text-center"><i>{currentQuestion + 1}</i></div>
-                                        <div className='question col-md-10'>Q. {questions[currentQuestion].questionText}</div>
-                                    </div>
-                                </div>
-                                <div className='col-md-12 options mb-5'>
-                                    <ul>
-                                        {questions[currentQuestion].answerOptions.map((answerOption, i) => (
-                                            <AnswerButtonNew index={i} {...answerOption} />
-                                        ))}
-                                    </ul>
-                                </div>
-                                <div className="option-bottom clearfix nextques">
-                                    <div className="next-question">
-                                        <button type="button" name="button" onClick={gotoNextQuestion}>
-                                            {currentQuestion + 1 < questions.length ? <>
-                                                Next Question <span className="oidw-arrow-right"></span></> : <> Finish </>}
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </>)}
+                        <div className='col-md-2'></div>
+                        <div className='col-md-12'>
+                            <NextQueue video_id={currentVideo} />
+                        </div>
                     </div>
-                    <div className='col-md-2'></div>
-                </div>
+                </>
             }
         </>
     );

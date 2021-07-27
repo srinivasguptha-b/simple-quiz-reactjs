@@ -61,13 +61,12 @@ export default function App() {
             <Container className="p-0">
                 <Navmenu handleLogout={handleLogout} />
             </Container>
-            <Container className="containerMain  mb-4 pb-4" style={{ backgroundImage: "url(" + process.env.PUBLIC_URL + '/quiz-video-bg.jpg' + ")" }}>
+            <Container className="containerMain  mb-4 pb-4" style={{ backgroundImage: "url(" + process.env.PUBLIC_URL + '/quiz-video-bg.jpg' + ")", backgroundSize: "cover" }}>
                 <Router basename='dwquiz'>
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route exact path="/login" component={LoginPage} />
-                        <Route path="/dw-video/:video_url" children={<QuizMain />} />
-
+                        <Route path="/:video_url" children={<QuizMain />} />
                     </Switch>
                 </Router>
             </Container>
