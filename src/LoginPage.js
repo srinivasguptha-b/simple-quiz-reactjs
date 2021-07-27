@@ -4,6 +4,7 @@ import { GoogleLogin } from 'react-google-login';
 import AppContext from './libs/contextLib';
 
 const LoginPage = () => {
+    document.title = "Login";
     const { isAuthenticated, setIsAuthenticated, setUserData } = useContext(AppContext);
     const handleLogin = async googleData => {
 
@@ -34,13 +35,17 @@ const LoginPage = () => {
 
     return (
         <>
-            {isAuthenticated ? <Redirect to="" /> : <GoogleLogin
-                clientId={process.env.REACT_APP_API_GOOGLE_CLIENT_ID}
-                buttonText="Log in with Google"
-                onSuccess={handleLogin}
-                onFailure={handleLogin}
-                cookiePolicy={'single_host_origin'}
-            />}
+            {isAuthenticated ? <Redirect to="" /> :
+                <div className="col-md-12 d-flex justify-content-center align-items-center">
+                    <GoogleLogin
+                        clientId={process.env.REACT_APP_API_GOOGLE_CLIENT_ID}
+                        buttonText="Log in with Google"
+                        onSuccess={handleLogin}
+                        onFailure={handleLogin}
+                        cookiePolicy={'single_host_origin'}
+                    />
+                </div>
+            }
         </>
 
     );

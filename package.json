@@ -38,6 +38,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://videos.oneindia.com/",
+  "proxy": "http://localhost/",
   "homepage": "https://videos.oneindia.com/dwquiz/"
 }

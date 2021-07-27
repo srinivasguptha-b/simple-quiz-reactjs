@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import AppContext from './libs/contextLib';
 import LoginPage from './LoginPage';
-import { Button } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import { useParams, useHistory } from 'react-router-dom';
 const QuizMain = () => {
     let history = useHistory();
@@ -55,6 +55,7 @@ const QuizMain = () => {
     const [answeredCount, setAnsweredCount] = useState(0);
     const currentVideo = video_url;
     const [isloading, setIsLoading] = useState(true);
+    const [ansToggle, setAnsToggle] = useState(false);
 
     useEffect(() => {
         if (isAuthenticated) {
@@ -118,6 +119,7 @@ const QuizMain = () => {
         if (answerOption.isCorrect) {
             setScore(score + 1);
         }
+        setAnsToggle(true);
 
         const requestOptions = {
             method: 'POST',
@@ -135,17 +137,61 @@ const QuizMain = () => {
         fetch(`${process.env.REACT_APP_API_URL_POST}`, requestOptions).then(response => response.json())
             .then(d => {
                 setAnsweredCount(answeredCount + 1);
-                const nextQuestion = currentQuestion + 1;
                 setAnswered([...answered, currentQuestion]);
-                if (nextQuestion < questions.length) {
-                    setTimeout(function () { setCurrentQuestion(nextQuestion); }, 1000);
-                } else {
-                    setTimeout(function () { setShowScore(true); }, 1000);
-                }
+                // const nextQuestion = currentQuestion + 1;
+                // if (nextQuestion < questions.length) {
+                //     //setTimeout(function () { setCurrentQuestion(nextQuestion); }, 1000);
+                // } else {
+                //     //setTimeout(function () { setShowScore(true); }, 1000);
+                // }
             });
     };
 
 
+    const AnswerButtonNew = (answerOption) => {
+        let opind = ['A', 'B', 'C', 'D'];
+        let chkvarient = "";
+        if (answered.indexOf(currentQuestion) > -1) {
+            if (answerOption.isCorrect) {
+                chkvarient = "correct";
+            } else {
+                clicked.map(v => {
+                    if (v.qtnindex === currentQuestion) {
+                        if (v.ansindex === answerOption.index) {
+                            chkvarient = "wrong"
+                        }
+                    }
+                });
+            }
+
+        } else {
+            chkvarient = ""
+        }
+        return (
+            <li className={chkvarient}><div className="w-100 mt-3">
+                <div className="option1">
+                    <div className="left-option">
+                        {opind[answerOption.index]}
+                    </div>
+
+                    <Button className="m-0 p-3 w-100 right-option" onClick={() => handleAnswerOptionClick(answerOption)} disabled={(answered.indexOf(currentQuestion) > -1) ? "disabled" : ""}> {answerOption.answerText} </Button>
+
+                </div>
+            </div>
+            </li>
+        )
+    }
+    const gotoNextQuestion = () => {
+        if (ansToggle) {
+            const nextQuestion = currentQuestion + 1;
+            if (nextQuestion < questions.length) {
+                setCurrentQuestion(nextQuestion);
+            } else {
+                setShowScore(true);
+            }
+            setAnsToggle(false);
+        }
+    }
     const AnswerButton = (answerOption) => {
         let chkvarient = "secondary";
         if (answered.indexOf(currentQuestion) > -1) {
@@ -171,33 +217,56 @@ const QuizMain = () => {
     return (
         <>
             {!isAuthenticated ? <LoginPage /> : isloading ? <> Please Wait., Loading..!</> :
-                <div className='row w-100'>
-                    <div className='col-md-3'></div>
-                    <div className='main col-md-6 d-flex align-items-center justify-content-center'>
+                <div className='row w-100 text-white'>
+                    <div className='col-md-2'></div>
+                    <div className='main col-md-8 d-flex align-items-center justify-content-center'>
+                        <div className="col-md-12">
+                            <div className="col-md-12 oi-dw-banner d-flex flex-row" style={{ backgroundImage: "url(" + process.env.PUBLIC_URL + "/oidw-header-bg.jpg)" }}>
+                                <div className="col-md-6 d-flex align-items-center justify-content-center"><Image src={process.env.PUBLIC_URL + '/oi-dw-logo.png'} fluid /></div>
+                                <div className="col-md-6 d-flex align-items-center justify-content-center text-center">
+                                    <span className="watchwintext">"Watch to Win Contest"</span>
+                                </div>
 
+                            </div>
+                        </div>
                         {showScore ? (<>
-                            <div className='col-md-12 text-center'>
-                                <p>You scored {score} out of {questions.length}</p>
+                            <div className='col-md-12 text-center mt-4'>
+                                <h2 className="mb-3">You scored {score} out of {questions.length}</h2>
                                 <p>Participated in {participated}</p>
                                 <p>Total scored {totalScore}</p>
                             </div>
                         </>) : (<>
-                            <>
-                                <div className='col-md-12 mb-2'>
-                                    <div className=''>
-                                        <span>Question {currentQuestion + 1}</span>/{questions.length}
+                            <div className='col-md-12 mb-2'>
+                                <p className="pt-4">
+                                    The idea is a box with zero width and height. The actual width and height of the arrow is determined by the width of the border. In an up arrow, for example, the bottom border is colored while the left and right are transparent, which forms the triangle.
+                                </p>
+                            </div>
+                            <div className="col-md-12 oidw-quiz-block p-4">
+                                <div className='mb-2'>
+                                    <div className='col-md-12 oidw-quiz-no d-flex flex-row'>
+                                        <div className="col-md-2 text-center"><i>{currentQuestion + 1}</i></div>
+                                        <div className='question col-md-10'>Q. {questions[currentQuestion].questionText}</div>
                                     </div>
-                                    <div className=''>{questions[currentQuestion].questionText}</div>
                                 </div>
-                                <div className='col-md-12'>
-                                    {questions[currentQuestion].answerOptions.map((answerOption, i) => (
-                                        <div className="w-100" key={i}><AnswerButton index={i} {...answerOption} /></div>
-                                    ))}
+                                <div className='col-md-12 options mb-5'>
+                                    <ul>
+                                        {questions[currentQuestion].answerOptions.map((answerOption, i) => (
+                                            <AnswerButtonNew index={i} {...answerOption} />
+                                        ))}
+                                    </ul>
                                 </div>
-                            </>
+                                <div className="option-bottom clearfix nextques">
+                                    <div className="next-question">
+                                        <button type="button" name="button" onClick={gotoNextQuestion}>
+                                            {currentQuestion + 1 < questions.length ? <>
+                                                Next Question <span className="oidw-arrow-right"></span></> : <> Finish </>}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </>)}
                     </div>
-                    <div className='col-md-3'></div>
+                    <div className='col-md-2'></div>
                 </div>
             }
         </>

@@ -27,7 +27,7 @@ export default function App() {
         return (
             <>
                 <Container>
-                    <div className='row bg-light p-5 my-5 rounded'>
+                    <div className='row p-5 my-5 text-white rounded'>
                         <div className='col-md-12 text-center'>
                             {isAuthenticated ? (
                                 <p>Welcome {userData.name} </p>
@@ -58,14 +58,16 @@ export default function App() {
 
     return (
         <AppContext.Provider value={{ isAuthenticated, setIsAuthenticated, userData, setUserData }}>
-            <Navmenu handleLogout={handleLogout} />
-            <Container className="containerMain">
+            <Container className="p-0">
+                <Navmenu handleLogout={handleLogout} />
+            </Container>
+            <Container className="containerMain  mb-4 pb-4" style={{ backgroundImage: "url(" + process.env.PUBLIC_URL + '/quiz-video-bg.jpg' + ")" }}>
                 <Router basename='dwquiz'>
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route exact path="/login" component={LoginPage} />
                         <Route path="/dw-video/:video_url" children={<QuizMain />} />
-                        <Route component={NotFound} />
+
                     </Switch>
                 </Router>
             </Container>
