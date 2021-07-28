@@ -117,6 +117,11 @@ const QuizMain = () => {
                         setParticipated(d.data.participated);
                     }
                 });
+        } else {
+            fetch(`${process.env.REACT_APP_API_URL_GET}?func=is_video_exists&video_id=` + currentVideo).then(response => response.json())
+                .then(d => {
+                    setVideoData(d.data);
+                });
         }
     }, [isAuthenticated, showScore, history]);
 
