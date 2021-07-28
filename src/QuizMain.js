@@ -201,7 +201,7 @@ const QuizMain = () => {
 
     return (
         <>
-            {!isAuthenticated ? <LoginPage /> : videoData.length == 0 ? <NotFound /> : isloading ? <> Please Wait., Loading..!</> :
+            {videoData.length == 0 ? <NotFound /> : !isAuthenticated ? <LoginPage /> : isloading ? <> Please Wait., Loading..!</> :
                 <>
                     <div className='row w-100 text-white'>
                         <div className='col-md-2'></div>
