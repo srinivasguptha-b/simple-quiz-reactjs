@@ -253,7 +253,7 @@ const QuizMain = () => {
                             </>)}
                         </div>
                         <div className='col-md-2'></div>
-                        <div className='col-md-12'>
+                        <div className='col-md-12 oidw-morevideos-block'>
                             <NextQueue video_id={currentVideo} />
                         </div>
                     </div>

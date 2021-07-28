@@ -88,3 +88,16 @@ ul li {
 .next-question button {padding: 15px 0px;border: 1px solid #ffffff;border-radius: 5px;background: #3366cc;font-size: 20px;font-weight: bold;cursor: pointer;display: block;color: #fff;width: 100%;text-align: center;position: relative;}
 .oidw-arrow-right {border: solid #fff;border-width: 0 3px 3px 0;display: inline-block;padding: 5px;transform: rotate(-45deg);-webkit-transform: rotate(-45deg);position: absolute;right: 15px;top: 22px;}
 .next-question button i {vertical-align: middle;font-size: 30px;}
+
+
+@media only screen and (max-width: 768px) {
+  .main {padding: 20px 0;}
+  .oidw-quiz-block {padding: 20px 10px!important;}
+  .main .options ul {padding: 0;margin: 0;}
+  .oidw-quiz-no {padding-bottom: 10px;}
+  
+  .oidw-morevideos-block .row.mt-5 {margin: 0!important;white-space: nowrap;width: 100%;overflow-x: scroll;display: block;}
+  .oidw-morevideos-block .col-md-4 {width: 200px;display: inline-block;float: none;white-space: normal;}
+  .col-md-12.oidw-morevideos-block {margin-top: 30px;}
+  .card-link {text-decoration: none;}
+}
