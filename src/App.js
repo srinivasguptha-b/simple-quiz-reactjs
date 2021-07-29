@@ -11,6 +11,15 @@ import Home from './Home';
 export default function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userData, setUserData] = useState({});
+    const [contentLanguage, setContentLanguage] = useState('English');
+
+    useEffect(() => {
+        let querystring = new URLSearchParams(window.location.search);
+        if (querystring.get('lang')) {
+            setContentLanguage(querystring.get('lang'));
+        }
+    }, []);
+
     useEffect(() => {
         const userDataLocal = localStorage.getItem('userdata');
         if (userDataLocal !== "" && userDataLocal !== null) {
@@ -25,7 +34,7 @@ export default function App() {
     }
 
     return (
-        <AppContext.Provider value={{ isAuthenticated, setIsAuthenticated, userData, setUserData }}>
+        <AppContext.Provider value={{ isAuthenticated, setIsAuthenticated, userData, setUserData, contentLanguage, setContentLanguage }}>
             <Container className="p-0">
                 <Navmenu handleLogout={handleLogout} />
             </Container>

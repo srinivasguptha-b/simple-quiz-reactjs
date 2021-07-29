@@ -5,6 +5,8 @@ const AppContext = createContext({
     setIsAuthenticated: (auth) => { },
     userData: {},
     setUserData: () => { },
-    currentVideo: ''
+    currentVideo: '',
+    contentLanguage: '',
+    setContentLanguage: () => { }
 });
 export default AppContext;

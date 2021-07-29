@@ -5,46 +5,11 @@ import NextQueue from './NextQueue';
 import NotFound from './NotFound';
 import { Button, Image } from 'react-bootstrap';
 import { useParams, useHistory } from 'react-router-dom';
+import { QuestionsData } from './QuestionsData';
 const QuizMain = () => {
     let history = useHistory();
-    const questions = [
-        {
-            questionText: 'What is the capital of France?',
-            answerOptions: [
-                { answerText: 'New York', isCorrect: false },
-                { answerText: 'London', isCorrect: false },
-                { answerText: 'Paris', isCorrect: true },
-                { answerText: 'Dublin', isCorrect: false },
-            ],
-        },
-        {
-            questionText: 'Who is CEO of Tesla?',
-            answerOptions: [
-                { answerText: 'Jeff Bezos', isCorrect: false },
-                { answerText: 'Elon Musk', isCorrect: true },
-                { answerText: 'Bill Gates', isCorrect: false },
-                { answerText: 'Tony Stark', isCorrect: false },
-            ],
-        },
-        {
-            questionText: 'The iPhone was created by which company?',
-            answerOptions: [
-                { answerText: 'Apple', isCorrect: true },
-                { answerText: 'Intel', isCorrect: false },
-                { answerText: 'Amazon', isCorrect: false },
-                { answerText: 'Microsoft', isCorrect: false },
-            ],
-        },
-        {
-            questionText: 'How many Harry Potter books are there?',
-            answerOptions: [
-                { answerText: '1', isCorrect: false },
-                { answerText: '4', isCorrect: false },
-                { answerText: '6', isCorrect: false },
-                { answerText: '7', isCorrect: true },
-            ],
-        },
-    ];
+    const { contentLanguage } = useContext(AppContext);
+    const [questions, setQuestions] = useState([]);
     const { video_url } = useParams();
     const { isAuthenticated, userData } = useContext(AppContext);
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -61,6 +26,15 @@ const QuizMain = () => {
     const [videoData, setVideoData] = useState([]);
 
     useEffect(() => {
+        if (Object.keys(QuestionsData).includes(contentLanguage)) {
+            setQuestions(QuestionsData[contentLanguage]);
+        } else {
+            history.push("/");
+        }
+    }, [contentLanguage])
+
+    useEffect(() => {
+        //console.log(Object.keys(QuestionsData).includes(contentLanguage));
         if (isAuthenticated) {
             const requestOptions = {
                 method: 'POST',
@@ -206,7 +180,7 @@ const QuizMain = () => {
 
     return (
         <>
-            {videoData.length == 0 ? <NotFound /> : !isAuthenticated ? <LoginPage /> : isloading ? <> Please Wait., Loading..!</> :
+            {isloading ? <> Please Wait., Loading..!</> : videoData.length === 0 ? <NotFound /> : !isAuthenticated ? <LoginPage /> :
                 <>
                     <div className='row w-100 text-white'>
                         <div className='col-md-2'></div>
@@ -229,7 +203,7 @@ const QuizMain = () => {
                             </>) : (<>
                                 <div className='col-md-12 mb-2'>
                                     <p className="pt-4">
-                                        {videoData.title}
+                                        {/* {videoData.title} */}
                                     </p>
                                 </div>
                                 <div className="col-md-12 oidw-quiz-block p-4">
@@ -242,7 +216,7 @@ const QuizMain = () => {
                                     <div className='col-md-12 options mb-5'>
                                         <ul>
                                             {questions[currentQuestion].answerOptions.map((answerOption, i) => (
-                                                <AnswerButtonNew index={i} {...answerOption} />
+                                                <AnswerButtonNew index={i} {...answerOption} key={i} />
                                             ))}
                                         </ul>
                                     </div>
