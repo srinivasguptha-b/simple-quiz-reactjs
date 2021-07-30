@@ -76,7 +76,7 @@ ul li {
 }
 
 .option1 .left-option {float: left;position: absolute;font-size: 34px;padding: 0 15px;background: #0161f6;outline: none;display: block;border-radius: 5px 0 0 5px;line-height: 65px;height: 65px;color: #FFF;}
-.option1 .right-option {float: left;margin-left: 65px;margin-top: 8px;font-size: 20px;color: #000;font-weight: 600;background-color: transparent;border: 1px solid transparent;}
+.option1 .right-option {float: left;margin-left: 65px;margin-top: 8px;font-size: 20px;color: #000;font-weight: 600;background-color: transparent;border: 1px solid transparent;text-indent: 24px;}
 .option1 .right-option:hover{color: #333;background-color: transparent;border: 1px solid transparent;}
 .option1 .right-option:disabled{color: #333;opacity: 1;background-color: transparent;border: 1px solid transparent;}
 .options ul li .option1 {background: rgba(255,255,255,0.7);border-radius: 5px;color: #000000;position: relative;height: 65px;}
@@ -91,6 +91,12 @@ ul li {
 
 
 @media only screen and (max-width: 768px) {
+  *{font-size: 100% !important;}
+  .oidw-quiz-no i{
+    width: 25px;
+    height: 25px;
+    padding: 0px 7px;
+  }
   .main {padding: 20px 0;}
   .oidw-quiz-block {padding: 20px 10px!important;}
   .main .options ul {padding: 0;margin: 0;}

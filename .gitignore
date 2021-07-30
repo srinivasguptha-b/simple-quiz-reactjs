@@ -1,4 +1,4 @@
 # Ignore files related to API keys
 .env
 .env.production
-node_modules
+node_modules/

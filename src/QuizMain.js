@@ -4,11 +4,12 @@ import LoginPage from './LoginPage';
 import NextQueue from './NextQueue';
 import NotFound from './NotFound';
 import { Button, Image } from 'react-bootstrap';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { QuestionsData } from './QuestionsData';
 const QuizMain = () => {
     let history = useHistory();
-    const { contentLanguage } = useContext(AppContext);
+    let location = useLocation();
+    const { contentLanguage, triggerPageView } = useContext(AppContext);
     const [questions, setQuestions] = useState([]);
     const { video_url } = useParams();
     const { isAuthenticated, userData } = useContext(AppContext);
@@ -94,6 +95,7 @@ const QuizMain = () => {
         } else {
             fetch(`${process.env.REACT_APP_API_URL_GET}?func=is_video_exists&video_id=` + currentVideo).then(response => response.json())
                 .then(d => {
+                    setIsLoading(false);
                     setVideoData(d.data);
                 });
         }
@@ -175,6 +177,12 @@ const QuizMain = () => {
                 setShowScore(true);
             }
             setAnsToggle(false);
+            triggerPageView();
+            if (location.search == "") {
+                history.push(location.pathname + "#" + parseInt(nextQuestion + 1));
+            } else {
+                history.push(location.pathname + location.search + "#" + parseInt(nextQuestion + 1));
+            }
         }
     }
 
@@ -194,11 +202,10 @@ const QuizMain = () => {
 
                                 </div>
                             </div>
-                            {showScore ? (<>
+                            {showScore || !videoData.is_active ? (<>
                                 <div className='col-md-12 text-center mt-4'>
+                                    {!videoData.is_active ? <h2>This Quiz Has Ended</h2> : <></>}
                                     <h2 className="mb-3">You scored {score} out of {questions.length}</h2>
-                                    <p>Participated in {participated}</p>
-                                    <p>Total scored {totalScore}</p>
                                 </div>
                             </>) : (<>
                                 <div className='col-md-12 mb-2'>

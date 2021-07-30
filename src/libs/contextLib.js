@@ -7,6 +7,7 @@ const AppContext = createContext({
     setUserData: () => { },
     currentVideo: '',
     contentLanguage: '',
-    setContentLanguage: () => { }
+    setContentLanguage: () => { },
+    triggerPageView: () => { }
 });
 export default AppContext;
