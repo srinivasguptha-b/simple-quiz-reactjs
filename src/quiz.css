@@ -74,6 +74,7 @@ ul li {
     font-weight: bold;
     margin-left: 5px;
 }
+.vid-title{font-size: 24px;}
 
 .option1 .left-option {float: left;position: absolute;font-size: 34px;padding: 0 15px;background: #0161f6;outline: none;display: block;border-radius: 5px 0 0 5px;line-height: 65px;height: 65px;color: #FFF;}
 .option1 .right-option {float: left;margin-left: 65px;margin-top: 8px;font-size: 20px;color: #000;font-weight: 600;background-color: transparent;border: 1px solid transparent;text-indent: 24px;}
@@ -89,9 +90,12 @@ ul li {
 .oidw-arrow-right {border: solid #fff;border-width: 0 3px 3px 0;display: inline-block;padding: 5px;transform: rotate(-45deg);-webkit-transform: rotate(-45deg);position: absolute;right: 15px;top: 22px;}
 .next-question button i {vertical-align: middle;font-size: 30px;}
 
-
+.announcement-p{
+  background: #00000059;
+    padding: 10px;
+}
 @media only screen and (max-width: 768px) {
-  *{font-size: 100% !important;}
+  /* *{font-size: 100% !important;} */
   .oidw-quiz-no i{
     width: 25px;
     height: 25px;
@@ -106,4 +110,9 @@ ul li {
   .oidw-morevideos-block .col-md-4 {width: 200px;display: inline-block;float: none;white-space: normal;}
   .col-md-12.oidw-morevideos-block {margin-top: 30px;}
   .card-link {text-decoration: none;}
+
+  .oidw-quiz-no .question{font-size: 20px;  }
+  .option1 .right-option{font-size: 18px;}
+  .watchwintext{font-size: 20px;}
+  .vid-title{font-size: 20px;}
 }

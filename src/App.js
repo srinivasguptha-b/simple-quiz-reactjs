@@ -4,10 +4,10 @@ import { Container } from 'react-bootstrap';
 import { BrowserView, MobileView } from 'react-device-detect';
 import AppContext from './libs/contextLib';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
-import LoginPage from './LoginPage';
 import Navmenu from './NavMenu';
 import QuizMain from './QuizMain';
 import Home from './Home';
+import FooterBlock from './FooterBlock';
 import SingleAdUnit from './SingelAdUnit';
 
 import ReactGa from 'react-ga';
@@ -82,16 +82,16 @@ export default function App() {
                     <SingleAdUnit size="square" />
                 </MobileView>
             </Container>
-            <Container className="containerMain  mb-4 pb-4" style={{ backgroundImage: "url(" + process.env.PUBLIC_URL + '/quiz-video-bg.jpg' + ")", backgroundSize: "cover" }}>
+            <Container className="containerMain pb-4" style={{ backgroundImage: "url(" + process.env.PUBLIC_URL + '/quiz-video-bg.jpg' + ")", backgroundSize: "cover" }}>
                 <Router basename='dwquiz'>
                     <Switch>
                         <Route exact path="/" component={Home} />
-                        <Route exact path="/login" component={LoginPage} />
                         <Route path="/:video_url" children={<QuizMain />} />
                     </Switch>
                 </Router>
             </Container>
-            <Container>
+            <Container className="p-0">
+                <FooterBlock />
                 <BrowserView>
                     <SingleAdUnit size="banner" />
                 </BrowserView>

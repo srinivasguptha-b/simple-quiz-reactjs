@@ -35,7 +35,7 @@ const LoginPage = () => {
 
     return (
         <>
-            {isAuthenticated ? <Redirect to="" /> :
+            {isAuthenticated ? <></> :
                 <div className="col-md-12 d-flex justify-content-center align-items-center">
                     <GoogleLogin
                         clientId={process.env.REACT_APP_API_GOOGLE_CLIENT_ID}

@@ -3,7 +3,7 @@ import AppContext from './libs/contextLib';
 import LoginPage from './LoginPage';
 import NextQueue from './NextQueue';
 import NotFound from './NotFound';
-import { Button, Image } from 'react-bootstrap';
+import { Button, Image, Modal } from 'react-bootstrap';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { QuestionsData } from './QuestionsData';
 import { isMobile } from 'react-device-detect';
@@ -25,11 +25,13 @@ const QuizMain = () => {
     const currentVideo = video_url;
     const [isloading, setIsLoading] = useState(true);
     const [ansToggle, setAnsToggle] = useState(false);
+    const [quizToggle, setQuizToggle] = useState(false);
     const [videoData, setVideoData] = useState([]);
+    const [modalShow, setModalShow] = useState(false);
 
     useEffect(() => {
         if (Object.keys(QuestionsData).includes(contentLanguage)) {
-            setQuestions(QuestionsData[contentLanguage]);
+            setQuestions([QuestionsData[contentLanguage][currentVideo - 1]]);
         } else {
             history.push("/");
         }
@@ -52,7 +54,7 @@ const QuizMain = () => {
                 .then(d => {
                     setIsLoading(false);
                     if (d.error === -1) {
-                        //history.push("/");
+                        history.push("/");
                     } else {
                         if (d.error === 0) {
                             let answeredCountLocal = d.data.answer_count;
@@ -65,6 +67,7 @@ const QuizMain = () => {
                                 setAnsweredCount(parseInt(answeredCountLocal));
                                 if (answeredCountLocal < questions.length) {
                                     setCurrentQuestion(parseInt(answeredCountLocal));
+                                    setQuizToggle(true);
                                 } else {
                                     setShowScore(true);
                                 }
@@ -94,6 +97,7 @@ const QuizMain = () => {
                     }
                 });
         } else {
+            setModalShow(false);
             fetch(`${process.env.REACT_APP_API_URL_GET}?func=is_video_exists&video_id=` + currentVideo).then(response => response.json())
                 .then(d => {
                     setIsLoading(false);
@@ -187,12 +191,60 @@ const QuizMain = () => {
             } else {
                 history.push(location.pathname + location.search + "#" + parseInt(nextQuestion + 1));
             }
+            if (nextQuestion >= questions.length) {
+                setTimeout(() => {
+                    setQuizToggle(false);
+                    setShowScore(false);
+                }, 5000);
+            }
         }
+    }
+
+    const LoginModel = (props) => {
+        return (
+            <Modal
+                {...props}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Body>
+                    <div className="p-4">
+                        <LoginPage />
+                    </div>
+                    <p>
+                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+                        dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                        consectetur ac, vestibulum at eros.
+                     </p>
+                </Modal.Body>
+            </Modal>
+        );
+    }
+
+    const QuizInitPage = () => {
+        return (
+            <>
+                <div style={{ position: "relative", paddingBottom: "56.25%", height: "0", overflow: "hidden" }}>
+                    <iframe style={{ width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden" }} frameBorder="0" type="text/html" src={videoData.videos[contentLanguage].embed_url} width="100%" height="100%" allowFullScreen allow="autoplay" >
+                    </iframe>
+                </div>
+                <div className="vid-title m-4">{videoData.videos[contentLanguage].title}</div>
+                {showScore && isAuthenticated ? <p className="announcement-p">You have Already answered the quiz, wait for the results</p> : <Button onClick={() => {
+                    if (isAuthenticated) {
+                        setQuizToggle(true);
+                    } else {
+                        setModalShow(true);
+                        //setQuizToggle(true);
+                    }
+                }}>Start Quiz</Button>}
+            </>
+        );
     }
 
     return (
         <>
-            {isloading ? <> Please Wait., Loading..!</> : videoData.length === 0 ? <NotFound /> : !isAuthenticated ? <LoginPage /> :
+            {isloading ? <> Please Wait., Loading..!</> : videoData.length === 0 ? <NotFound /> :
                 <>
                     <div className='row w-100 text-white'>
                         <div className='col-md-2'></div>
@@ -206,41 +258,45 @@ const QuizMain = () => {
 
                                 </div>
                             </div>
-                            {showScore || !videoData.is_active ? (<>
+                            {!quizToggle || !isAuthenticated ? (<>
                                 <div className='col-md-12 text-center mt-4'>
-                                    {!videoData.is_active ? <h2>This Quiz Has Ended</h2> : <></>}
-                                    <h2 className="mb-3">You scored {score} out of {questions.length}</h2>
+                                    <QuizInitPage />
                                 </div>
-                            </>) : (<>
-                                <div className='col-md-12 mb-2'>
-                                    <p className="pt-4">
-                                        {/* {videoData.title} */}
-                                    </p>
+                            </>) : showScore ? <>
+                                <div class="my-4 announcement-p">
+                                    <p>Thank you for participating, results will be announced soon.</p>
                                 </div>
-                                <div className="col-md-12 oidw-quiz-block p-4">
-                                    <div className='mb-2'>
-                                        <div className='col-md-12 oidw-quiz-no d-flex flex-row'>
-                                            <div className="col-md-2 text-center"><i>{currentQuestion + 1}</i></div>
-                                            <div className='question col-md-10'>Q. {questions[currentQuestion].questionText}</div>
+                            </> : <>
+                                        <div className='col-md-12 mb-2'>
+                                            <p className="pt-4">
+                                                {/* {videoData.title} */}
+                                            </p>
                                         </div>
-                                    </div>
-                                    <div className='col-md-12 options mb-5'>
-                                        <ul>
-                                            {questions[currentQuestion].answerOptions.map((answerOption, i) => (
-                                                <AnswerButtonNew index={i} {...answerOption} key={i} />
-                                            ))}
-                                        </ul>
-                                    </div>
-                                    <div className="option-bottom clearfix nextques">
-                                        <div className="next-question">
-                                            <button type="button" name="button" onClick={gotoNextQuestion}>
-                                                {currentQuestion + 1 < questions.length ? <>
-                                                    Next Question <span className="oidw-arrow-right"></span></> : <> Finish </>}
-                                            </button>
+                                        <div className="col-md-12 oidw-quiz-block p-4">
+                                            <div className='mb-2'>
+                                                <div className='col-md-12 oidw-quiz-no d-flex flex-row'>
+                                                    {/* <div className="col-md-2 text-center"><i>{currentQuestion + 1}</i></div> */}
+                                                    <div className='question col-md-10'>Q. {questions[currentQuestion].questionText}</div>
+                                                </div>
+                                            </div>
+                                            <div className='col-md-12 options mb-5'>
+                                                <ul>
+                                                    {questions[currentQuestion].answerOptions.map((answerOption, i) => (
+                                                        <AnswerButtonNew index={i} {...answerOption} key={i} />
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                            <div className="option-bottom clearfix nextques">
+                                                <div className="next-question">
+                                                    <button type="button" name="button" onClick={gotoNextQuestion}>
+                                                        {currentQuestion + 1 < questions.length ? <>
+                                                            Next Question <span className="oidw-arrow-right"></span></> : <> Submit </>}
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </>)}
+                                    </>
+                            }
                         </div>
                         <div className='col-md-2'></div>
                         <div className='col-md-12 oidw-morevideos-block'>
@@ -249,6 +305,10 @@ const QuizMain = () => {
                     </div>
                 </>
             }
+            {!isAuthenticated ? <LoginModel
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            /> : <></>}
         </>
     );
 }
