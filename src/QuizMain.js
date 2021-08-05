@@ -6,10 +6,11 @@ import NotFound from './NotFound';
 import { Button, Image } from 'react-bootstrap';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { QuestionsData } from './QuestionsData';
+import { isMobile } from 'react-device-detect';
 const QuizMain = () => {
     let history = useHistory();
     let location = useLocation();
-    const { contentLanguage, triggerPageView } = useContext(AppContext);
+    const { contentLanguage, triggerPageView, triggerEvent } = useContext(AppContext);
     const [questions, setQuestions] = useState([]);
     const { video_url } = useParams();
     const { isAuthenticated, userData } = useContext(AppContext);
@@ -178,6 +179,9 @@ const QuizMain = () => {
             }
             setAnsToggle(false);
             triggerPageView();
+            let deviceType = (isMobile) ? 'Mobile' : 'Desktop';
+            let labels = { 'www': 'OIEN', 'hindi': 'OIHI', 'tamil': 'OITA', 'telugu': 'OITE', 'kannada': 'OIKN', 'malayalam': 'OIML' };
+            triggerEvent('DW Contest', labels[contentLanguage] + ' Video' + currentVideo + ' ' + deviceType, 'Q' + nextQuestion);
             if (location.search == "") {
                 history.push(location.pathname + "#" + parseInt(nextQuestion + 1));
             } else {

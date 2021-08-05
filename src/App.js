@@ -8,25 +8,54 @@ import LoginPage from './LoginPage';
 import Navmenu from './NavMenu';
 import QuizMain from './QuizMain';
 import Home from './Home';
-import ReactGa from 'react-ga';
 import SingleAdUnit from './SingelAdUnit';
+
+import ReactGa from 'react-ga';
+
 export default function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userData, setUserData] = useState({});
-    const [contentLanguage, setContentLanguage] = useState('English');
+    let uacodes = {
+        'www': 'UA-110466-40',
+        'hindi': 'UA-110466-40',
+        'tamil': 'UA-110466-40',
+        'melugu': 'UA-110466-40',
+        'kannada': 'UA-110466-40',
+        'malayalam': 'UA-110466-40',
+    };
+    const [contentLanguage, setContentLanguage] = useState(Object.keys(uacodes)[0]);
     const triggerPageView = () => {
-        // ReactGa.initialize('UA-110466-52');
-        // ReactGa.pageview(window.location.href);
+        ReactGa.pageview(window.location.href);
     }
-    useEffect(function () {
-        triggerPageView();
-    }, []);
-
+    const triggerEvent = (category, action, label) => {
+        ReactGa.event({
+            category: category,
+            action: action,
+            label: label
+        });
+    }
     useEffect(() => {
+        let quizlang = Object.keys(uacodes)[0];
         let querystring = new URLSearchParams(window.location.search);
         if (querystring.get('lang')) {
-            setContentLanguage(querystring.get('lang'));
+            quizlang = querystring.get('lang');
+            localStorage.setItem('quizlang', quizlang);
+        } else {
+            if (document.referrer !== '' && document.referrer.split('/')[2] !== document.location.host) {
+                quizlang = document.referrer.split('/')[2].split('.')[0]
+                quizlang = Object.keys(uacodes).includes(quizlang) ? quizlang : Object.keys(uacodes)[0];
+                localStorage.setItem('quizlang', quizlang);
+            } else {
+                if (localStorage.getItem('quizlang')) {
+                    quizlang = localStorage.getItem('quizlang');
+                }
+            }
         }
+        console.log('Referer' + document.referrer);
+        console.log(quizlang);
+        setContentLanguage(quizlang);
+        ReactGa.initialize(uacodes[quizlang]);
+        triggerPageView();
     }, []);
 
     useEffect(() => {
@@ -43,7 +72,7 @@ export default function App() {
     }
 
     return (
-        <AppContext.Provider value={{ isAuthenticated, setIsAuthenticated, userData, setUserData, contentLanguage, setContentLanguage, triggerPageView }}>
+        <AppContext.Provider value={{ isAuthenticated, setIsAuthenticated, userData, setUserData, contentLanguage, setContentLanguage, triggerPageView, triggerEvent }}>
             <Container className="p-0">
                 <Navmenu handleLogout={handleLogout} />
                 <BrowserView>

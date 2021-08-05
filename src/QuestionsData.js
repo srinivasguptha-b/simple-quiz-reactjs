@@ -1,6 +1,6 @@
 export const QuestionsData = {
-    "English": [{
-        "questionText": "1.How many times does our heart beat every day? (average)",
+    "www": [{
+        "questionText": "How many times does our heart beat every day? (average)",
         "answerOptions": [{
             "answerText": "100,000 times",
             "isCorrect": true
@@ -12,7 +12,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "2. What does stress activate?",
+        "questionText": " What does stress activate?",
         "answerOptions": [{
             "answerText": "somatic nervous system",
             "isCorrect": false
@@ -21,7 +21,7 @@ export const QuestionsData = {
             "isCorrect": true
         }]
     }, {
-        "questionText": "3 . According to health experts, if young children consume a lot of fast food and sugary drinks, it can lead to:",
+        "questionText": "According to health experts, if young children consume a lot of fast food and sugary drinks, it can lead to:",
         "answerOptions": [{
             "answerText": "Obesity",
             "isCorrect": true
@@ -33,7 +33,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "4. What does Arteriosclerosis refer to?",
+        "questionText": " What does Arteriosclerosis refer to?",
         "answerOptions": [{
             "answerText": "Narrowing or thickening of arteries",
             "isCorrect": true
@@ -42,7 +42,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "5.What can lead to a heart attack and strokes?",
+        "questionText": "What can lead to a heart attack and strokes?",
         "answerOptions": [{
             "answerText": "arteriosclerosis",
             "isCorrect": true
@@ -54,7 +54,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "6. What can encourage your body to build new bypasses?",
+        "questionText": " What can encourage your body to build new bypasses?",
         "answerOptions": [{
             "answerText": "Sports",
             "isCorrect": true
@@ -66,7 +66,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "7. Do painkillers and other freely available medicines have negative side effects?",
+        "questionText": " Do painkillers and other freely available medicines have negative side effects?",
         "answerOptions": [{
             "answerText": "yes",
             "isCorrect": true
@@ -75,7 +75,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "8. Is it possible to die of a broken heart?",
+        "questionText": " Is it possible to die of a broken heart?",
         "answerOptions": [{
             "answerText": "yes",
             "isCorrect": true
@@ -84,7 +84,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "9. Obesity can also lead to depression, arthritis and certain types of cancer.",
+        "questionText": " Obesity can also lead to depression, arthritis and certain types of cancer.",
         "answerOptions": [{
             "answerText": "TRUE",
             "isCorrect": true
@@ -93,7 +93,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "10. Anxiety and stress release stress hormones like adrenaline in our bodies.",
+        "questionText": " Anxiety and stress release stress hormones like adrenaline in our bodies.",
         "answerOptions": [{
             "answerText": "TRUE",
             "isCorrect": true
@@ -102,7 +102,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }],
-    "Hindi": [{
+    "hindi": [{
         "questionText": "क्या आपको पता है कि आपका दिल दिन में कितनी बार धड़कता है?1.",
         "answerOptions": [{
             "answerText": "1 लाख बार",
@@ -115,7 +115,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "2. तनाव किसे एक्टिवेट कर देता है?",
+        "questionText": " तनाव किसे एक्टिवेट कर देता है?",
         "answerOptions": [{
             "answerText": "सोमेटिक नर्वस सिस्टम को",
             "isCorrect": false
@@ -205,8 +205,8 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }],
-    "Tamil": [{
-        "questionText": "1. ஒவ்வொரு நாளும் சராசரி எத்தனை முறை இதயம் துடிக்கிறது?",
+    "tamil": [{
+        "questionText": " ஒவ்வொரு நாளும் சராசரி எத்தனை முறை இதயம் துடிக்கிறது?",
         "answerOptions": [{
             "answerText": "100,000 முறை",
             "isCorrect": true
@@ -218,7 +218,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "2. மன அழுத்தம் எந்த மண்டலத்தை ஆக்டிவேட் செய்கிறது?",
+        "questionText": " மன அழுத்தம் எந்த மண்டலத்தை ஆக்டிவேட் செய்கிறது?",
         "answerOptions": [{
             "answerText": "சோமாடிக் நரம்பு மண்டலம்",
             "isCorrect": false
@@ -227,7 +227,7 @@ export const QuestionsData = {
             "isCorrect": true
         }]
     }, {
-        "questionText": "3. குழந்தைகள் துரித உணவு மற்றும் சர்க்கரை அதிகமுள்ள பானங்களை எடுத்துக் கொண்டால் என்ன பாதிப்பு ஏற்படும் எனச் வல்லுநர்கள் எச்சரித்துள்ளனர்?",
+        "questionText": " குழந்தைகள் துரித உணவு மற்றும் சர்க்கரை அதிகமுள்ள பானங்களை எடுத்துக் கொண்டால் என்ன பாதிப்பு ஏற்படும் எனச் வல்லுநர்கள் எச்சரித்துள்ளனர்?",
         "answerOptions": [{
             "answerText": "உடல் பருமன்",
             "isCorrect": true
@@ -239,7 +239,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "4. தமனி பெருங்குடல் அழற்சி என்றால் என்ன?",
+        "questionText": " தமனி பெருங்குடல் அழற்சி என்றால் என்ன?",
         "answerOptions": [{
             "answerText": "arteries எனப்படும் தமனிகள் சுருங்குவது அல்லது தடிப்பது",
             "isCorrect": true
@@ -248,7 +248,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "5. மாரடைப்பு மற்றும் பக்கவாதம் எதனால் ஏற்படுகிறது?",
+        "questionText": " மாரடைப்பு மற்றும் பக்கவாதம் எதனால் ஏற்படுகிறது?",
         "answerOptions": [{
             "answerText": "தமனி பெருங்குடல் அழற்சி",
             "isCorrect": true
@@ -260,7 +260,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "6. ரத்தக் குழாய்களை முறையாக வைக்க எது உதவும்?",
+        "questionText": " ரத்தக் குழாய்களை முறையாக வைக்க எது உதவும்?",
         "answerOptions": [{
             "answerText": "விளையாடுவது",
             "isCorrect": true
@@ -281,7 +281,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "8. Broken Heart என்ற பாதிப்பால் உயிரிழப்புகள் ஏற்படுமா?",
+        "questionText": " Broken Heart என்ற பாதிப்பால் உயிரிழப்புகள் ஏற்படுமா?",
         "answerOptions": [{
             "answerText": "ஆம்",
             "isCorrect": true
@@ -290,7 +290,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "9. உடல் பருமன் காரணமாக மனச்சோர்வு, வாதம் மற்றும் புற்றுநோய்கள் ஏற்பட வாய்ப்புள்ளது",
+        "questionText": " உடல் பருமன் காரணமாக மனச்சோர்வு, வாதம் மற்றும் புற்றுநோய்கள் ஏற்பட வாய்ப்புள்ளது",
         "answerOptions": [{
             "answerText": "சரி",
             "isCorrect": true
@@ -299,7 +299,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "10. கவலை மற்றும் மன அழுத்தம் ஏற்படும்போது நம் உடலில் இருக்கும் அட்ரினலின் போன்ற  ஹார்மோன்கள் அதிகம் சுரக்கிறது",
+        "questionText": " கவலை மற்றும் மன அழுத்தம் ஏற்படும்போது நம் உடலில் இருக்கும் அட்ரினலின் போன்ற  ஹார்மோன்கள் அதிகம் சுரக்கிறது",
         "answerOptions": [{
             "answerText": "சரி",
             "isCorrect": true
@@ -308,7 +308,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }],
-    "Telugu": [{
+    "telugu": [{
         "questionText": "1 మన గుండె రోజుకు సగటున ఎన్నిసార్లు కొట్టుకుంటుంది..?",
         "answerOptions": [{
             "answerText": "a) 100,000 సార్లు",
@@ -321,7 +321,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "2. ఒత్తిడి దేన్ని యాక్టివేట్ చేస్తుంది..?",
+        "questionText": " ఒత్తిడి దేన్ని యాక్టివేట్ చేస్తుంది..?",
         "answerOptions": [{
             "answerText": "సొమాటిక్ నర్వస్ సిస్టం",
             "isCorrect": false
@@ -330,7 +330,7 @@ export const QuestionsData = {
             "isCorrect": true
         }]
     }, {
-        "questionText": "3. ఆరోగ్య నిపుణుల ప్రకారం చిన్నపిల్లలు ఎక్కువగా ఫాస్ట్ ఫుడ్ మరియు షుగర్ డ్రింక్స్ తీసుకోవడంవల్ల ఎలాంటి సమస్యలు వస్తాయి",
+        "questionText": " ఆరోగ్య నిపుణుల ప్రకారం చిన్నపిల్లలు ఎక్కువగా ఫాస్ట్ ఫుడ్ మరియు షుగర్ డ్రింక్స్ తీసుకోవడంవల్ల ఎలాంటి సమస్యలు వస్తాయి",
         "answerOptions": [{
             "answerText": "ఒబెసిటీ",
             "isCorrect": true
@@ -342,7 +342,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "4.ఆర్టిరియోస్‌క్లిరాసిస్ అంటే ఏంటి..?",
+        "questionText": "ఆర్టిరియోస్‌క్లిరాసిస్ అంటే ఏంటి..?",
         "answerOptions": [{
             "answerText": " ధమనులు సంకుచితం లేదా గట్టిపడటం",
             "isCorrect": true
@@ -351,7 +351,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "5. గుండె నొప్పులు లేదా స్ట్రోక్స్‌ ఎలా వస్తాయి..?",
+        "questionText": " గుండె నొప్పులు లేదా స్ట్రోక్స్‌ ఎలా వస్తాయి..?",
         "answerOptions": [{
             "answerText": "ఆర్టిరియోస్‌క్లిరాసిస్",
             "isCorrect": true
@@ -363,7 +363,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "6. కొత్త బైపాస్‌లకు శరీరం సహకరించాలంటే..?",
+        "questionText": " కొత్త బైపాస్‌లకు శరీరం సహకరించాలంటే..?",
         "answerOptions": [{
             "answerText": "క్రీడలు",
             "isCorrect": true
@@ -375,7 +375,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "7.పెయిన్‌ కిల్లర్స్ అందుబాటులో ఉన్న ఇతర ఉచిత ఔషధాల్లో నెగిటివ్ సైడ్ ఎఫెక్ట్స్ ఉంటాయా..?",
+        "questionText": "పెయిన్‌ కిల్లర్స్ అందుబాటులో ఉన్న ఇతర ఉచిత ఔషధాల్లో నెగిటివ్ సైడ్ ఎఫెక్ట్స్ ఉంటాయా..?",
         "answerOptions": [{
             "answerText": "అవును ",
             "isCorrect": true
@@ -384,7 +384,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "8. విరిగిన హృదయంతో మనిషి మరణించే అవకాశాలున్నాయా..?",
+        "questionText": " విరిగిన హృదయంతో మనిషి మరణించే అవకాశాలున్నాయా..?",
         "answerOptions": [{
             "answerText": "అవును",
             "isCorrect": true
@@ -393,7 +393,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "9. ఊబకాయం నిరాశ, ఆర్థ్రిటిస్ మరియు కొన్ని క్యాన్సర్లకు దారి తీస్తుంది",
+        "questionText": " ఊబకాయం నిరాశ, ఆర్థ్రిటిస్ మరియు కొన్ని క్యాన్సర్లకు దారి తీస్తుంది",
         "answerOptions": [{
             "answerText": "వాస్తవం",
             "isCorrect": true
@@ -402,7 +402,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "10. బాధ మరియు ఒత్తిళ్లు ఆడ్రినలైన్ లాంటి  స్ట్రెస్ హార్మోన్లు  విడుదల చేస్తాయి",
+        "questionText": " బాధ మరియు ఒత్తిళ్లు ఆడ్రినలైన్ లాంటి  స్ట్రెస్ హార్మోన్లు  విడుదల చేస్తాయి",
         "answerOptions": [{
             "answerText": "వాస్తవం",
             "isCorrect": true
@@ -411,8 +411,8 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }],
-    "Kannada": [{
-        "questionText": "1.ನಮ್ಮ ಹೃದಯವು ನಿತ್ಯ ಎಷ್ಟು ಬಾರಿ ಬಡಿದುಕೊಳ್ಳುತ್ತದೆ?(ಸರಾಸರಿ)",
+    "kannada": [{
+        "questionText": "ನಮ್ಮ ಹೃದಯವು ನಿತ್ಯ ಎಷ್ಟು ಬಾರಿ ಬಡಿದುಕೊಳ್ಳುತ್ತದೆ?(ಸರಾಸರಿ)",
         "answerOptions": [{
             "answerText": "ಎ) 1 ಲಕ್ಷ ಬಾರಿ",
             "isCorrect": true
@@ -424,7 +424,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "2.ಒತ್ತಡವು ಏನನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುತ್ತದೆ?",
+        "questionText": "ಒತ್ತಡವು ಏನನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುತ್ತದೆ?",
         "answerOptions": [{
             "answerText": "ಎ) ಸೋಮ್ಯಾಟಿಕ್ ನರಮಂಡಲ ವ್ಯವಸ್ಥೆಯನ್ನು",
             "isCorrect": false
@@ -433,7 +433,7 @@ export const QuestionsData = {
             "isCorrect": true
         }]
     }, {
-        "questionText": "3.ಆರೋಗ್ಯ ತಜ್ಞರ ಪ್ರಕಾರ, ಚಿಕ್ಕ ಮಕ್ಕಳು ಫಾಸ್ಟ್‌ಫುಡ್ ಹಾಗೂ ಸಕ್ಕರೆ ಪಾನೀಯಗಳನ್ನು ಸೇವಿಸಿದರೆ ಈ ರೋಗಗಳಿಗೆ ತುತ್ತಾಗಬಹುದು?",
+        "questionText": "ಆರೋಗ್ಯ ತಜ್ಞರ ಪ್ರಕಾರ, ಚಿಕ್ಕ ಮಕ್ಕಳು ಫಾಸ್ಟ್‌ಫುಡ್ ಹಾಗೂ ಸಕ್ಕರೆ ಪಾನೀಯಗಳನ್ನು ಸೇವಿಸಿದರೆ ಈ ರೋಗಗಳಿಗೆ ತುತ್ತಾಗಬಹುದು?",
         "answerOptions": [{
             "answerText": "ಎ)ಬೊಜ್ಜು",
             "isCorrect": true
@@ -445,7 +445,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "4. ಆರ್ಟಿರಿಯೋಸ್ಕೆಲೆರೋಸಿಸಮ್ ಎಂದರೇನು?",
+        "questionText": " ಆರ್ಟಿರಿಯೋಸ್ಕೆಲೆರೋಸಿಸಮ್ ಎಂದರೇನು?",
         "answerOptions": [{
             "answerText": "ಅಪಧಮನಿಗಳು ಕಿರಿದಾಗುವಿಕೆ ಅಥವಾ ದಪ್ಪವಾಗುವುದು",
             "isCorrect": true
@@ -466,7 +466,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "6. ನಿಮ್ಮ ಶರೀರದಲ್ಲಿ ಯಾವ ಕಾರಣಗಳಿಂದ ಹೊಸ ಬೈಪಾಸ್‌ಗಳು ನಿರ್ಮಾಣವಾಗುತ್ತವೆ?",
+        "questionText": " ನಿಮ್ಮ ಶರೀರದಲ್ಲಿ ಯಾವ ಕಾರಣಗಳಿಂದ ಹೊಸ ಬೈಪಾಸ್‌ಗಳು ನಿರ್ಮಾಣವಾಗುತ್ತವೆ?",
         "answerOptions": [{
             "answerText": "ಕ್ರೀಡೆ",
             "isCorrect": true
@@ -478,7 +478,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "7.ನೋವು ನಿವಾರಕಗಳು ಹಾಗೂ ಸುಲಭವಾಗಿ ಲಭ್ಯವಿರುವ ಔಷಧಿಗಳು ನಕಾರಾತ್ಮಕ ಅಡ್ಡಪರಿಣಾಮ ಹೊಂದಿದೆಯೇ?",
+        "questionText": "ನೋವು ನಿವಾರಕಗಳು ಹಾಗೂ ಸುಲಭವಾಗಿ ಲಭ್ಯವಿರುವ ಔಷಧಿಗಳು ನಕಾರಾತ್ಮಕ ಅಡ್ಡಪರಿಣಾಮ ಹೊಂದಿದೆಯೇ?",
         "answerOptions": [{
             "answerText": "ಹೌದು",
             "isCorrect": true
@@ -487,7 +487,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "8.ಹೃದಯ ಸಂಬಂಧಿ ಕಾಯಿಲೆಯಿರುವವರು ಸಾಯುವ ಸಾಧ್ಯತೆ ಇದೆಯೇ?",
+        "questionText": "ಹೃದಯ ಸಂಬಂಧಿ ಕಾಯಿಲೆಯಿರುವವರು ಸಾಯುವ ಸಾಧ್ಯತೆ ಇದೆಯೇ?",
         "answerOptions": [{
             "answerText": "ಹೌದು ",
             "isCorrect": true
@@ -496,7 +496,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "9. ಬೊಜ್ಜು , ಖಿನ್ನತೆ, ಸಂಧಿವಾತ ಮತ್ತು ಹಲವು ರೀತಿಯ ಕ್ಯಾನ್ಸರ್‌ಗೆ ಕಾರಣವಾಗಬಹುದು",
+        "questionText": " ಬೊಜ್ಜು , ಖಿನ್ನತೆ, ಸಂಧಿವಾತ ಮತ್ತು ಹಲವು ರೀತಿಯ ಕ್ಯಾನ್ಸರ್‌ಗೆ ಕಾರಣವಾಗಬಹುದು",
         "answerOptions": [{
             "answerText": "ಸತ್ಯ",
             "isCorrect": true
@@ -505,7 +505,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "10. ಆತಂಕ ಹಾಗೂ ಒತ್ತಡವು ನಮ್ಮ ದೇಹದಲ್ಲಿ ಅಡ್ರಿನಾಲಿನ್‌ನಂತಹ ಒತ್ತಡದ ಹಾರ್ಮೋನ್‌ಗಳನ್ನು ಬಿಡುಗಡೆ ಮಾಡುತ್ತದೆ",
+        "questionText": " ಆತಂಕ ಹಾಗೂ ಒತ್ತಡವು ನಮ್ಮ ದೇಹದಲ್ಲಿ ಅಡ್ರಿನಾಲಿನ್‌ನಂತಹ ಒತ್ತಡದ ಹಾರ್ಮೋನ್‌ಗಳನ್ನು ಬಿಡುಗಡೆ ಮಾಡುತ್ತದೆ",
         "answerOptions": [{
             "answerText": "ಸತ್ಯ",
             "isCorrect": true
@@ -514,8 +514,8 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }],
-    "Malayalam": [{
-        "questionText": "1. ദിവസത്തിൽ ശരാശരി എത്രതവണ ഹൃദയമിടിക്കാറുണ്ട്?",
+    "malayalam": [{
+        "questionText": " ദിവസത്തിൽ ശരാശരി എത്രതവണ ഹൃദയമിടിക്കാറുണ്ട്?",
         "answerOptions": [{
             "answerText": "1 ലക്ഷം തവണ",
             "isCorrect": true
@@ -527,7 +527,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "2. സമ്മർദം ഏതു നാഡീവ്യൂഹത്തെയാണ് ഉണർത്തുക?",
+        "questionText": " സമ്മർദം ഏതു നാഡീവ്യൂഹത്തെയാണ് ഉണർത്തുക?",
         "answerOptions": [{
             "answerText": "സോമാറ്റിക് നാഡീവ്യൂഹം",
             "isCorrect": false
@@ -536,7 +536,7 @@ export const QuestionsData = {
             "isCorrect": true
         }]
     }, {
-        "questionText": "3.ആരോഗ്യവിദഗ്ധരുടെ അഭിപ്രായത്തിൽ കുട്ടികൾ അമിതമായി ഫാസ്റ്റ്ഫുഡും പഞ്ചസാര അടങ്ങിയ പാനീയങ്ങളും കഴിക്കുകയാണെങ്കിൽ എന്തു സംഭവിക്കും?",
+        "questionText": "ആരോഗ്യവിദഗ്ധരുടെ അഭിപ്രായത്തിൽ കുട്ടികൾ അമിതമായി ഫാസ്റ്റ്ഫുഡും പഞ്ചസാര അടങ്ങിയ പാനീയങ്ങളും കഴിക്കുകയാണെങ്കിൽ എന്തു സംഭവിക്കും?",
         "answerOptions": [{
             "answerText": "അമിതവണ്ണം",
             "isCorrect": true
@@ -548,7 +548,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "4. ആർട്ടീരിയോസ്ക്ലീറോസിസ് എന്നാൽ?",
+        "questionText": " ആർട്ടീരിയോസ്ക്ലീറോസിസ് എന്നാൽ?",
         "answerOptions": [{
             "answerText": "രക്തധമനികൾക്ക് കട്ടി കൂടുന്ന അവസ്ഥ",
             "isCorrect": true
@@ -557,7 +557,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "5. ഹൃദയാഘാതത്തിന് കാരണമാവുന്നതെന്ത്?",
+        "questionText": " ഹൃദയാഘാതത്തിന് കാരണമാവുന്നതെന്ത്?",
         "answerOptions": [{
             "answerText": "ആർട്ടീരിയോസ്ക്ലീറോസിസ്",
             "isCorrect": true
@@ -569,7 +569,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "6. പുതിയ ബൈപാസുകൾ നിർമ്മിക്കാൻ ശരീരത്തെ പ്രോത്സാഹിപ്പിക്കുന്നതെന്താണ്?",
+        "questionText": " പുതിയ ബൈപാസുകൾ നിർമ്മിക്കാൻ ശരീരത്തെ പ്രോത്സാഹിപ്പിക്കുന്നതെന്താണ്?",
         "answerOptions": [{
             "answerText": "കായികാധ്വാനം",
             "isCorrect": true
@@ -581,7 +581,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "7. വേദനസംഹാരികൾ ഉൾപ്പെടെ എളുപ്പം ലഭ്യമാകുന്ന മരുന്നുകൾക്ക് പാർശ്വഫലങ്ങളുണ്ടോ?",
+        "questionText": " വേദനസംഹാരികൾ ഉൾപ്പെടെ എളുപ്പം ലഭ്യമാകുന്ന മരുന്നുകൾക്ക് പാർശ്വഫലങ്ങളുണ്ടോ?",
         "answerOptions": [{
             "answerText": "ഉണ്ട്",
             "isCorrect": true
@@ -590,7 +590,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "8. ഹൃദയം തകർന്നാൽ മരിക്കുമോ?",
+        "questionText": " ഹൃദയം തകർന്നാൽ മരിക്കുമോ?",
         "answerOptions": [{
             "answerText": "മരിക്കും",
             "isCorrect": true
@@ -599,7 +599,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "9. വിഷാദം, സന്ധിവാതം, ചിലതരം അർബുദം എന്നിവയ്ക്ക് അമിതവണ്ണം കാരണമാകും.",
+        "questionText": " വിഷാദം, സന്ധിവാതം, ചിലതരം അർബുദം എന്നിവയ്ക്ക് അമിതവണ്ണം കാരണമാകും.",
         "answerOptions": [{
             "answerText": "ശരി",
             "isCorrect": true
@@ -608,7 +608,7 @@ export const QuestionsData = {
             "isCorrect": false
         }]
     }, {
-        "questionText": "10. ഉത്കണ്ഠയും മാനസിക സമ്മർദ്ദവും ശരീരത്തിൽ അഡ്രിനാലിൻ പോലുള്ള സ്ട്രെസ് ഹോർമോണുകൾ പുറപ്പെടുവിക്കും.\n",
+        "questionText": " ഉത്കണ്ഠയും മാനസിക സമ്മർദ്ദവും ശരീരത്തിൽ അഡ്രിനാലിൻ പോലുള്ള സ്ട്രെസ് ഹോർമോണുകൾ പുറപ്പെടുവിക്കും.\n",
         "answerOptions": [{
             "answerText": "ശരി",
             "isCorrect": true

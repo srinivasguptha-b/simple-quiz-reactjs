@@ -9,11 +9,11 @@ const Navmenu = (props) => {
                 <img src="https://videos.oneindia.com/videos/devel/images/admin/logo.png" alt="" border="0" />
             </Navbar.Brand>
             <Navbar.Toggle />
-            <Navbar.Collapse id="basic-navbar-nav" className="pe-3">
+            <Navbar.Collapse id="basic-navbar-nav" className="pe-3" style={{ textAlign: "right" }}>
                 <Nav className="ms-auto">
                     {!isAuthenticated ? (<Nav.Link href={process.env.REACT_APP_API_BASEPATH + "Login"}>Login</Nav.Link>) : (<>
                         <NavDropdown title={
-                            <span className="pull-left">
+                            <span>
                                 <img style={{ width: "30px", borderRadius: "50%" }}
                                     src={userData.picture}
                                     alt="user pic"

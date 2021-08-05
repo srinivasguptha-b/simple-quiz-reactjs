@@ -8,6 +8,7 @@ const AppContext = createContext({
     currentVideo: '',
     contentLanguage: '',
     setContentLanguage: () => { },
-    triggerPageView: () => { }
+    triggerPageView: () => { },
+    triggerEvent: () => { }
 });
 export default AppContext;
