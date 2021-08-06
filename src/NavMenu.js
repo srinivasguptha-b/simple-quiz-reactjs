@@ -14,9 +14,9 @@ const Navmenu = (props) => {
                     <img src="https://videos.oneindia.com/videos/devel/images/admin/logo.png" alt="" border="0" />
                 </Navbar.Brand>
                 <Navbar.Toggle />
-                <Navbar.Collapse id="basic-navbar-nav" style={{ textAlign: "right" }}>
-                    <Nav className="ms-auto d-none d-md-block">
-                        <Nav.Link>
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="d-none d-md-flex align-items-center w-100">
+                        <Nav.Link className="me-auto">
                             <BrowserView>
                                 <SingleAdUnit size="banner" />
                             </BrowserView>
@@ -40,7 +40,7 @@ const Navmenu = (props) => {
 
                         </>)}
                     </Nav>
-                    <Nav className="ms-auto d-block d-md-none">
+                    <Nav className="ms-auto d-block d-md-none" style={{ textAlign: "right" }}>
                         {!isAuthenticated ? <Nav.Link onClick={() => {
                             setModalShow(true);
                         }}>Login</Nav.Link> : <>
