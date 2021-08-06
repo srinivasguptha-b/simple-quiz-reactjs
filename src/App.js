@@ -91,9 +91,6 @@ export default function App() {
             </Container>
             <Container className="p-0">
                 <FooterBlock />
-                <BrowserView>
-                    <SingleAdUnit size="banner" />
-                </BrowserView>
                 <MobileView>
                     <SingleAdUnit size="square" />
                 </MobileView>

@@ -16,15 +16,15 @@ const Navmenu = (props) => {
                 <Navbar.Toggle />
                 <Navbar.Collapse id="basic-navbar-nav" style={{ textAlign: "right" }}>
                     <Nav className="ms-auto d-none d-md-block">
+                        <Nav.Link>
+                            <BrowserView>
+                                <SingleAdUnit size="banner" />
+                            </BrowserView>
+                        </Nav.Link>
                         {!isAuthenticated ? (<>
                             <Nav.Link onClick={() => {
                                 setModalShow(true);
                             }}>Login</Nav.Link>
-                            <Nav.Link>
-                                <BrowserView>
-                                    <SingleAdUnit size="banner" />
-                                </BrowserView>
-                            </Nav.Link>
                         </>) : (<>
                             <NavDropdown title={
                                 <span>
