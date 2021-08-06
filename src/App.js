@@ -15,6 +15,7 @@ import ReactGa from 'react-ga';
 export default function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userData, setUserData] = useState({});
+    const [modalShow, setModalShow] = useState(false);
     let uacodes = {
         'www': 'UA-110466-40',
         'hindi': 'UA-110466-40',
@@ -34,6 +35,7 @@ export default function App() {
             label: label
         });
     }
+
     useEffect(() => {
         let quizlang = Object.keys(uacodes)[0];
         let querystring = new URLSearchParams(window.location.search);
@@ -72,12 +74,9 @@ export default function App() {
     }
 
     return (
-        <AppContext.Provider value={{ isAuthenticated, setIsAuthenticated, userData, setUserData, contentLanguage, setContentLanguage, triggerPageView, triggerEvent }}>
+        <AppContext.Provider value={{ isAuthenticated, setIsAuthenticated, userData, setUserData, contentLanguage, setContentLanguage, triggerPageView, triggerEvent, modalShow, setModalShow }}>
             <Container className="p-0">
                 <Navmenu handleLogout={handleLogout} />
-                <BrowserView>
-                    <SingleAdUnit size="banner" />
-                </BrowserView>
                 <MobileView>
                     <SingleAdUnit size="square" />
                 </MobileView>

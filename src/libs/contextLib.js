@@ -9,6 +9,8 @@ const AppContext = createContext({
     contentLanguage: '',
     setContentLanguage: () => { },
     triggerPageView: () => { },
-    triggerEvent: () => { }
+    triggerEvent: () => { },
+    modalShow: '',
+    setModalShow: () => { }
 });
 export default AppContext;

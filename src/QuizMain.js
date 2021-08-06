@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import AppContext from './libs/contextLib';
-import LoginPage from './LoginPage';
 import NextQueue from './NextQueue';
 import NotFound from './NotFound';
-import { Button, Image, Modal } from 'react-bootstrap';
+import LoginModel from './LoginModel';
+import { Button, Image } from 'react-bootstrap';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { QuestionsData } from './QuestionsData';
 import { isMobile } from 'react-device-detect';
@@ -13,7 +13,7 @@ const QuizMain = () => {
     const { contentLanguage, triggerPageView, triggerEvent } = useContext(AppContext);
     const [questions, setQuestions] = useState([]);
     const { video_url } = useParams();
-    const { isAuthenticated, userData } = useContext(AppContext);
+    const { isAuthenticated, userData, modalShow, setModalShow } = useContext(AppContext);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
@@ -27,7 +27,6 @@ const QuizMain = () => {
     const [ansToggle, setAnsToggle] = useState(false);
     const [quizToggle, setQuizToggle] = useState(false);
     const [videoData, setVideoData] = useState([]);
-    const [modalShow, setModalShow] = useState(false);
 
     useEffect(() => {
         if (Object.keys(QuestionsData).includes(contentLanguage)) {
@@ -200,28 +199,6 @@ const QuizMain = () => {
         }
     }
 
-    const LoginModel = (props) => {
-        return (
-            <Modal
-                {...props}
-                size="lg"
-                aria-labelledby="contained-modal-title-vcenter"
-                centered
-            >
-                <Modal.Body>
-                    <div className="p-4">
-                        <LoginPage />
-                    </div>
-                    <p>
-                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                        dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.
-                     </p>
-                </Modal.Body>
-            </Modal>
-        );
-    }
-
     const QuizInitPage = () => {
         return (
             <>
@@ -305,10 +282,6 @@ const QuizMain = () => {
                     </div>
                 </>
             }
-            {!isAuthenticated ? <LoginModel
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-            /> : <></>}
         </>
     );
 }
