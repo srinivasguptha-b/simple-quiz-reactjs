@@ -89,10 +89,24 @@ ul li {
 .next-question button {padding: 15px 0px;border: 1px solid #ffffff;border-radius: 5px;background: #3366cc;font-size: 20px;font-weight: bold;cursor: pointer;display: block;color: #fff;width: 100%;text-align: center;position: relative;}
 .oidw-arrow-right {border: solid #fff;border-width: 0 3px 3px 0;display: inline-block;padding: 5px;transform: rotate(-45deg);-webkit-transform: rotate(-45deg);position: absolute;right: 15px;top: 22px;}
 .next-question button i {vertical-align: middle;font-size: 30px;}
-
+.oidw-heading{font-size: 24px;}
 .announcement-p{
   background: #00000059;
     padding: 10px;
+}
+.oidw-winnercup-icon{
+  display: inline-block;
+    width: 31px;
+    height: 36px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.oidw-winnericon {
+  display: inline-block;
+  width: 21px;
+  height: 25px;
+  margin-right: 5px;
+  vertical-align: middle;
 }
 @media only screen and (max-width: 768px) {
   /* *{font-size: 100% !important;} */
@@ -106,13 +120,18 @@ ul li {
   .main .options ul {padding: 0;margin: 0;}
   .oidw-quiz-no {padding-bottom: 10px;}
   
-  .oidw-morevideos-block .row.mt-5 {margin: 0!important;white-space: nowrap;width: 100%;overflow-x: scroll;display: block;}
+  .oidw-morevideos-block .row {margin: 0!important;white-space: nowrap;width: 100%;overflow-x: scroll;display: block;}
   .oidw-morevideos-block .col-md-4 {width: 200px;display: inline-block;float: none;white-space: normal;}
-  .col-md-12.oidw-morevideos-block {margin-top: 30px;}
+  .col-md-12.oidw-morevideos-block {margin-top: 20px;}
   .card-link {text-decoration: none;}
 
   .oidw-quiz-no .question{font-size: 20px;  }
   .option1 .right-option{font-size: 18px;}
   .watchwintext{font-size: 20px;}
   .vid-title{font-size: 20px;}
+  .oi-dw-logom{width: 35%;}
+  .oi-dw-amz{font-size: 12px;}
+  .oidw-heading{font-size: 18px;}
+  .winners-block .card-text{font-size: 14px;}
+  .winners-block .card-footer{font-size: 14px;padding: 8px 4px;}
 }

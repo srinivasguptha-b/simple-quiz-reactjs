@@ -9,6 +9,7 @@ import QuizMain from './QuizMain';
 import Home from './Home';
 import FooterBlock from './FooterBlock';
 import SingleAdUnit from './SingelAdUnit';
+import WinnersList from './WinnersList';
 
 import ReactGa from 'react-ga';
 
@@ -90,6 +91,7 @@ export default function App() {
                 </Router>
             </Container>
             <Container className="p-0">
+                <WinnersList />
                 <FooterBlock />
                 <MobileView>
                     <SingleAdUnit size="square" />

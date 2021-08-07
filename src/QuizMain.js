@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import AppContext from './libs/contextLib';
 import NextQueue from './NextQueue';
 import NotFound from './NotFound';
-import LoginModel from './LoginModel';
 import { Button, Image } from 'react-bootstrap';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { QuestionsData } from './QuestionsData';
@@ -227,10 +226,11 @@ const QuizMain = () => {
                         <div className='col-md-2'></div>
                         <div className='main col-md-8 d-flex align-items-center justify-content-center'>
                             <div className="col-md-12">
-                                <div className="col-md-12 oi-dw-banner d-flex flex-row" style={{ backgroundImage: "url(" + process.env.PUBLIC_URL + "/oidw-header-bg.jpg)" }}>
-                                    <div className="col-md-6 d-flex align-items-center justify-content-center"><Image src={process.env.PUBLIC_URL + '/oi-dw-logo.png'} fluid /></div>
-                                    <div className="col-md-6 d-flex align-items-center justify-content-center text-center">
+                                <div className="col-md-12 oi-dw-banner d-flex flex-column flex-md-row" style={{ backgroundImage: "url(" + process.env.PUBLIC_URL + "/oidw-header-bg.jpg)" }}>
+                                    <div className="col-md-6 d-flex align-items-center justify-content-center oi-dw-logom"><Image src={process.env.PUBLIC_URL + '/oi-dw-logo.png'} fluid /></div>
+                                    <div className="col-md-6 d-flex align-items-center justify-content-center text-center flex-column oi-dw-amz">
                                         <span className="watchwintext">"Watch to Win Contest"</span>
+                                        <div className="oidw-wintext">Win ₹ 2000 Worth <span><img src="Amazon-logo.png" alt="" /></span>Gift Vochers</div>
                                     </div>
 
                                 </div>
@@ -240,7 +240,7 @@ const QuizMain = () => {
                                     <QuizInitPage />
                                 </div>
                             </>) : showScore ? <>
-                                <div class="my-4 announcement-p">
+                                <div className="my-4 announcement-p">
                                     <p>Thank you for participating, results will be announced soon.</p>
                                 </div>
                             </> : <>
@@ -248,6 +248,11 @@ const QuizMain = () => {
                                             <p className="pt-4">
                                                 {/* {videoData.title} */}
                                             </p>
+                                        </div>
+                                        <div className="col-md-12 text-left">
+                                            <button type="button" class="btn btn-link text-white ps-0" onClick={() => {
+                                                setQuizToggle(false);
+                                            }}>watch video</button>
                                         </div>
                                         <div className="col-md-12 oidw-quiz-block p-4">
                                             <div className='mb-2'>
