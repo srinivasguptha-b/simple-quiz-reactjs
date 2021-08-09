@@ -25,6 +25,7 @@ const QuizMain = () => {
     const [isloading, setIsLoading] = useState(true);
     const [ansToggle, setAnsToggle] = useState(false);
     const [quizToggle, setQuizToggle] = useState(false);
+    const [startQuizBtnClick, setStartQuizBtnClick] = useState(false);
     const [videoData, setVideoData] = useState([]);
 
     useEffect(() => {
@@ -65,7 +66,7 @@ const QuizMain = () => {
                                 setAnsweredCount(parseInt(answeredCountLocal));
                                 if (answeredCountLocal < questions.length) {
                                     setCurrentQuestion(parseInt(answeredCountLocal));
-                                    setQuizToggle(true);
+                                    if (startQuizBtnClick) setQuizToggle(true);
                                 } else {
                                     setShowScore(true);
                                 }
@@ -207,6 +208,7 @@ const QuizMain = () => {
                 </div>
                 <div className="vid-title m-4">{videoData.videos[contentLanguage].title}</div>
                 {showScore && isAuthenticated ? <p className="announcement-p">You have Already answered the quiz, wait for the results</p> : <Button onClick={() => {
+                    setStartQuizBtnClick(true);
                     if (isAuthenticated) {
                         setQuizToggle(true);
                     } else {
@@ -244,8 +246,8 @@ const QuizMain = () => {
                                     <p>Thank you for participating, results will be announced soon.</p>
                                 </div>
                             </> : <>
-                                        <div className='col-md-12 mb-2'>
-                                            <p className="pt-4">
+                                        <div className='col-md-12 '>
+                                            <p className="">
                                                 {/* {videoData.title} */}
                                             </p>
                                         </div>
