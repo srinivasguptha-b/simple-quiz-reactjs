@@ -21,7 +21,7 @@ const LoginPage = () => {
                 .then(d => {
                     if (!d.error) {
                         let ulx = (contentLanguage == 'www') ? "" : "?lang=" + contentLanguage;
-                        history.push(`${process.env.REACT_APP_API_URL_AUTH}/` + d.data.activeQuiz + ulx);
+                        history.push(`${process.env.REACT_APP_API_BASEPATH}` + d.data.activeQuiz + ulx);
                     }
                 });
         }
