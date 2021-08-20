@@ -16,6 +16,7 @@ const FooterBlock = () => {
                     >
                         <WhatsappIcon size={32} round={true} />
                     </WhatsappShareButton>
+                    &nbsp;
                     <FacebookShareButton
                         url={window.location.href}
                         quote={document.title}
@@ -23,11 +24,12 @@ const FooterBlock = () => {
                         className="cursor-pointer">
                         <FacebookIcon size={32} round={true} />
                     </FacebookShareButton>
-
+                    &nbsp;
                     <TwitterShareButton
                         url={window.location.href}
                         title={document.title}
-                        hashtag="#ONEINDIADWContest"
+                        hashtags={["#ONEINDIADWContest"]}
+                        via="oneindia"
                         className="cursor-pointer"
                     >
                         <TwitterIcon size={32} round={true} />

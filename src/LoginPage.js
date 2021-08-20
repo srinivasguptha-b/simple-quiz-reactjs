@@ -4,7 +4,6 @@ import { GoogleLogin } from 'react-google-login';
 import AppContext from './libs/contextLib';
 
 const LoginPage = () => {
-    document.title = "Login";
     const { isAuthenticated, setIsAuthenticated, setUserData, userData, contentLanguage } = useContext(AppContext);
     let history = useHistory();
     useEffect(function () {
