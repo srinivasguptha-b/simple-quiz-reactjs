@@ -9,10 +9,10 @@ const FooterBlock = () => {
                 <div className="share-title">Share with your friends &nbsp;</div>
                 <div className="">
                     <WhatsappShareButton
-                        url={"http://www.camperstribe.com"}
-                        title={"CampersTribe - World is yours to explore"}
+                        url={window.location.href}
+                        title={document.title}
                         separator=":: "
-                        className="cursor-pointer d-md-none"
+                        className="cursor-pointer"
                     >
                         <WhatsappIcon size={32} round={true} />
                     </WhatsappShareButton>
@@ -25,9 +25,9 @@ const FooterBlock = () => {
                     </FacebookShareButton>
 
                     <TwitterShareButton
-                        url={"http://www.camperstribe.com"}
-                        title={"CampersTribe - World is yours to explore"}
-                        hashtag="#camperstribe"
+                        url={window.location.href}
+                        title={document.title}
+                        hashtag="#ONEINDIADWContest"
                         className="cursor-pointer"
                     >
                         <TwitterIcon size={32} round={true} />
