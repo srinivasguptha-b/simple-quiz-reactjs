@@ -5,54 +5,30 @@ import { BrowserView } from 'react-device-detect';
 import AppContext from './libs/contextLib';
 import SingleAdUnit from './SingelAdUnit';
 
-const Navmenu = (props) => {
-    const { isAuthenticated, userData, modalShow, setModalShow } = useContext(AppContext);
+
+const Navmenu = () => {
+    const { isAuthenticated, modalShow, setModalShow } = useContext(AppContext);
     return (
         <>
-            <Navbar bg="light" expand="lg" className="px-2">
+            <Navbar expand="lg" className="px-2">
                 <Navbar.Brand href={process.env.REACT_APP_API_BASEPATH}>
-                    <img src="https://videos.oneindia.com/videos/devel/images/admin/logo.png" alt="" border="0" />
+                    <img src={process.env.PUBLIC_URL + '/oi-logo.png'} alt="" border="0" />
                 </Navbar.Brand>
-                <Navbar.Toggle />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="d-none d-md-flex align-items-center w-100">
-                        <Nav.Link className="me-auto">
-                            <BrowserView>
-                                <SingleAdUnit size="banner" />
-                            </BrowserView>
-                        </Nav.Link>
-                        {!isAuthenticated ? (<>
-                            <Nav.Link onClick={() => {
-                                setModalShow(true);
-                            }}>Login</Nav.Link>
-                        </>) : (<>
-                            <NavDropdown title={
-                                <span>
-                                    <img style={{ width: "30px", borderRadius: "50%" }}
-                                        src={userData.picture}
-                                        alt="user pic"
-                                    />
-                                </span>
-                            } id="basic-nav-dropdown">
-                                <NavDropdown.Item>{userData.name}</NavDropdown.Item>
-                                <NavDropdown.Item onClick={props.handleLogout}>Logout</NavDropdown.Item>
-                            </NavDropdown>
-
-                        </>)}
-                    </Nav>
-                    <Nav className="ms-auto d-block d-md-none" style={{ textAlign: "right" }}>
-                        {!isAuthenticated ? <Nav.Link onClick={() => {
-                            setModalShow(true);
-                        }}>Login</Nav.Link> : <>
-                                <NavDropdown.Item><img style={{ width: "30px", borderRadius: "50%" }}
-                                    src={userData.picture}
-                                    alt="user pic"
-                                /></NavDropdown.Item>
-                                <NavDropdown.Item>{userData.name}</NavDropdown.Item>
-                                <NavDropdown.Item onClick={props.handleLogout}>Logout</NavDropdown.Item>
-                            </>}
-                    </Nav>
-                </Navbar.Collapse>
+                <Nav.Link className="me-auto">
+                    <BrowserView>
+                        <SingleAdUnit size="banner" />
+                    </BrowserView>
+                </Nav.Link>
+                <Navbar.Text className="ms-auto mb-2 mb-lg-0">
+                    <div className="dw-logos align-rt clearfix d-flex flex-row" >
+                        <div className="logo d align-lt">
+                            <strong>D</strong>
+                        </div>
+                        <div className="logo w align-rt">
+                            <strong>W</strong>
+                        </div>
+                    </div>
+                </Navbar.Text>
             </Navbar >
             {!isAuthenticated ? <LoginModel
                 show={modalShow}

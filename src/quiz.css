@@ -8,7 +8,7 @@ ul li {
     display: flex;
     justify-content: center;
     overflow: hidden;
-    min-height: 70vh;
+    
 }
 
 .main{
@@ -48,12 +48,12 @@ ul li {
   background: rgba(0,0,0,0.2);
     border: thin solid #525179;
     position: relative;
-    padding: 20px 0 80px 0;
+    padding: 20px 0 20px 0;
     border-radius: 2px;
 }
-.oidw-quiz-no {
+/* .oidw-quiz-no {
   padding-bottom: 50px;
-}
+} */
 .oidw-quiz-no i{
   width: 45px;
     font-size: 25px;
@@ -70,23 +70,23 @@ ul li {
 
 .oidw-quiz-no .question{
     color: #fff;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: bold;
     margin-left: 5px;
 }
 .vid-title{font-size: 24px;}
-
-.option1 .left-option {float: left;position: absolute;font-size: 34px;padding: 0 15px;background: #0161f6;outline: none;display: block;border-radius: 5px 0 0 5px;line-height: 65px;height: 65px;color: #FFF;}
-.option1 .right-option {float: left;margin-left: 65px;margin-top: 8px;font-size: 20px;color: #000;font-weight: 600;background-color: transparent;border: 1px solid transparent;text-indent: 40px;}
+.option1{border: 1px solid #333;margin-bottom: 10px;}
+.option1 .left-option {float: left;position: absolute;font-size: 20px;padding: 0 15px;background: #0161f6;outline: none;display: block;border-radius: 5px 0 0 5px;line-height: 38px;height: 38px;color: #FFF;display: none;}
+.option1 .right-option {float: left;margin-left: 40px;margin-top: 8px;font-size: 14px;color: #000;font-weight: 600;background-color: transparent;border: 1px solid transparent;width: 100%;}
 .option1 .right-option:hover{color: #333;background-color: transparent;border: 1px solid transparent;}
 .option1 .right-option:disabled{color: #333;opacity: 1;background-color: transparent;border: 1px solid transparent;}
-.options ul li .option1 {background: rgba(255,255,255,0.7);border-radius: 5px;color: #000000;position: relative;height: 65px;}
+.options ul li .option1 {background: rgba(255,255,255,0.7);border-radius: 5px;color: #000000;position: relative;height: 40px;}
 .options ul li.correct .option1 {border: 1px solid #13b70b;}
 .options ul li.wrong .option1 {border: 1px solid #cd2b22;}
 .correct .option1 .left-option {background: #13b70b;}
 .wrong .option1 .left-option {background: #cd2b22;}
 .option-bottom {position: absolute;left: 0;right: 0;bottom: -30px;margin: auto;text-align: center;width: 250px;}
-.next-question button {padding: 15px 0px;border: 1px solid #ffffff;border-radius: 5px;background: #3366cc;font-size: 20px;font-weight: bold;cursor: pointer;display: block;color: #fff;width: 100%;text-align: center;position: relative;}
+.next-question button {padding: 10px 0px;border: 1px solid #ffffff;border-radius: 5px;background: #3366cc;font-size: 16px;font-weight: bold;cursor: pointer;display: block;color: #fff;width: 30%;text-align: center;position: relative;border-radius: 32px;margin: auto;}
 .oidw-arrow-right {border: solid #fff;border-width: 0 3px 3px 0;display: inline-block;padding: 5px;transform: rotate(-45deg);-webkit-transform: rotate(-45deg);position: absolute;right: 15px;top: 22px;}
 .next-question button i {vertical-align: middle;font-size: 30px;}
 .oidw-heading{font-size: 24px;}
@@ -125,7 +125,9 @@ ul li {
   .col-md-12.oidw-morevideos-block {margin-top: 20px;}
   .card-link {text-decoration: none;}
 
-  .oidw-quiz-no .question{font-size: 20px;  }
+  
+
+  .oidw-quiz-no .question{font-size: 16px;  }
   .option1 .right-option{font-size: 16px;line-height: 20px;}
   .watchwintext{font-size: 20px;}
   .vid-title{font-size: 20px;}
@@ -134,4 +136,62 @@ ul li {
   .oidw-heading{font-size: 18px;}
   .winners-block .card-text{font-size: 14px;}
   .winners-block .card-footer{font-size: 14px;padding: 8px 4px;}
+  .btn-google {background-color: #fff;width: 100%;border-color: #dfe4e8;padding: .375rem .75rem;font-size: .875rem;line-height: 1.5;border: none;border-radius: .25rem;color: #000!important;}
+}
+
+
+.dw-logos .logo{width: 50px;height: 50px;border-radius: 50%;border: 3px solid #fff;background: #0376c9;font-size: 33px;}
+.logo.w{background: #e2e0e0;color: #0376c9;text-align: center;position: relative;left: -5px;}
+.logo.d{color: #fff;margin: 0 auto;text-align: center;position: relative;z-index: 999;}
+.logo strong{margin: 0 auto;text-align: center;position: relative;top: 2px;}
+.btn1{text-align: center;cursor: pointer;border: none;background: #00308f;color: #fff;font-size: 18px;padding: 10px 15px;font-weight: bold;border-radius: 5px; width: 300px;}
+.contest-btm-text{font-size: 16px;text-align: center;color: #000;padding: 0px 10px 0px 10px;}
+.win-chance{padding: 10px;background: #eaf1fa;border: 1px solid #fff;padding-bottom: 20px;}
+.win-title{font-size: 18px;text-transform: uppercase;color: #000;text-align: center;padding-bottom: 10px;font-weight: bold;}
+.gift-chance .gift-card{width: 45%;background: #000;text-align: center;}
+.gift-chance .gift-price{width: 55%;text-align: center;font-size: 30px;font-weight: bold;color: #000;background: #ff9900;    height: 66px;}
+.gift-chance {height: 66px;border-radius: 5px;overflow: hidden;}
+.gift-price strong{position: relative;top: 10px;}
+.gift-thumb {position: relative;top: 5px;}
+.signin-title{padding: 10px 0px;color: #000;font-weight: bold;font-size: 20px;}
+.signin-bottom-text{font-size: 14px;color: #333;padding-top: 10px;}
+.share-block{padding: 10px 0px 10px 0px;}
+.share-title{font-size: 14px;color: #333;padding-bottom: 10px;}
+.btn-share{background-color: #fff;width: 100%;padding: .375rem .75rem;font-size: 14px;line-height: 1.5;border: 1px solid #0066cc;border-radius: .25rem;text-transform: uppercase;font-weight: bold;text-align: left;color: #0066cc!important;}
+
+.conditions-text{font-size: 14px;}
+.conditions-text a,.conditions-text a:visited{text-decoration: none;color: #333;}
+.btn-share{background-color: #fff;width: 100%;padding: .375rem .75rem;font-size: 14px;line-height: 1.5;border: 1px solid #0066cc;border-radius: .25rem;text-transform: uppercase;font-weight: bold;text-align: left;color: #0066cc!important;}
+.dw-logos{line-height: 40px;}
+.ready-btn{font-size: 18px;cursor: pointer;text-align: center;color: #fff;background: #065fd4;text-transform: uppercase;font-weight: bold;border: none;border-radius: 20px;padding: 10px 20px;}
+
+.winner-toy {padding-bottom: 10px;text-align: center;}
+.winner-date{background: #eaf1fa;color: #000;font-size: 16px;margin: 10px 0px;border: 1px solid #fff;padding: 10px;text-align: center;font-weight: bold;}
+.win-gift-msg{padding: 10px 0px;color: #000;text-align: center;font-size: 16px;}
+.prevs-winner-list-block{padding: 10px 0px;}
+.prevs-winner-title{font-size: 16px;color: #000;font-weight: bold;padding-bottom: 10px;}
+.winner-details{color: #000;font-size: 12px;}
+.winner-details span{display: block;}
+.prevs-winner-list ul li{display: inline-block;background: #eaf1fa;width: 200px;padding: 5px;margin-right: 10px;}
+.prevs-winner-list ul{overflow-x: scroll;overflow-y: hidden;white-space: nowrap;}
+
+.navbar-brand img{
+  width: 150%;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: #d4e3f5 !important;
+  }
+  .navbar-brand img{
+    width: 100%;
+  }
+  .dw-logos{line-height: 35px;}
+  .dw-logos .logo{width: 34px;height: 34px;border-radius: 50%;border: 3px solid #fff;background: #0376c9;font-size: 22px;}
+  .logo.w{background: #fff;color: #0376c9;text-align: center;position: relative;left: -5px;}
+  .logo.d{color: #fff;margin: 0 auto;text-align: center;position: relative;z-index: 999;}
+  .logo strong{margin: 0 auto;text-align: center;position: relative;top: -2px;}
 }

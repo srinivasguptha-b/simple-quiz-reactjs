@@ -1,38 +1,37 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import { Container } from 'react-bootstrap';
-import AppContext from './libs/contextLib';
-import NextQueue from './NextQueue';
 import LoginPage from './LoginPage';
+import WelcomeText from './WelcomeText';
 const Home = () => {
-    const { isAuthenticated, userData } = useContext(AppContext);
-    const [totalScore, setTotalScore] = useState(0);
-    const [participated, setParticipated] = useState(0);
-    const [activeQuiz, setActiveQuiz] = useState(0);
-    useEffect(function () {
-        const requestOptionsTotal = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                func: 'getTotalScore', data: {
-                    user_id: userData.user_id
-                }
-            })
-        };
-        fetch(`${process.env.REACT_APP_API_URL_POST}`, requestOptionsTotal).then(response => response.json())
-            .then(d => {
-                if (!d.error) {
-                    setTotalScore(d.data.score_count);
-                    setParticipated(d.data.participated);
-                    setActiveQuiz(d.data.activeQuiz)
-                }
-            });
-    }, [isAuthenticated])
     return (
         <>
             <Container>
-                <div className='row p-5 my-5 text-white rounded'>
-                    <div className='col-md-12 text-center'>
-                        {isAuthenticated ? (
+                <div className='row'>
+                    <div className='col-md-12 text-center p-0'>
+                        <WelcomeText />
+                        <div className="win-chance mt-3">
+                            <div className="win-title">Chance to win</div>
+                            <div className="gift-chance clearfix">
+                                <a href="#" className="d-flex flex-row text-decoration-none">
+                                    <div className="gift-card align-lt">
+                                        <img className="gift-thumb" src={process.env.PUBLIC_URL + '/amazon-pay.png'} alt="" />
+                                    </div>
+                                    <div className="gift-price align-rt">
+                                        <strong>₹ 2000</strong>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div className="google-signin-block mt-4">
+                            <div className="signin-title">Ready to get started?</div>
+                            <div className="google-signin-btn">
+                                <LoginPage />
+                            </div>
+                            <div className="signin-bottom-text">
+                                Sign up and start answering the question.(Gift card will be sent to this Google mail ID)
+                            </div>
+                        </div>
+                        {/* {isAuthenticated ? (
                             <>
                                 <p>Welcome {userData.name} </p>
                                 <h3>Total participated {participated}</h3>
@@ -43,11 +42,8 @@ const Home = () => {
                             </>
                         ) : (
                                 <LoginPage />
-                            )}
+                            )} */}
                     </div>
-                </div>
-                <div className='col-md-12 oidw-morevideos-block'>
-                    <NextQueue video_id={10} />
                 </div>
             </Container>
         </>

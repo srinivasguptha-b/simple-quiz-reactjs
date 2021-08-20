@@ -7,7 +7,7 @@ const NotFound = () => {
                 staticContext.status = 404;
             }
             return (
-                <div className="d-flex align-items-center justify-content-center text-white flex-column">
+                <div className="d-flex align-items-center justify-content-center flex-column" style={{ minHeight: "200px" }}>
                     <h1>404 : Not Found</h1>
                     <span>Go <a href={process.env.REACT_APP_API_BASEPATH}>HOME</a></span>
                 </div>

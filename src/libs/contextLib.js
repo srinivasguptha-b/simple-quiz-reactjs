@@ -11,6 +11,7 @@ const AppContext = createContext({
     triggerPageView: () => { },
     triggerEvent: () => { },
     modalShow: '',
-    setModalShow: () => { }
+    setModalShow: () => { },
+    handleLogout: () => { }
 });
 export default AppContext;

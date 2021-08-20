@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import AppContext from './libs/contextLib';
 import NextQueue from './NextQueue';
 import NotFound from './NotFound';
+import WelcomeText from './WelcomeText';
 import { Button, Image } from 'react-bootstrap';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { QuestionsData } from './QuestionsData';
@@ -27,83 +28,88 @@ const QuizMain = () => {
     const [quizToggle, setQuizToggle] = useState(false);
     const [startQuizBtnClick, setStartQuizBtnClick] = useState(false);
     const [videoData, setVideoData] = useState([]);
+    const [resultType, setResultType] = useState('');
 
     useEffect(() => {
         if (Object.keys(QuestionsData).includes(contentLanguage)) {
-            setQuestions([QuestionsData[contentLanguage][currentVideo - 1]]);
-        } else {
-            history.push("/");
-        }
-    }, [contentLanguage])
-
-    useEffect(() => {
-        //console.log(Object.keys(QuestionsData).includes(contentLanguage));
-        if (isAuthenticated) {
-            const requestOptions = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    func: 'getThisVideoStatus', data: {
-                        user_id: userData.user_id,
-                        video_id: video_url
-                    }
-                })
-            };
-            fetch(`${process.env.REACT_APP_API_URL_POST}`, requestOptions).then(response => response.json())
-                .then(d => {
-                    setIsLoading(false);
-                    if (d.error === -1) {
-                        history.push("/");
-                    } else {
-                        if (d.error === 0) {
-                            let answeredCountLocal = d.data.answer_count;
-                            let scoreCountLocal = d.data.score_count;
-
-                            if (scoreCountLocal !== "") {
-                                setScore(parseInt(scoreCountLocal));
-                            }
-                            if (answeredCountLocal !== "") {
-                                setAnsweredCount(parseInt(answeredCountLocal));
-                                if (answeredCountLocal < questions.length) {
-                                    setCurrentQuestion(parseInt(answeredCountLocal));
-                                    if (startQuizBtnClick) setQuizToggle(true);
-                                } else {
-                                    setShowScore(true);
-                                }
-                            }
-                            if (d.data.video) {
-                                setVideoData(d.data.video);
-                            }
-                        } else {
-                            alert("Something Went wrong, please try again!");
+            let intqnts = [QuestionsData[contentLanguage][currentVideo - 1]];
+            setQuestions(intqnts);
+            if (isAuthenticated) {
+                const requestOptions = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        func: 'getThisVideoStatus', data: {
+                            user_id: userData.user_id,
+                            video_id: video_url
                         }
-                    }
-                });
-            const requestOptionsTotal = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    func: 'getTotalScore', data: {
-                        user_id: userData.user_id
-                    }
-                })
-            };
-            fetch(`${process.env.REACT_APP_API_URL_POST}`, requestOptionsTotal).then(response => response.json())
-                .then(d => {
-                    if (!d.error) {
-                        setTotalScore(d.data.score_count);
-                        setParticipated(d.data.participated);
-                    }
-                });
+                    })
+                };
+                fetch(`${process.env.REACT_APP_API_URL_POST}`, requestOptions).then(response => response.json())
+                    .then(d => {
+                        setIsLoading(false);
+                        if (d.error === -1) {
+                            //history.push("/");
+                        } else {
+                            if (d.error === 0) {
+                                let answeredCountLocal = d.data.answer_count;
+                                let scoreCountLocal = d.data.score_count;
+
+                                if (scoreCountLocal !== "") {
+                                    setScore(parseInt(scoreCountLocal));
+                                }
+                                if (answeredCountLocal !== "") {
+                                    setAnsweredCount(parseInt(answeredCountLocal));
+                                    if (answeredCountLocal < intqnts.length) {
+                                        setCurrentQuestion(parseInt(answeredCountLocal));
+                                        setShowScore(false);
+                                    } else {
+                                        setShowScore(true);
+                                        setQuizToggle(true);
+                                        if (d.data.all_answers[0].is_correct == '1') {
+                                            setResultType('success');
+                                        } else {
+                                            setResultType('fail');
+                                        }
+                                    }
+                                }
+                                if (d.data.video) {
+                                    setVideoData(d.data.video);
+                                }
+                            } else {
+                                alert("Something Went wrong, please try again!");
+                            }
+                        }
+                    });
+                const requestOptionsTotal = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        func: 'getTotalScore', data: {
+                            user_id: userData.user_id
+                        }
+                    })
+                };
+                fetch(`${process.env.REACT_APP_API_URL_POST}`, requestOptionsTotal).then(response => response.json())
+                    .then(d => {
+                        if (!d.error) {
+                            setTotalScore(d.data.score_count);
+                            setParticipated(d.data.participated);
+                        }
+                    });
+            } else {
+                //history.push("/");
+                // setModalShow(false);
+                fetch(`${process.env.REACT_APP_API_URL_GET}?func=is_video_exists&video_id=` + currentVideo).then(response => response.json())
+                    .then(d => {
+                        setIsLoading(false);
+                        setVideoData(d.data);
+                    });
+            }
         } else {
-            setModalShow(false);
-            fetch(`${process.env.REACT_APP_API_URL_GET}?func=is_video_exists&video_id=` + currentVideo).then(response => response.json())
-                .then(d => {
-                    setIsLoading(false);
-                    setVideoData(d.data);
-                });
+            setIsLoading(false);
         }
-    }, [isAuthenticated, showScore, history]);
+    }, [isAuthenticated]);
 
     const handleAnswerOptionClick = (answerOption) => {
         setClicked([...clicked, { qtnindex: currentQuestion, ansindex: answerOption.index }]);
@@ -111,6 +117,12 @@ const QuizMain = () => {
             setScore(score + 1);
         }
         setAnsToggle(true);
+        setQuizToggle(true);
+        if (answerOption.isCorrect) {
+            setResultType('success');
+        } else {
+            setResultType('fail');
+        }
 
         const requestOptions = {
             method: 'POST',
@@ -159,13 +171,13 @@ const QuizMain = () => {
             chkvarient = ""
         }
         return (
-            <li className={chkvarient}><div className="w-100 mt-3">
+            <li className={chkvarient}><div className="">
                 <div className="option1">
                     <div className="left-option">
                         {opind[answerOption.index]}
                     </div>
 
-                    <Button className="m-0 p-3 w-100 right-option" onClick={() => handleAnswerOptionClick(answerOption)} disabled={(answered.indexOf(currentQuestion) > -1) ? "disabled" : ""}> {answerOption.answerText} </Button>
+                    <Button className="m-0 right-option" onClick={() => handleAnswerOptionClick(answerOption)} disabled={(answered.indexOf(currentQuestion) > -1) ? "disabled" : ""}> {answerOption.answerText} </Button>
 
                 </div>
             </div>
@@ -190,12 +202,12 @@ const QuizMain = () => {
             } else {
                 history.push(location.pathname + location.search + "#" + parseInt(nextQuestion + 1));
             }
-            if (nextQuestion >= questions.length) {
-                setTimeout(() => {
-                    setQuizToggle(false);
-                    setShowScore(false);
-                }, 5000);
-            }
+            // if (nextQuestion >= questions.length) {
+            //     setTimeout(() => {
+            //         setQuizToggle(false);
+            //         setShowScore(false);
+            //     }, 5000);
+            // }
         }
     }
 
@@ -206,8 +218,8 @@ const QuizMain = () => {
                     <iframe style={{ width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden" }} frameBorder="0" type="text/html" src={videoData.videos[contentLanguage].embed_url} width="100%" height="100%" allowFullScreen allow="autoplay" >
                     </iframe>
                 </div>
-                <div className="vid-title m-4">{videoData.videos[contentLanguage].title}</div>
-                {showScore && isAuthenticated ? <p className="announcement-p">You have Already answered the quiz, wait for the results</p> : <Button onClick={() => {
+                <div className="vid-title m-4"></div>
+                {videoData.is_active ? <button onClick={() => {
                     setStartQuizBtnClick(true);
                     if (isAuthenticated) {
                         setQuizToggle(true);
@@ -215,7 +227,7 @@ const QuizMain = () => {
                         setModalShow(true);
                         //setQuizToggle(true);
                     }
-                }}>Start Quiz</Button>}
+                }} className="ready-btn">Ready to Play</button> : <><div className="announcement-p"><p className="m-0 text-white">Contenst Ended</p></div></>}
             </>
         );
     }
@@ -224,53 +236,49 @@ const QuizMain = () => {
         <>
             {isloading ? <> Please Wait., Loading..!</> : videoData.length === 0 ? <NotFound /> :
                 <>
-                    <div className='row w-100 text-white'>
-                        <div className='col-md-2'></div>
-                        <div className='main col-md-8 d-flex align-items-center justify-content-center'>
-                            <div className="col-md-12">
+                    <div className='row'>
+                        <div className='main col-md-12 text-center m-auto'>
+                            {/* <div className="col-md-12">
                                 <div className="col-md-12 oi-dw-banner d-flex flex-column flex-md-row" style={{ backgroundImage: "url(" + process.env.PUBLIC_URL + "/oidw-header-bg.jpg)" }}>
                                     <div className="col-md-6 d-flex align-items-center justify-content-center oi-dw-logom"><Image src={process.env.PUBLIC_URL + '/oi-dw-logo.png'} fluid /></div>
                                     <div className="col-md-6 d-flex align-items-center justify-content-center text-center flex-column oi-dw-amz">
                                         <span className="watchwintext">"Watch to Win Contest"</span>
                                         <div className="oidw-wintext">Win ₹ 2000 Worth <span><img src="Amazon-logo.png" alt="" /></span>Gift Vochers</div>
                                     </div>
-
                                 </div>
-                            </div>
+                            </div> */}
                             {!quizToggle || !isAuthenticated ? (<>
+                                <WelcomeText />
                                 <div className='col-md-12 text-center mt-4'>
                                     <QuizInitPage />
                                 </div>
                             </>) : showScore ? <>
-                                <div className="my-4 announcement-p">
+                                <WelcomeText resultType={resultType} resultDate={videoData.result_date} />
+                                {/* <div className="my-4 announcement-p">
                                     <p>Thank you for participating, results will be announced soon.</p>
-                                </div>
+                                </div> */}
                             </> : <>
-                                        <div className='col-md-12 '>
-                                            <p className="">
-                                                {/* {videoData.title} */}
-                                            </p>
-                                        </div>
-                                        <div className="col-md-12 text-left">
-                                            <button type="button" class="btn btn-link text-white ps-0" onClick={() => {
+                                        <div><button className="btn1" type="button" name="button">Watch &amp; Win Contest</button></div>
+                                        <div className="col-md-12 text-left pt-1">
+                                            <button type="button" className="btn btn-link text-dark ps-0 text-uppercase fw-bold" onClick={() => {
                                                 setQuizToggle(false);
                                             }}>watch video</button>
                                         </div>
-                                        <div className="col-md-12 oidw-quiz-block p-4">
+                                        <div className="col-md-12 oidw-quiz-block bg-light">
                                             <div className='mb-2'>
-                                                <div className='col-md-12 oidw-quiz-no d-flex flex-row'>
+                                                <div className='col-md-12 oidw-quiz-no text-left'>
                                                     {/* <div className="col-md-2 text-center"><i>{currentQuestion + 1}</i></div> */}
-                                                    <div className='question col-md-10'>Q. {questions[currentQuestion].questionText}</div>
+                                                    <div className='question text-dark p-1'>Q. {questions[currentQuestion].questionText}</div>
                                                 </div>
                                             </div>
-                                            <div className='col-md-12 options mb-5'>
-                                                <ul>
+                                            <div className='col-md-12 options'>
+                                                <ul className="p-2 pb-0">
                                                     {questions[currentQuestion].answerOptions.map((answerOption, i) => (
                                                         <AnswerButtonNew index={i} {...answerOption} key={i} />
                                                     ))}
                                                 </ul>
                                             </div>
-                                            <div className="option-bottom clearfix nextques">
+                                            <div className="clearfix nextques">
                                                 <div className="next-question">
                                                     <button type="button" name="button" onClick={gotoNextQuestion}>
                                                         {currentQuestion + 1 < questions.length ? <>
@@ -282,10 +290,10 @@ const QuizMain = () => {
                                     </>
                             }
                         </div>
-                        <div className='col-md-2'></div>
-                        <div className='col-md-12 oidw-morevideos-block'>
+
+                        {/* <div className='col-md-12 oidw-morevideos-block'>
                             <NextQueue video_id={currentVideo} />
-                        </div>
+                        </div> */}
                     </div>
                 </>
             }
