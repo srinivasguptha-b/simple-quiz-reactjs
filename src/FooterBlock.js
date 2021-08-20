@@ -28,7 +28,7 @@ const FooterBlock = () => {
                     <TwitterShareButton
                         url={window.location.href}
                         title={document.title}
-                        hashtags={["#ONEINDIADWContest"]}
+                        hashtags={["ONEINDIADWContest"]}
                         via="oneindia"
                         className="cursor-pointer"
                     >

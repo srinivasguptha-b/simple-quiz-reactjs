@@ -14,7 +14,7 @@ const Navmenu = () => {
                 <Navbar.Brand href={process.env.REACT_APP_API_BASEPATH}>
                     <img src={process.env.PUBLIC_URL + '/oi-logo.png'} alt="" border="0" />
                 </Navbar.Brand>
-                <Nav.Link className="me-auto">
+                <Nav.Link className="ms-auto">
                     <BrowserView>
                         <SingleAdUnit size="banner" />
                     </BrowserView>

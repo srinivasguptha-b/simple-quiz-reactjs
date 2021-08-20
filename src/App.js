@@ -72,6 +72,7 @@ export default function App() {
 
     const handleLogout = () => {
         setIsAuthenticated(false);
+        setModalShow(false);
         localStorage.setItem('userdata', '');
     }
 

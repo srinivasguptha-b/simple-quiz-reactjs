@@ -234,7 +234,7 @@ const QuizMain = () => {
 
     return (
         <>
-            {isloading ? <> Please Wait., Loading..!</> : videoData.length === 0 ? <NotFound /> :
+            {isloading ? <> Please Wait., Loading..!</> : videoData.length === 0 || !videoData.is_display ? <NotFound /> :
                 <>
                     <div className='row'>
                         <div className='main col-md-12 text-center m-auto'>
