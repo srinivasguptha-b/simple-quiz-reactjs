@@ -2,6 +2,7 @@ import React from 'react';
 import { Whatsapp, Facebook, Twitter } from 'react-bootstrap-icons';
 import { FacebookIcon, WhatsappIcon, TwitterIcon, FacebookShareButton, WhatsappShareButton, TwitterShareButton } from "react-share";
 const FooterBlock = () => {
+    let shareTitle = "Participate in #OneindiaDW Watch & Win Contest to win ₹2000 worth Amazon gift vouchers by answering a simple and interesting question.";
     return (
         <div className="" >
             <hr></hr>
@@ -10,7 +11,7 @@ const FooterBlock = () => {
                 <div className="">
                     <WhatsappShareButton
                         url={window.location.href}
-                        title={document.title}
+                        title={shareTitle}
                         separator=":: "
                         className="d-md-none cursor-pointer"
                     >
@@ -19,7 +20,7 @@ const FooterBlock = () => {
                     &nbsp;
                     <FacebookShareButton
                         url={window.location.href}
-                        quote={document.title}
+                        quote={shareTitle}
                         hashtag="#ONEINDIADWContest"
                         className="cursor-pointer">
                         <FacebookIcon size={32} round={true} />
@@ -27,7 +28,7 @@ const FooterBlock = () => {
                     &nbsp;
                     <TwitterShareButton
                         url={window.location.href}
-                        title={document.title}
+                        title={shareTitle}
                         hashtags={["ONEINDIADWContest"]}
                         via="oneindia"
                         className="cursor-pointer"

@@ -124,7 +124,7 @@ export const QuestionsData = {
             "isCorrect": true
         }]
     }, {
-        "questionText": "                                     ",
+        "questionText": "स्वास्थ्य विशेषज्ञों के अनुसार, यदि छोटे बच्चे बहुत अधिक फास्ट फूड और मीठे पेय का सेवन करते हैं, तो यह हो सकता है",
         "answerOptions": [{
             "answerText": "मोटापा",
             "isCorrect": true
