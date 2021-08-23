@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/dwquiz/static/css/main.842a8da0.chunk.css",
-    "main.js": "/dwquiz/static/js/main.3a8c600e.chunk.js",
-    "main.js.map": "/dwquiz/static/js/main.3a8c600e.chunk.js.map",
+    "main.js": "/dwquiz/static/js/main.2b70ba1a.chunk.js",
+    "main.js.map": "/dwquiz/static/js/main.2b70ba1a.chunk.js.map",
     "runtime-main.js": "/dwquiz/static/js/runtime-main.c264bcb8.js",
     "runtime-main.js.map": "/dwquiz/static/js/runtime-main.c264bcb8.js.map",
     "static/css/2.86fbe410.chunk.css": "/dwquiz/static/css/2.86fbe410.chunk.css",
     "static/js/2.9899524c.chunk.js": "/dwquiz/static/js/2.9899524c.chunk.js",
     "static/js/2.9899524c.chunk.js.map": "/dwquiz/static/js/2.9899524c.chunk.js.map",
     "index.html": "/dwquiz/index.html",
-    "precache-manifest.f201ed29350c246ce2ce48a16fbc50e1.js": "/dwquiz/precache-manifest.f201ed29350c246ce2ce48a16fbc50e1.js",
+    "precache-manifest.01c37edf3892f302af6b5c025c98555e.js": "/dwquiz/precache-manifest.01c37edf3892f302af6b5c025c98555e.js",
     "service-worker.js": "/dwquiz/service-worker.js",
     "static/css/2.86fbe410.chunk.css.map": "/dwquiz/static/css/2.86fbe410.chunk.css.map",
     "static/css/main.842a8da0.chunk.css.map": "/dwquiz/static/css/main.842a8da0.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.86fbe410.chunk.css",
     "static/js/2.9899524c.chunk.js",
     "static/css/main.842a8da0.chunk.css",
-    "static/js/main.3a8c600e.chunk.js"
+    "static/js/main.2b70ba1a.chunk.js"
   ]
 }
