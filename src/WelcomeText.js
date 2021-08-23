@@ -5,7 +5,8 @@ const WelcomeText = (props) => {
     const { isAuthenticated, userData, handleLogout } = useContext(AppContext);
     const NameDisp = (props) => {
         return (<>
-            {props.isAuthenticated ? <div className="pt-3"> <b> {!props.resultType ? "Welcome" : "Hi"} {props.userData.name}</b> &nbsp;&nbsp;
+            {JSON.stringify(props.resultType)}
+            {props.isAuthenticated ? <div className="pt-3"> <b> {props.resultType === "success" ? "Welcome" : "Hi"} {props.userData.name}</b> &nbsp;&nbsp;
                 <Power
                     size={20}
                     color="red"
