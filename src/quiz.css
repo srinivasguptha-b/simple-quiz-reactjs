@@ -181,6 +181,10 @@ ul li {
 .cursor-pointer{
   cursor: pointer;
 }
+.selectedAns{
+  border: 3px solid #00308f !important;
+    line-height: 23px !important;
+}
 
 @media only screen and (max-width: 768px) {
   body {

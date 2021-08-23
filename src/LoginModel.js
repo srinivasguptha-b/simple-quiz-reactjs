@@ -14,10 +14,8 @@ const LoginModel = (props) => {
                 <div className="p-4">
                     <LoginPage />
                 </div>
-                <p>
-                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                    dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                    consectetur ac, vestibulum at eros.
+                <p className="text-center text-secondary">
+                    Sign up and start answering the question.(Gift card will be sent to this Google mail ID)
                  </p>
             </Modal.Body>
         </Modal>

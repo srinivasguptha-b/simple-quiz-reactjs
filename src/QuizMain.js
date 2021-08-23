@@ -29,6 +29,7 @@ const QuizMain = () => {
     const [startQuizBtnClick, setStartQuizBtnClick] = useState(false);
     const [videoData, setVideoData] = useState([]);
     const [resultType, setResultType] = useState('');
+    const [selectedAnswer, setSelectedAnswer] = useState({});
 
     useEffect(() => {
         if (Object.keys(QuestionsData).includes(contentLanguage)) {
@@ -111,44 +112,44 @@ const QuizMain = () => {
         }
     }, [isAuthenticated]);
 
-    const handleAnswerOptionClick = (answerOption) => {
-        setClicked([...clicked, { qtnindex: currentQuestion, ansindex: answerOption.index }]);
-        if (answerOption.isCorrect) {
-            setScore(score + 1);
-        }
-        setAnsToggle(true);
-        setQuizToggle(true);
-        if (answerOption.isCorrect) {
-            setResultType('success');
-        } else {
-            setResultType('fail');
-        }
+    // const handleAnswerOptionClick = () => {
+    //     setClicked([...clicked, { qtnindex: currentQuestion, ansindex: selectedAnswer.index }]);
+    //     if (selectedAnswer.isCorrect) {
+    //         setScore(score + 1);
+    //     }
+    //     setAnsToggle(true);
+    //     setQuizToggle(true);
+    //     if (selectedAnswer.isCorrect) {
+    //         setResultType('success');
+    //     } else {
+    //         setResultType('fail');
+    //     }
 
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                func: 'save_answer', data: {
-                    user_id: userData.user_id,
-                    question_id: currentQuestion + 1,
-                    video_id: currentVideo,
-                    answer: answerOption.index,
-                    is_correct: answerOption.isCorrect
-                }
-            })
-        };
-        fetch(`${process.env.REACT_APP_API_URL_POST}`, requestOptions).then(response => response.json())
-            .then(d => {
-                setAnsweredCount(answeredCount + 1);
-                setAnswered([...answered, currentQuestion]);
-                // const nextQuestion = currentQuestion + 1;
-                // if (nextQuestion < questions.length) {
-                //     //setTimeout(function () { setCurrentQuestion(nextQuestion); }, 1000);
-                // } else {
-                //     //setTimeout(function () { setShowScore(true); }, 1000);
-                // }
-            });
-    };
+    //     const requestOptions = {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({
+    //             func: 'save_answer', data: {
+    //                 user_id: userData.user_id,
+    //                 question_id: currentQuestion + 1,
+    //                 video_id: currentVideo,
+    //                 answer: selectedAnswer.index,
+    //                 is_correct: selectedAnswer.isCorrect
+    //             }
+    //         })
+    //     };
+    //     fetch(`${process.env.REACT_APP_API_URL_POST}`, requestOptions).then(response => response.json())
+    //         .then(d => {
+    //             setAnsweredCount(answeredCount + 1);
+    //             setAnswered([...answered, currentQuestion]);
+    //             // const nextQuestion = currentQuestion + 1;
+    //             // if (nextQuestion < questions.length) {
+    //             //     //setTimeout(function () { setCurrentQuestion(nextQuestion); }, 1000);
+    //             // } else {
+    //             //     //setTimeout(function () { setShowScore(true); }, 1000);
+    //             // }
+    //         });
+    // };
 
 
     const AnswerButtonNew = (answerOption) => {
@@ -156,12 +157,12 @@ const QuizMain = () => {
         let chkvarient = "";
         if (answered.indexOf(currentQuestion) > -1) {
             if (answerOption.isCorrect) {
-                chkvarient = "correct";
+                //chkvarient = "correct";
             } else {
                 clicked.map(v => {
                     if (v.qtnindex === currentQuestion) {
                         if (v.ansindex === answerOption.index) {
-                            chkvarient = "wrong"
+                            //chkvarient = "wrong"
                         }
                     }
                 });
@@ -176,8 +177,11 @@ const QuizMain = () => {
                     <div className="left-option">
                         {opind[answerOption.index]}
                     </div>
-
-                    <Button className="m-0 right-option" onClick={() => handleAnswerOptionClick(answerOption)} disabled={(answered.indexOf(currentQuestion) > -1) ? "disabled" : ""}> {answerOption.answerText} </Button>
+                    <Button className={answerOption.index === selectedAnswer.index ? "m-0 right-option selectedAns" : "m-0 right-option"} onClick={() => {
+                        setSelectedAnswer(answerOption);
+                        //console.log(answerOption);
+                    }}>{answerOption.answerText}</Button>
+                    {/* <Button className="m-0 right-option" onClick={() => handleAnswerOptionClick(answerOption)} disabled={(answered.indexOf(currentQuestion) > -1) ? "disabled" : ""}> {answerOption.answerText} </Button> */}
 
                 </div>
             </div>
@@ -185,30 +189,77 @@ const QuizMain = () => {
         )
     }
     const gotoNextQuestion = () => {
-        if (ansToggle) {
-            const nextQuestion = currentQuestion + 1;
-            if (nextQuestion < questions.length) {
-                setCurrentQuestion(nextQuestion);
-            } else {
-                setShowScore(true);
-            }
-            setAnsToggle(false);
-            triggerPageView();
-            let deviceType = (isMobile) ? 'Mobile' : 'Desktop';
-            let labels = { 'www': 'OIEN', 'hindi': 'OIHI', 'tamil': 'OITA', 'telugu': 'OITE', 'kannada': 'OIKN', 'malayalam': 'OIML' };
-            triggerEvent('DW Contest', labels[contentLanguage] + ' Video' + currentVideo + ' ' + deviceType, 'Q' + nextQuestion);
-            if (location.search == "") {
-                history.push(location.pathname + "#" + parseInt(nextQuestion + 1));
-            } else {
-                history.push(location.pathname + location.search + "#" + parseInt(nextQuestion + 1));
-            }
-            // if (nextQuestion >= questions.length) {
-            //     setTimeout(() => {
-            //         setQuizToggle(false);
-            //         setShowScore(false);
-            //     }, 5000);
-            // }
+        setClicked([...clicked, { qtnindex: currentQuestion, ansindex: selectedAnswer.index }]);
+        if (selectedAnswer.isCorrect) {
+            setScore(score + 1);
         }
+        setAnsToggle(true);
+        setQuizToggle(true);
+        if (selectedAnswer.isCorrect) {
+            setResultType('success');
+        } else {
+            setResultType('fail');
+        }
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                func: 'save_answer', data: {
+                    user_id: userData.user_id,
+                    question_id: currentQuestion + 1,
+                    video_id: currentVideo,
+                    answer: selectedAnswer.index,
+                    is_correct: selectedAnswer.isCorrect
+                }
+            })
+        };
+        fetch(`${process.env.REACT_APP_API_URL_POST}`, requestOptions).then(response => response.json())
+            .then(d => {
+                setAnsweredCount(answeredCount + 1);
+                setAnswered([...answered, currentQuestion]);
+                const nextQuestion = currentQuestion + 1;
+                if (nextQuestion < questions.length) {
+                    setCurrentQuestion(nextQuestion);
+                } else {
+                    setShowScore(true);
+                }
+                setAnsToggle(false);
+                triggerPageView();
+                let deviceType = (isMobile) ? 'Mobile' : 'Desktop';
+                let labels = { 'www': 'OIEN', 'hindi': 'OIHI', 'tamil': 'OITA', 'telugu': 'OITE', 'kannada': 'OIKN', 'malayalam': 'OIML' };
+                triggerEvent('DW Contest', labels[contentLanguage] + ' Video' + currentVideo + ' ' + deviceType, 'Q' + nextQuestion);
+                if (location.search == "") {
+                    history.push(location.pathname + "#" + parseInt(nextQuestion + 1));
+                } else {
+                    history.push(location.pathname + location.search + "#" + parseInt(nextQuestion + 1));
+                }
+                // const nextQuestion = currentQuestion + 1;
+                // if (nextQuestion < questions.length) {
+                //     //setTimeout(function () { setCurrentQuestion(nextQuestion); }, 1000);
+                // } else {
+                //     //setTimeout(function () { setShowScore(true); }, 1000);
+                // }
+            });
+        // if (ansToggle) {
+
+        //     const nextQuestion = currentQuestion + 1;
+        //     if (nextQuestion < questions.length) {
+        //         setCurrentQuestion(nextQuestion);
+        //     } else {
+        //         setShowScore(true);
+        //     }
+        //     setAnsToggle(false);
+        //     triggerPageView();
+        //     let deviceType = (isMobile) ? 'Mobile' : 'Desktop';
+        //     let labels = { 'www': 'OIEN', 'hindi': 'OIHI', 'tamil': 'OITA', 'telugu': 'OITE', 'kannada': 'OIKN', 'malayalam': 'OIML' };
+        //     triggerEvent('DW Contest', labels[contentLanguage] + ' Video' + currentVideo + ' ' + deviceType, 'Q' + nextQuestion);
+        //     if (location.search == "") {
+        //         history.push(location.pathname + "#" + parseInt(nextQuestion + 1));
+        //     } else {
+        //         history.push(location.pathname + location.search + "#" + parseInt(nextQuestion + 1));
+        //     }
+        // }
     }
 
     const QuizInitPage = () => {
