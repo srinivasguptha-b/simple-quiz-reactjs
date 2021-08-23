@@ -13,7 +13,7 @@ const FooterBlock = () => {
                         url={window.location.href}
                         title={shareTitle}
                         separator=":: "
-                        className="d-md-none cursor-pointer"
+                        className="cursor-pointer"
                     >
                         <WhatsappIcon size={32} round={true} />
                     </WhatsappShareButton>

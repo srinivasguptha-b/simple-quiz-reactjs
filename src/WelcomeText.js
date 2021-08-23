@@ -6,12 +6,12 @@ const WelcomeText = (props) => {
     const NameDisp = (props) => {
         return (<>
             {props.isAuthenticated ? <div className="pt-3"> <b> {props.resultType === "success" ? "Welcome" : "Hi"} {props.userData.name}</b> &nbsp;&nbsp;
-                <Power
+                {/* <Power
                     size={20}
                     color="red"
                     onClick={props.handleLogout}
                     style={{ cursor: "pointer" }}
-                />
+                /> */}
             </div> : <></>}
         </>);
     }
@@ -32,7 +32,7 @@ const WelcomeText = (props) => {
                             <img src={process.env.PUBLIC_URL + '/wrong.png'} alt="" />
                         </div>
                         <NameDisp isAuthenticated={isAuthenticated} handleLogout={handleLogout} userData={userData} />
-                        <div className="contest-btm-text p-0 pt-1">Sorry, wrong answer! "Thanks for participating</div>
+                        <div className="contest-btm-text p-0 pt-1">Sorry, wrong answer! Thanks for participating</div>
                     </>
             }
 
