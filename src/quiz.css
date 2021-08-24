@@ -144,7 +144,7 @@ ul li {
 .logo.w{background: #e2e0e0;color: #0376c9;text-align: center;position: relative;left: -5px;}
 .logo.d{color: #fff;margin: 0 auto;text-align: center;position: relative;z-index: 999;}
 .logo strong{margin: 0 auto;text-align: center;position: relative;top: 2px;}
-.btn1{text-align: center;cursor: pointer;border: none;background: #00308f;color: #fff;font-size: 18px;padding: 10px 15px;font-weight: bold;border-radius: 5px; width: 300px;}
+.btn1{text-align: center;border: none;background: #00308f;color: #fff;font-size: 18px;padding: 10px 15px;font-weight: bold;border-radius: 5px; width: 300px;}
 .contest-btm-text{font-size: 16px;text-align: center;color: #000;padding: 0px 10px 0px 10px;}
 .win-chance{padding: 10px;background: #eaf1fa;border: 1px solid #fff;padding-bottom: 20px;}
 .win-title{font-size: 18px;text-transform: uppercase;color: #000;text-align: center;padding-bottom: 10px;font-weight: bold;}
