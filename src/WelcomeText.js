@@ -6,12 +6,12 @@ const WelcomeText = (props) => {
     const NameDisp = (props) => {
         return (<>
             {props.isAuthenticated ? <div className="pt-3"> <b> {props.resultType === "" ? "Welcome" : "Hi"} {props.userData.name}</b> &nbsp;&nbsp;
-                {/* <Power
+                <Power
                     size={20}
                     color="red"
                     onClick={props.handleLogout}
                     style={{ cursor: "pointer" }}
-                /> */}
+                />
             </div> : <></>}
         </>);
     }
