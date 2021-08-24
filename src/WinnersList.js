@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 
 const WinnerList = () => {
     const [winners, setWinners] = useState([]);
-    const { contentLanguage, isAuthenticated } = useContext(AppContext);
+    const { contentLanguage, isAuthenticated, resultType } = useContext(AppContext);
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL_GET}?func=winnersList`).then(response => response.json())
             .then(d => {
@@ -13,7 +13,7 @@ const WinnerList = () => {
     }, []);
     return (
         <>
-            {isAuthenticated ? <div className="row m-0 py-2 p-md-4">
+            {isAuthenticated && resultType === 'success' ? <div className="row m-0 py-2 p-md-4">
                 <hr className="m-0 mb-1"></hr>
                 <div className="oidw-heading  d-flex align-items-center fw-bold">
                     <span>Previous Contest &amp; Winners</span>

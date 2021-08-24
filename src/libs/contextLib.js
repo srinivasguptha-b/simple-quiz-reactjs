@@ -12,6 +12,8 @@ const AppContext = createContext({
     triggerEvent: () => { },
     modalShow: '',
     setModalShow: () => { },
+    resultType: '',
+    setResultType: () => { },
     handleLogout: () => { }
 });
 export default AppContext;

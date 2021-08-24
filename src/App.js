@@ -18,6 +18,7 @@ export default function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userData, setUserData] = useState({});
     const [modalShow, setModalShow] = useState(false);
+    const [resultType, setResultType] = useState('');
     let uacodes = {
         'www': 'UA-110466-40',
         'hindi': 'UA-110466-40',
@@ -78,7 +79,7 @@ export default function App() {
     }
 
     return (
-        <AppContext.Provider value={{ isAuthenticated, setIsAuthenticated, userData, setUserData, contentLanguage, setContentLanguage, triggerPageView, triggerEvent, modalShow, setModalShow, handleLogout }}>
+        <AppContext.Provider value={{ isAuthenticated, setIsAuthenticated, userData, setUserData, contentLanguage, setContentLanguage, triggerPageView, triggerEvent, modalShow, setModalShow, handleLogout, resultType, setResultType }}>
             <Container className="p-0">
                 <Navmenu />
             </Container>

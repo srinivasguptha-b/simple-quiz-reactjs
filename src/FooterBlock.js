@@ -5,7 +5,7 @@ const FooterBlock = () => {
     let shareTitle = "Participate in #OneindiaDW Watch & Win Contest to win ₹2000 worth Amazon gift vouchers by answering a simple and interesting question.";
     return (
         <div className="" >
-            <hr></hr>
+            <hr className="m-0"></hr>
             <div className="share-block d-sm-flex text-center">
                 <div className="share-title">Share with your friends &nbsp;</div>
                 <div className="">

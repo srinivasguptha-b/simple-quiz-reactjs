@@ -11,7 +11,7 @@ import { isMobile } from 'react-device-detect';
 const QuizMain = () => {
     let history = useHistory();
     let location = useLocation();
-    const { contentLanguage, triggerPageView, triggerEvent } = useContext(AppContext);
+    const { contentLanguage, triggerPageView, triggerEvent, resultType, setResultType } = useContext(AppContext);
     const [questions, setQuestions] = useState([]);
     const { video_url } = useParams();
     const { isAuthenticated, userData, modalShow, setModalShow } = useContext(AppContext);
@@ -29,7 +29,6 @@ const QuizMain = () => {
     const [quizToggle, setQuizToggle] = useState(false);
     const [startQuizBtnClick, setStartQuizBtnClick] = useState(false);
     const [videoData, setVideoData] = useState([]);
-    const [resultType, setResultType] = useState('');
     const [selectedAnswer, setSelectedAnswer] = useState({});
 
     useEffect(() => {
