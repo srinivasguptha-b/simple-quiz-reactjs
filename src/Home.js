@@ -28,7 +28,7 @@ const Home = () => {
                                 <LoginPage />
                             </div>
                             <div className="signin-bottom-text">
-                                Sign up and start answering the question.(Gift card will be sent to this Google mail ID)
+                                Sign up and start answering the question. (Gift card will be sent to this Google mail ID)
                             </div>
                         </div>
                         {/* {isAuthenticated ? (

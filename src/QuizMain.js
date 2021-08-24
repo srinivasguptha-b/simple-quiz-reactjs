@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import AppContext from './libs/contextLib';
+import WinnersList from './WinnersList';
 import NextQueue from './NextQueue';
 import NotFound from './NotFound';
 import WelcomeText from './WelcomeText';
@@ -309,7 +310,7 @@ const QuizMain = () => {
                                     <p>Thank you for participating, results will be announced soon.</p>
                                 </div> */}
                             </> : <>
-                                        <div><button className="btn1" type="button" name="button">Watch &amp; Win Contest</button></div>
+                                        <div><div className="btn1" >Watch &amp; Win Contest</div></div>
                                         <div className="col-md-12 text-left pt-1">
                                             <button type="button" className="btn btn-link text-dark ps-0 text-uppercase fw-bold" onClick={() => {
                                                 setQuizToggle(false);
@@ -341,7 +342,6 @@ const QuizMain = () => {
                                     </>
                             }
                         </div>
-
                         {/* <div className='col-md-12 oidw-morevideos-block'>
                             <NextQueue video_id={currentVideo} />
                         </div> */}

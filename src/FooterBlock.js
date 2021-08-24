@@ -38,7 +38,7 @@ const FooterBlock = () => {
                 </div>
                 &nbsp;
                 <div className="share-btn">
-                    <button className="btn-share text-center" type="button" name="button">#ONEINDIADWContest</button>
+                    <div className="btn-share text-center">#ONEINDIADWContest</div>
                 </div>
                 <div className="conditions-text mt-2 ms-auto"><a href="#">* Terms &amp; conditions </a></div>
             </div>
