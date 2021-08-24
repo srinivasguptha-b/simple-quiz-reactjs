@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/dwquiz/static/css/main.1c2cea4d.chunk.css",
-    "main.js": "/dwquiz/static/js/main.2aad8cf1.chunk.js",
-    "main.js.map": "/dwquiz/static/js/main.2aad8cf1.chunk.js.map",
+    "main.js": "/dwquiz/static/js/main.aa0192d4.chunk.js",
+    "main.js.map": "/dwquiz/static/js/main.aa0192d4.chunk.js.map",
     "runtime-main.js": "/dwquiz/static/js/runtime-main.c264bcb8.js",
     "runtime-main.js.map": "/dwquiz/static/js/runtime-main.c264bcb8.js.map",
     "static/css/2.86fbe410.chunk.css": "/dwquiz/static/css/2.86fbe410.chunk.css",
-    "static/js/2.7e7ecbad.chunk.js": "/dwquiz/static/js/2.7e7ecbad.chunk.js",
-    "static/js/2.7e7ecbad.chunk.js.map": "/dwquiz/static/js/2.7e7ecbad.chunk.js.map",
+    "static/js/2.b1ce0fbc.chunk.js": "/dwquiz/static/js/2.b1ce0fbc.chunk.js",
+    "static/js/2.b1ce0fbc.chunk.js.map": "/dwquiz/static/js/2.b1ce0fbc.chunk.js.map",
     "index.html": "/dwquiz/index.html",
-    "precache-manifest.18a9bffd77f2c32acfcb2aed1ee5d80b.js": "/dwquiz/precache-manifest.18a9bffd77f2c32acfcb2aed1ee5d80b.js",
+    "precache-manifest.981975a743d4203ac20d16f864943da9.js": "/dwquiz/precache-manifest.981975a743d4203ac20d16f864943da9.js",
     "service-worker.js": "/dwquiz/service-worker.js",
     "static/css/2.86fbe410.chunk.css.map": "/dwquiz/static/css/2.86fbe410.chunk.css.map",
     "static/css/main.1c2cea4d.chunk.css.map": "/dwquiz/static/css/main.1c2cea4d.chunk.css.map",
-    "static/js/2.7e7ecbad.chunk.js.LICENSE.txt": "/dwquiz/static/js/2.7e7ecbad.chunk.js.LICENSE.txt"
+    "static/js/2.b1ce0fbc.chunk.js.LICENSE.txt": "/dwquiz/static/js/2.b1ce0fbc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c264bcb8.js",
     "static/css/2.86fbe410.chunk.css",
-    "static/js/2.7e7ecbad.chunk.js",
+    "static/js/2.b1ce0fbc.chunk.js",
     "static/css/main.1c2cea4d.chunk.css",
-    "static/js/main.2aad8cf1.chunk.js"
+    "static/js/main.aa0192d4.chunk.js"
   ]
 }
