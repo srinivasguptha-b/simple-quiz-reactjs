@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
 import LoginPage from './LoginPage';
 import WelcomeText from './WelcomeText';
+import AppContext from './libs/contextLib';
 const Home = () => {
+    const { labelsText } = useContext(AppContext);
     return (
         <>
             <Container>
@@ -10,7 +12,7 @@ const Home = () => {
                     <div className='col-md-12 text-center p-0'>
                         <WelcomeText />
                         <div className="win-chance mt-3">
-                            <div className="win-title">Chance to win</div>
+                            <div className="win-title">{labelsText.chance_to_win}</div>
                             <div className="gift-chance clearfix">
                                 <a href="#" className="d-flex flex-row text-decoration-none">
                                     <div className="gift-card align-lt">
@@ -23,12 +25,12 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="google-signin-block mt-4">
-                            <div className="signin-title">Ready to get started?</div>
+                            <div className="signin-title">{labelsText.ready_to_start}?</div>
                             <div className="google-signin-btn">
                                 <LoginPage />
                             </div>
                             <div className="signin-bottom-text">
-                                Sign up and start answering the question. (Gift card will be sent to this Google mail ID)
+                                {labelsText.sign_up_start}
                             </div>
                         </div>
                         {/* {isAuthenticated ? (

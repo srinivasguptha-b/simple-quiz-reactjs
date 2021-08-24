@@ -11,7 +11,7 @@ import { isMobile } from 'react-device-detect';
 const QuizMain = () => {
     let history = useHistory();
     let location = useLocation();
-    const { contentLanguage, triggerPageView, triggerEvent, resultType, setResultType } = useContext(AppContext);
+    const { contentLanguage, triggerPageView, triggerEvent, resultType, setResultType, labelsText } = useContext(AppContext);
     const [questions, setQuestions] = useState([]);
     const { video_url } = useParams();
     const { isAuthenticated, userData, modalShow, setModalShow } = useContext(AppContext);
@@ -278,7 +278,7 @@ const QuizMain = () => {
                         setModalShow(true);
                         //setQuizToggle(true);
                     }
-                }} className="ready-btn">Ready to Play</button> : <><div className="announcement-p"><p className="m-0 text-white">Contenst Ended</p></div></>}
+                }} className="ready-btn">{labelsText.ready_to_play}</button> : <><div className="announcement-p"><p className="m-0 text-white">Contenst Ended</p></div></>}
             </>
         );
     }
@@ -309,11 +309,11 @@ const QuizMain = () => {
                                     <p>Thank you for participating, results will be announced soon.</p>
                                 </div> */}
                             </> : <>
-                                        <div><div className="btn1" >Watch &amp; Win Contest</div></div>
+                                        <div><div className="btn1 m-auto" >Watch &amp; Win Contest</div></div>
                                         <div className="col-md-12 text-left pt-1">
                                             <button type="button" className="btn btn-link text-dark ps-0 text-uppercase fw-bold" onClick={() => {
                                                 setQuizToggle(false);
-                                            }}>watch video</button>
+                                            }}>{labelsText.watch_video}</button>
                                         </div>
                                         <div className="col-md-12 oidw-quiz-block bg-light">
                                             <div className='mb-2'>

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Modal } from 'react-bootstrap';
 import LoginPage from "./LoginPage";
+import AppContext from './libs/contextLib';
 
 const LoginModel = (props) => {
+    const { labelsText } = useContext(AppContext);
     return (
         <Modal
             {...props}
@@ -15,8 +17,8 @@ const LoginModel = (props) => {
                     <LoginPage />
                 </div>
                 <p className="text-center text-secondary">
-                    Sign up and start answering the question. (Gift card will be sent to this Google mail ID)
-                 </p>
+                    {labelsText.sign_up_start}
+                </p>
             </Modal.Body>
         </Modal>
     );

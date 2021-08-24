@@ -14,6 +14,8 @@ const AppContext = createContext({
     setModalShow: () => { },
     resultType: '',
     setResultType: () => { },
-    handleLogout: () => { }
+    handleLogout: () => { },
+    labelsText: '',
+    setLabelsText: () => { },
 });
 export default AppContext;

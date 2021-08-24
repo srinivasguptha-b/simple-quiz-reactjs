@@ -11,7 +11,7 @@ const Navmenu = () => {
     return (
         <>
             <Navbar expand="lg" className="px-2">
-                <Navbar.Brand href={process.env.REACT_APP_API_BASEPATH}>
+                <Navbar.Brand href={process.env.REACT_APP_API_BASEPATH + 'dwquiz/'}>
                     <img src={process.env.PUBLIC_URL + '/oi-logo.png'} alt="" border="0" />
                 </Navbar.Brand>
                 <Nav.Link className="ms-auto">
@@ -20,14 +20,7 @@ const Navmenu = () => {
                     </BrowserView>
                 </Nav.Link>
                 <Navbar.Text className="ms-auto mb-2 mb-lg-0">
-                    <div className="dw-logos align-rt clearfix d-flex flex-row" >
-                        <div className="logo d align-lt">
-                            <strong>D</strong>
-                        </div>
-                        <div className="logo w align-rt">
-                            <strong>W</strong>
-                        </div>
-                    </div>
+                    <img src={process.env.PUBLIC_URL + '/DW-dark-blue-RGB.png'} alt="DW" border="0" id="dwlogo" />
                 </Navbar.Text>
             </Navbar >
             {!isAuthenticated ? <LoginModel

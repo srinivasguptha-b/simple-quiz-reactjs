@@ -10,6 +10,7 @@ import Home from './Home';
 import FooterBlock from './FooterBlock';
 import SingleAdUnit from './SingelAdUnit';
 import WinnersList from './WinnersList';
+import { LabelsText } from './LabelsText';
 
 
 import ReactGa from 'react-ga';
@@ -23,11 +24,12 @@ export default function App() {
         'www': 'UA-110466-40',
         'hindi': 'UA-110466-40',
         'tamil': 'UA-110466-40',
-        'melugu': 'UA-110466-40',
+        'telugu': 'UA-110466-40',
         'kannada': 'UA-110466-40',
         'malayalam': 'UA-110466-40',
     };
     const [contentLanguage, setContentLanguage] = useState(Object.keys(uacodes)[0]);
+    const [labelsText, setSabelsText] = useState(LabelsText[Object.keys(uacodes)[0]]);
     const triggerPageView = () => {
         ReactGa.pageview(window.location.href);
     }
@@ -59,6 +61,7 @@ export default function App() {
         console.log('Referer' + document.referrer);
         console.log(quizlang);
         setContentLanguage(quizlang);
+        setSabelsText(LabelsText[quizlang]);
         ReactGa.initialize(uacodes[quizlang]);
         triggerPageView();
     }, []);
@@ -79,7 +82,7 @@ export default function App() {
     }
 
     return (
-        <AppContext.Provider value={{ isAuthenticated, setIsAuthenticated, userData, setUserData, contentLanguage, setContentLanguage, triggerPageView, triggerEvent, modalShow, setModalShow, handleLogout, resultType, setResultType }}>
+        <AppContext.Provider value={{ isAuthenticated, setIsAuthenticated, userData, setUserData, contentLanguage, setContentLanguage, triggerPageView, triggerEvent, modalShow, setModalShow, handleLogout, resultType, setResultType, labelsText }}>
             <Container className="p-0">
                 <Navmenu />
             </Container>

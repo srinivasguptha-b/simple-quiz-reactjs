@@ -185,7 +185,7 @@ ul li {
   border: 3px solid #00308f !important;
     line-height: 23px !important;
 }
-
+#dwlogo{height: 50px;}
 @media only screen and (max-width: 768px) {
   body {
     background-color: #d4e3f5 !important;
@@ -193,6 +193,7 @@ ul li {
   .navbar-brand img{
     width: 100%;
   }
+   #dwlogo{height: 35px;}
   .dw-logos{line-height: 35px;}
   .dw-logos .logo{width: 34px;height: 34px;border-radius: 50%;border: 3px solid #fff;background: #0376c9;font-size: 22px;}
   .logo.w{background: #fff;color: #0376c9;text-align: center;position: relative;left: -5px;}

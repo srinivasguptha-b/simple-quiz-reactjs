@@ -13,7 +13,7 @@ const WinnerList = () => {
     }, []);
     return (
         <>
-            {isAuthenticated && resultType === 'success' ? <div className="row m-0 py-2 p-md-4">
+            {isAuthenticated && winners.length > 0 && resultType === 'success' ? <div className="row m-0 py-2 p-md-4">
                 <hr className="m-0 mb-1"></hr>
                 <div className="oidw-heading  d-flex align-items-center fw-bold">
                     <span>Previous Contest &amp; Winners</span>
