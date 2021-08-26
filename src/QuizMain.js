@@ -278,7 +278,7 @@ const QuizMain = () => {
                         setModalShow(true);
                         //setQuizToggle(true);
                     }
-                }} className="ready-btn">{labelsText.ready_to_play}</button> : <><div className="announcement-p"><p className="m-0 text-white">Contenst Ended</p></div></>}
+                }} className="ready-btn">{labelsText.ready_to_play}?</button> : <><div className="announcement-p"><p className="m-0 text-white">Contenst Ended</p></div></>}
             </>
         );
     }
