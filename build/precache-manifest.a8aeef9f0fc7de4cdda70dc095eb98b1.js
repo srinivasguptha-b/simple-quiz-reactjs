@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9427163c15de18aa9dc066d7bbe7b57f",
+    "revision": "0ceb670e7f6134b058345dd75ba0d7d7",
     "url": "/dwquiz/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dwquiz/static/css/2.07744ed8.chunk.css"
   },
   {
-    "revision": "75fa72b9a3d7a19c11d2",
+    "revision": "d504679116ec2f0ebc6d",
     "url": "/dwquiz/static/css/main.02c39b48.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dwquiz/static/js/2.a4a1fe60.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "75fa72b9a3d7a19c11d2",
-    "url": "/dwquiz/static/js/main.09c9b5b3.chunk.js"
+    "revision": "d504679116ec2f0ebc6d",
+    "url": "/dwquiz/static/js/main.cdee2eb0.chunk.js"
   },
   {
     "revision": "ab32c73048a4afec9913",

@@ -49,8 +49,8 @@ export default function App() {
             //localStorage.setItem('quizlang', quizlang);
         } else {
             if (document.referrer !== '' && document.referrer.split('/')[2] !== document.location.host) {
-                quizlang = document.referrer.split('/')[2].split('.')[0]
-                quizlang = Object.keys(uacodes).includes(quizlang) ? quizlang : Object.keys(uacodes)[0];
+                // quizlang = document.referrer.split('/')[2].split('.')[0]
+                // quizlang = Object.keys(uacodes).includes(quizlang) ? quizlang : Object.keys(uacodes)[0];
                 //localStorage.setItem('quizlang', quizlang);
             } else {
                 // if (localStorage.getItem('quizlang')) {
@@ -58,8 +58,8 @@ export default function App() {
                 // }
             }
         }
-        console.log('Referer' + document.referrer);
-        console.log(quizlang);
+        // console.log('Referer' + document.referrer);
+        // console.log(quizlang);
         setContentLanguage(quizlang);
         setSabelsText(LabelsText[quizlang]);
         ReactGa.initialize(uacodes[quizlang]);
