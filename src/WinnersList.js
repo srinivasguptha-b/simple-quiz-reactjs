@@ -4,11 +4,12 @@ import { Card } from 'react-bootstrap';
 
 const WinnerList = () => {
     const [winners, setWinners] = useState([]);
+    const currentVideo = parseInt(window.location.pathname.split('/').pop());
     const { contentLanguage, isAuthenticated, resultType } = useContext(AppContext);
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL_GET}?func=winnersList`).then(response => response.json())
             .then(d => {
-                setWinners(d.data);
+                setWinners(d.data.filter(x => x.id !== currentVideo));
             });
     }, []);
     return (
@@ -26,7 +27,8 @@ const WinnerList = () => {
                                 <div className="col-md-4 col-sm-12 p-md-4 text-dark pe-0" key={i}>
                                     <Card style={{ background: "#eaf1fa" }}>
                                         <Card.Body>
-                                            <Card.Text className="m-0">Contest {i + 1}: Winner</Card.Text>
+                                            <div className="winner-thumb" style={{ width: "50px", height: "50px", marginRight: "10px" }}><img src={videoq.winner.image ? videoq.winner.image : process.env.PUBLIC_URL + '/user.jpeg'} alt="" /></div>
+                                            <Card.Text className="m-0">Contest {videoq.id}: Winner</Card.Text>
                                             <Card.Text className="fw-bold m-0"><span className="fw-bold">{videoq.winner.name}</span></Card.Text>
                                             <Card.Text className="m-0">{videoq.result_date}</Card.Text>
                                         </Card.Body>

@@ -304,7 +304,7 @@ const QuizMain = () => {
                                     <QuizInitPage />
                                 </div>
                             </>) : showScore ? <>
-                                <WelcomeText resultType={resultType} resultDate={videoData.result_date} />
+                                <WelcomeText resultType={resultType} resultData={videoData} />
                                 {/* <div className="my-4 announcement-p">
                                     <p>Thank you for participating, results will be announced soon.</p>
                                 </div> */}
