@@ -66,7 +66,7 @@ const FooterBlock = () => {
                     One participant will be eligible to win the contest only once in the entire contest duration.
                     The winners, if eligible, will receive the prize (as Amazon Gift Card) before Oct 10, 2021.</p>
                     <b>CONTEST TERMS AND CONDITIONS</b><br></br>
-                    <p>This ‘Watch & Win’ contest ("Contest") is provided to you by Deutsche Welle and made available on www.oneindia.com by Greynium Information Technologies Pvt Ltd</p>
+                    <p>This ‘Watch & Win’ contest ("Contest") is provided to you by Deutsche Welle and made available on www.oneindia.com by One.in Digitech Media Private Limited</p>
 
                     <p>Please read these terms and conditions ("T&Cs") before entering the Contest. You agree that, by participating in this Contest, you will be bound by these T&Cs and you acknowledge that you satisfy all Contest eligibility requirements as provided here.</p>
 
@@ -100,17 +100,17 @@ const FooterBlock = () => {
                     <p>There are no cash or other prize alternatives available in whole or in part. If any selected Participant does not respond back to any communications sent in relation to the Contest within the time period communicated by Oneindia, he/she shall not be eligible to be declared winner of the Prize. In such case, an alternate winner may not be selected.</p>
 
                     <b>ADDITIONAL TERMS:</b><br></br>
-                    <p>Greynium Information Technologies Pvt Ltd may, to the maximum extent permitted by applicable law and in our sole discretion, change the T&Cs or cancel the Contest at any time; or modify, terminate, or suspend the Contest should viruses, worms, bugs, unauthorized human intervention or other causes beyond our control corrupt or impair the administration, security, fairness or proper play of the Contest or submission of entries.</p>
+                    <p>One.in Digitech Media Private Limited may, to the maximum extent permitted by applicable law and in our sole discretion, change the T&Cs or cancel the Contest at any time; or modify, terminate, or suspend the Contest should viruses, worms, bugs, unauthorized human intervention or other causes beyond our control corrupt or impair the administration, security, fairness or proper play of the Contest or submission of entries.</p>
 
                     <p>We are not responsible for: (a) lost, misdirected, late, incomplete, or unintelligible entries or for inaccurate entry information, whether caused by you or by any of the equipment or programming associated with or utilized in the Contest, or by any technical or human error that may occur in the processing of entries; (b) any printing or typographical errors in any materials associated with the Contest; (c) any error in the operation or transmission, theft, destruction, unauthorized access to, or alteration of, entries, or for technical, network, telephone, computer, hardware or software, malfunctions of any kind, or inaccurate transmission of, or failure to receive any entry information on account of technical problems or traffic congestion on the Internet or at any website; or (d) injury or damage to your or any other computer or mobile resulting from downloading any materials in connection with the Contest.</p>
 
-                    <p>Greynium Information Technologies Pvt Ltd may, in its sole discretion, disqualify any individual found to be: (a) tampering with the entry process or the operation of the Contest or website; (b) acting in violation of these T&Cs; or (c) acting in an unsportsmanlike or disruptive manner or with intent to annoy, abuse, threaten or harass any other person.</p>
+                    <p>One.in Digitech Media Private Limited may, in its sole discretion, disqualify any individual found to be: (a) tampering with the entry process or the operation of the Contest or website; (b) acting in violation of these T&Cs; or (c) acting in an unsportsmanlike or disruptive manner or with intent to annoy, abuse, threaten or harass any other person.</p>
 
                     <p>If your entry is incomplete or if you use robotic, automatic, programmed or similar entry methods, your entry will be void. The authorized subscriber of the e-mail account used to enter the Contest at the actual time of entry will be deemed to be the participant and must comply with these T&Cs in the event of a dispute as to entries submitted by multiple users having the same e-mail account.</p>
 
 
                     <b>MISCELLANEOUS:</b><br></br>
-                    <p>The Contest is governed by the laws of the Republic of India. All rights reserved. No requests for transfer or assignment or redemption of the benefits shall be entertained. You agree that all Greynium Information Technologies Pvt Ltd decisions related to the Contest are final and binding on you.</p>
+                    <p>The Contest is governed by the laws of the Republic of India. All rights reserved. No requests for transfer or assignment or redemption of the benefits shall be entertained. You agree that all One.in Digitech Media Private Limited decisions related to the Contest are final and binding on you.</p>
 
 
                     <b>SPONSOR:</b><br></br>
