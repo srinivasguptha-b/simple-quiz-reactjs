@@ -67,9 +67,10 @@ export default function App() {
         ReactGa.initialize(uacodes[quizlang]);
         triggerPageView();
     }, []);
+
     useEffect(() => {
         const userDataLocal = localStorage.getItem('userdata');
-        if (userDataLocal) {
+        if (userDataLocal !== "" && userDataLocal !== null) {
             let userDataL = JSON.parse(userDataLocal);
             fetch(`${process.env.REACT_APP_API_URL_GET}?func=is_user_exists&user_id=` + userDataL.user_id).then(response => response.json()).then(d => {
                 if (!d.error) {
@@ -80,14 +81,6 @@ export default function App() {
                     localStorage.setItem('userdata', '');
                 }
             })
-        }
-    }, []);
-    useEffect(() => {
-        const userDataLocal = localStorage.getItem('userdata');
-        if (userDataLocal !== "" && userDataLocal !== null) {
-            setIsAuthenticated(true);
-            let userDataL = JSON.parse(userDataLocal);
-            setUserData(userDataL);
         }
     }, [isAuthenticated]);
 
