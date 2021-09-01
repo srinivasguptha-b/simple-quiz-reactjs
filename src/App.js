@@ -93,7 +93,7 @@ export default function App() {
     function PrivateRoute({ children, ...rest }) {
         return (
             <Route {...rest} render={() => {
-                return isAuthenticated === true && userData.email === "srinivasguptha.b@gmail.com"
+                return isAuthenticated === true && (userData.email === "srinivasguptha.b@gmail.com" || userData.email === "samcbe4u@gmail.com")
                     ? children
                     : <NotFound />
             }} />
