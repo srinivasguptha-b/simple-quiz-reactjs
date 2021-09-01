@@ -67,7 +67,21 @@ export default function App() {
         ReactGa.initialize(uacodes[quizlang]);
         triggerPageView();
     }, []);
-
+    useEffect(() => {
+        const userDataLocal = localStorage.getItem('userdata');
+        if (userDataLocal) {
+            let userDataL = JSON.parse(userDataLocal);
+            fetch(`${process.env.REACT_APP_API_URL_GET}?func=is_user_exists&user_id=` + userDataL.user_id).then(response => response.json()).then(d => {
+                if (!d.error) {
+                    setIsAuthenticated(true);
+                    setUserData(userDataL);
+                } else {
+                    setIsAuthenticated(false);
+                    localStorage.setItem('userdata', '');
+                }
+            })
+        }
+    }, []);
     useEffect(() => {
         const userDataLocal = localStorage.getItem('userdata');
         if (userDataLocal !== "" && userDataLocal !== null) {
@@ -86,7 +100,7 @@ export default function App() {
     function PrivateRoute({ children, ...rest }) {
         return (
             <Route {...rest} render={() => {
-                return isAuthenticated === true
+                return isAuthenticated === true && userData.email === "srinivasguptha.b@gmail.com"
                     ? children
                     : <NotFound />
             }} />
