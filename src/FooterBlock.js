@@ -48,7 +48,7 @@ const FooterBlock = () => {
                         <div className="btn-share text-center">#ONEINDIADWContest</div>
                     </div>
                     <div className="conditions-text mt-2 ms-auto">
-                        <a href="javascript:void(0)" onClick={handleShow} >* Terms &amp; conditions </a></div>
+                        <a href="#" onClick={(e) => { e.preventDefault(); handleShow(); }} >* Terms &amp; conditions </a></div>
                 </div>
             </div>
             <Modal show={showterm} onHide={handleClose} size="lg">

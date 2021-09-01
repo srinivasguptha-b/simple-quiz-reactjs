@@ -10,6 +10,7 @@ import Home from './Home';
 import FooterBlock from './FooterBlock';
 import SingleAdUnit from './SingelAdUnit';
 import WinnersList from './WinnersList';
+import SelectWinners from './SelectWinners';
 import { LabelsText } from './LabelsText';
 
 
@@ -92,6 +93,7 @@ export default function App() {
                         <Router basename='dwquiz'>
                             <Switch>
                                 <Route exact path="/" component={Home} />
+                                {isAuthenticated ? <Route exact path="/selectwinner" component={SelectWinners} /> : <></>}
                                 <Route path="/:video_url" children={<QuizMain />} />
                             </Switch>
                         </Router>
