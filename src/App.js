@@ -72,11 +72,11 @@ export default function App() {
         const userDataLocal = localStorage.getItem('userdata');
         if (userDataLocal !== "" && userDataLocal !== null) {
             let userDataL = JSON.parse(userDataLocal);
+            setIsAuthenticated(true);
+            setUserData(userDataL);
+
             fetch(`${process.env.REACT_APP_API_URL_GET}?func=is_user_exists&user_id=` + userDataL.user_id).then(response => response.json()).then(d => {
-                if (!d.error) {
-                    setIsAuthenticated(true);
-                    setUserData(userDataL);
-                } else {
+                if (d.error) {
                     setIsAuthenticated(false);
                     localStorage.setItem('userdata', '');
                 }
