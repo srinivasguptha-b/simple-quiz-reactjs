@@ -3,16 +3,22 @@ import { Card, Modal, Button } from 'react-bootstrap';
 
 const SelectWinners = () => {
     const [videoid, setVideoid] = useState('');
+    const [email, setEmail] = useState('');
     const [winners, setWinners] = useState({});
     const [showModal, setShowModal] = useState(false);
     const getWinners = async () => {
         if (videoid) {
-            let winners = await fetch(`${process.env.REACT_APP_API_URL_GET}?func=selectWinners&video_id=` + videoid).then(response => response.json());
+            let winners = await fetch(`${process.env.REACT_APP_API_URL_GET}?func=selectWinners&video_id=` + videoid + `&email=` + email).then(response => response.json());
             if (winners.error == -1) {
                 alert("Winner Already Selected! " + winners.data[0].winner.name)
             } else if (!winners.error) {
                 setWinners(winners.data[0]);
                 setShowModal(true);
+            } else {
+                if (email)
+                    alert('Given Email Id Not Found');
+                else
+                    alert('Something went wrong!');
             }
         }
     }
@@ -44,6 +50,8 @@ const SelectWinners = () => {
             <div className="d-flex justify-content-center flex-column">
 
                 <input value={videoid} onChange={(e) => { setVideoid(e.target.value) }} placeholder="contest id" />
+                <br></br>
+                <input value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" />
                 <br></br>
                 <button className="btn btn-info" onClick={getWinners}>Select Winner</button>
             </div>
