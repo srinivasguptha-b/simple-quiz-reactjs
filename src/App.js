@@ -11,6 +11,7 @@ import FooterBlock from './FooterBlock';
 import SingleAdUnit from './SingelAdUnit';
 import WinnersList from './WinnersList';
 import SelectWinners from './SelectWinners';
+import NotFound from './NotFound';
 import { LabelsText } from './LabelsText';
 
 
@@ -82,6 +83,16 @@ export default function App() {
         localStorage.setItem('userdata', '');
     }
 
+    function PrivateRoute({ children, ...rest }) {
+        return (
+            <Route {...rest} render={() => {
+                return isAuthenticated === true
+                    ? children
+                    : <NotFound />
+            }} />
+        )
+    }
+
     return (
         <AppContext.Provider value={{ isAuthenticated, setIsAuthenticated, userData, setUserData, contentLanguage, setContentLanguage, triggerPageView, triggerEvent, modalShow, setModalShow, handleLogout, resultType, setResultType, labelsText }}>
             <Container className="p-0">
@@ -93,7 +104,9 @@ export default function App() {
                         <Router basename='dwquiz'>
                             <Switch>
                                 <Route exact path="/" component={Home} />
-                                {isAuthenticated ? <Route exact path="/selectwinner" component={SelectWinners} /> : <></>}
+                                <PrivateRoute path="/selectwinner">
+                                    <SelectWinners />
+                                </PrivateRoute>
                                 <Route path="/:video_url" children={<QuizMain />} />
                             </Switch>
                         </Router>
