@@ -1,5 +1,47 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Card, Modal, Button } from 'react-bootstrap';
+import { Card, Modal, Button, Form, Table } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
+
+const TodayReport = () => {
+    const [reports, setReports] = useState({});
+    let from_date = new Date().toISOString().slice(0, 10);
+    let to_date = new Date().toISOString().slice(0, 10);
+    let querystring = new URLSearchParams(window.location.search);
+    if (querystring.get('from_date')) {
+        from_date = querystring.get('from_date');
+    }
+    if (querystring.get('to_date')) {
+        to_date = querystring.get('to_date');
+    }
+    const [fromDate, setFromDate] = useState(from_date);
+    const [toDate, setToDate] = useState(to_date);
+    const getReports = () => {
+        fetch(`${process.env.REACT_APP_API_URL_GET}?func=getReports&from_date=` + fromDate + `&to_date=` + toDate).then(response => response.json()).then(d => {
+            if (!d.error) {
+                setReports(d.data);
+            }
+        });
+    }
+    return (<>
+        <div>FROM : <Form.Control type="date" name='date_from' value={fromDate} onChange={(e) => {
+            setFromDate(e.target.value)
+        }} /></div>
+        <div>TO : <Form.Control type="date" name='date_to' value={toDate} onChange={(e) => {
+            setToDate(e.target.value)
+        }} /></div>
+        <div className="text-center my-2"><Button onClick={getReports}>Get Reports</Button></div>
+        <div>
+            <Table striped bordered hover variant="dark">
+                <tbody>
+                    {Object.keys(reports).length > 0 && <>
+                        <tr><td>New Registrations:</td> <td>{reports.users_count}</td></tr>
+                        <tr><td>Correct Answered:</td><td> {reports.correct_count}</td></tr>
+                    </>}
+                </tbody>
+            </Table>
+        </div>
+    </>);
+}
 
 const SelectWinners = () => {
     const [videoid, setVideoid] = useState('');
@@ -56,7 +98,9 @@ const SelectWinners = () => {
                 <button className="btn btn-info" onClick={getWinners}>Select Winner</button>
             </div>
             <div className="mt-3">
-
+                <hr></hr>
+                <b>Reports</b>
+                <TodayReport />
             </div>
             <Modal
                 show={showModal}
