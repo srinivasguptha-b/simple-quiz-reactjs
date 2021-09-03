@@ -57,45 +57,43 @@ const FooterBlock = () => {
                     <button onClick={handleClose} className="btn btn-link text-decoration-none text-dark">x</button>
                 </Modal.Header>
                 <Modal.Body>
-                    <b>CONTEST NAME: OneindiaDW - Watch & Win Contest</b><br></br>
+                    <b>CONTEST NAME: #OneindiaDW – Watch & Win Contest</b><br></br>
                     <b>ABOUT THE CONTEST:</b> Duration – Sep 2nd, 2021 12:00:00 AM to Oct 3rd 2021 11:59:59 PM
                     <br></br>
                     <b>WINNER SELECTION</b>
-                    <p>50 lucky participants will be selected by a random draw of lots from the participants.
-                    One participant selected as per the contest T&Cs, will qualify as contest winner and be eligible to receive the prize of ‘Rs.2000 Amazon Gift Card’ (only if they comply with the T&Cs of the contest).
-                    One participant will be eligible to win the contest only once in the entire contest duration.
-                    The winners, if eligible, will receive the prize (as Amazon Gift Card) before Oct 10, 2021.</p>
-                    <b>CONTEST TERMS AND CONDITIONS</b><br></br>
-                    <p>This ‘Watch & Win’ contest ("Contest") is provided to you by Deutsche Welle and made available on www.oneindia.com by One.in Digitech Media Private Limited</p>
+                    <p>50 lucky participants will be selected by a random draw of lots and eligible to receive the prize of ‘Rs.2000 Amazon Gift Card’ (only if they comply with the T&Cs of the contest). One participant will be eligible to win the contest only once in the entire contest duration. The winners, if eligible, will receive the prize (as Amazon Gift Card) before Oct 10, 2021.</p>
+                    <br></br>
+                    <b>CONTEST TERMS AND CONDITIONS:</b><br></br>
+                    <p>This ‘Watch & Win’ Contest is bought to you by Deutsche Welle and made available on www.oneindia.com by One.in Digitech Media Private Limited.</p>
 
-                    <p>Please read these terms and conditions ("T&Cs") before entering the Contest. You agree that, by participating in this Contest, you will be bound by these T&Cs and you acknowledge that you satisfy all Contest eligibility requirements as provided here.</p>
+                    <p>Please read these terms and conditions (“T&Cs”) before entering the Contest. You agree that, by participating in this Contest, you will be bound by these T&Cs and acknowledge that you satisfy all Contest eligibility requirements as mentioned.</p>
 
 
                     <b>DETAILS OF THE CONTEST AND HOW TO ENTER:</b><br></br>
 
-                    <p>In order to participate in the Contest, a person must land on to the website, Login with Google, watch the video and answer the question. Correctly answered participants will be selected for a lucky draw and winners will be announced at the end of contest period. Winners will receive the mail which is used while participating the contest.</p>
+                    <p>In order to participate in the Contest, a person must visit the contest page Login with their google account, watch the video and answer the question. Participants who answer correctly will be selected for a the lucky draw and winners will be announced at the end of contest period. Winners will be notified on their registered email addresses used at the time of participation.</p>
 
 
-                    <p>A total of 50 Participants will be selected to be eligible for the Prize during the Contest Period and Amazon vouchers will be mailed on the same registered mail ID.</p>
+                    <p>A total of 50 winners will be selected and Amazon vouchers will be shared to their registered email addresses.</p>
 
-                    <p>Each Participant will be eligible to receive maximum of only one Prize under this Contest. A Participant announced as winner for one contest will not be eligible to participate in the remaining contest.</p>
+                    <p>Each Participant will be eligible to win only once under this Contest. A Participant once declared winner will not be eligible to participate again till the contest ends.</p>
 
                     <b>MAILING LIST:</b><br></br>
-                    <p>By entering the Contest, you consent to being placed on a mailing list for promotional and other materials for Oneindia. You may update or change your email preferences at the email preferences page.</p>
+                    <p>By entering the Contest, you consent to being placed on a mailing list for promotional content from Oneindia. You may update or change your email preferences on the email preferences page.</p>
 
 
                     <b>PRIZES:</b><br></br>
-                    <p>There is a total of 50 participants who will be selected under this Contest and will qualify as winner to receive Rs.2000 Amazon voucher.</p>
+                    <p>There will be a total of 50 winners who will receive Rs.2000 Amazon voucher.</p>
 
                     <b>RESULT ANNOUNCEMENTS:</b><br></br>
-                    <p>Names of the Selected Participants will be published on the Contest page at the end of each contest. We will also notify the selected Participants by e-mail by end of the contest. The selected Participants may forfeit their claim to the Prize if they do not meet the eligibility criteria or do not comply with these T&C’s.</p>
+                    <p>Names of the selected Participants will be published on the Contest page at the end of each week/date should be mentioned) We will also notify the selected Participants through e-mail at the end of the contest. The selected Participants may forfeit their claim to the Prize if they do not meet the eligibility criteria or do not comply with above mentioned T&C’s.</p>
 
                     <b>PRIZE DRAWING:</b><br></br>
-                    <p>The drawing for selection of the winners of the Contest will be done on Oct 4th, We will notify the selected Participants by e-mail AND/OR SMS following the draw latest by 4th Oct, and they will be required to answer a simple question and share a valid proof of identity and age in the form of a copy of PAN Card / Driving License / Voter ID / Indian passport or other documentation required under terms and conditions.</p>
+                    <p>The drawing for selection of the winners of the Contest will be done on Oct 4th, We will notify the selected winners by e-mail following the draw latest by 4th Oct, and they will be required to answer a simple question and share a valid proof of identity and age in the form of a copy of PAN Card / Driving License / Voter ID / Indian passport or other documentation required under terms and conditions.</p>
 
-                    <p>The selected Participant will also be required to prove his/her age and residence proof, failing which he/she will be disqualified from the Contest. The selected Participants need to respond to the email within 7 working days from receiving the email with the above requested information and documents.</p>
+                    <p>The selected winner will also be required to prove his/her age and residence proof, failing which he/she will be disqualified from the Contest. The selected Participants (winners) need to respond to the email within 7 working days with the above requested information and documents.</p>
 
-                    <p>The selected Participants will automatically forfeit their claim to the Prize if they do not meet the eligibility criteria or do not comply with these T&Cs.</p>
+                    <p>The selected winners will automatically forfeit their claim to the Prize if they do not meet the eligibility criteria or do not comply with these T&Cs.</p>
 
                     <p>There are no cash or other prize alternatives available in whole or in part. If any selected Participant does not respond back to any communications sent in relation to the Contest within the time period communicated by Oneindia, he/she shall not be eligible to be declared winner of the Prize. In such case, an alternate winner may not be selected.</p>
 
