@@ -8,8 +8,8 @@ export const LabelsText = {
         "ready_to_play": "Ready to Play",
         "watch_video": "watch video",
         "sorry_wrong_ans": "Sorry, wrong answer! Thanks for participating",
-        "congrats_text": "Congratulation, that's right \"You have entered the lucky draw to win\"",
-        "winner_text": "winner will resolve Rs 2000 amazon gift card from #ONEINDIA DW on their registers mail Id's",
+        "congrats_text": "Congratulations, that's right \"You have qualified for the lucky draw\"",
+        "winner_text": "Winners will receive Rs.2000 Amazon gift card from #OneindiaDW on the registered mail address.",
         "check_winner_on": "Check winner on DATE ",
     },
     "hindi": {
@@ -21,8 +21,8 @@ export const LabelsText = {
         "ready_to_play": "Ready to Play",
         "watch_video": "watch video",
         "sorry_wrong_ans": "Sorry, wrong answer! Thanks for participating",
-        "congrats_text": "Congratulation, that's right \"You have entered the lucky draw to win\"",
-        "winner_text": "winner will resolve Rs 2000 amazon gift card from #ONEINDIA DW on their registers mail Id's",
+        "congrats_text": "Congratulations, that's right \"You have qualified for the lucky draw\"",
+        "winner_text": "Winners will receive Rs.2000 Amazon gift card from #OneindiaDW on the registered mail address.",
         "check_winner_on": "Check winner on DATE ",
     },
     "tamil": {
