@@ -9,7 +9,7 @@ export const LabelsText = {
         "watch_video": "watch video",
         "sorry_wrong_ans": "Sorry, wrong answer! Thanks for participating",
         "congrats_text": "Congratulations, that's right \"You have qualified for the lucky draw\"",
-        "winner_text": "Winners will receive Rs.2000 Amazon gift card from Oneindia on their registered mail address.",
+        "winner_text": "Winners will receive Rs.2000 Amazon gift card from Oneindia on their registered e-mail address.",
         "check_winner_on": "Check winner on DATE ",
     },
     "hindi": {
@@ -22,7 +22,7 @@ export const LabelsText = {
         "watch_video": "watch video",
         "sorry_wrong_ans": "Sorry, wrong answer! Thanks for participating",
         "congrats_text": "Congratulations, that's right \"You have qualified for the lucky draw\"",
-        "winner_text": "Winners will receive Rs.2000 Amazon gift card from Oneindia on their registered mail address.",
+        "winner_text": "Winners will receive Rs.2000 Amazon gift card from Oneindia on their registered e-mail address.",
         "check_winner_on": "Check winner on DATE ",
     },
     "tamil": {
