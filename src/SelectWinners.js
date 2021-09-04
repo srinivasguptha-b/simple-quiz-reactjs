@@ -46,6 +46,7 @@ const TodayReport = () => {
 const SelectWinners = () => {
     const [videoid, setVideoid] = useState('');
     const [emails, setEmails] = useState([]);
+    const [uimgs, setUimgs] = useState([]);
     const [winners, setWinners] = useState([]);
     const [modalData, setModalData] = useState({});
     const [currentWinner, setCurrentWinner] = useState(0);
@@ -109,6 +110,7 @@ const SelectWinners = () => {
                     setEmails(ems => ({ ...ems, [i]: value }))
                 }} placeholder="Email" /></td>
             <td><button className="btn btn-info" onClick={() => getWinners(i)}>Select Winner {i}</button></td>
+            <td><a href={uimgs[i] ? uimgs[i].replace('=s96-c', '=s960-c') : "#"} target="_blank" title="Download Image"><img src={uimgs[i]} width="30" /></a></td>
             <br></br>
             <br></br>
         </tr>);
@@ -156,7 +158,8 @@ const SelectWinners = () => {
                     <Button variant="danger" onClick={() => { getWinners(currentWinner) }}>Reset</Button>
                     <Button variant="success" onClick={() => {
                         setWinners(wins => ({ ...wins, [currentWinner]: modalData }));
-                        setEmails(ems => ({ ...ems, [currentWinner]: modalData.email }))
+                        setEmails(ems => ({ ...ems, [currentWinner]: modalData.email }));
+                        setUimgs(ims => ({ ...ims, [currentWinner]: modalData.picture }));
                         setModalData({});
                         setCurrentWinner(0);
                     }}>Confirm</Button>
