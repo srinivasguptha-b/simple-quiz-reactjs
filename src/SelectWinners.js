@@ -45,17 +45,20 @@ const TodayReport = () => {
 
 const SelectWinners = () => {
     const [videoid, setVideoid] = useState('');
-    const [email, setEmail] = useState('');
-    const [winners, setWinners] = useState({});
-    const [showModal, setShowModal] = useState(false);
-    const getWinners = async () => {
+    const [emails, setEmails] = useState([]);
+    const [winners, setWinners] = useState([]);
+    const [modalData, setModalData] = useState({});
+    const [currentWinner, setCurrentWinner] = useState(0);
+    const maxWinners = 5;
+
+    const getWinnerFromAPI = async (email) => {
         if (videoid) {
-            let winners = await fetch(`${process.env.REACT_APP_API_URL_GET}?func=selectWinners&video_id=` + videoid + `&email=` + email).then(response => response.json());
-            if (winners.error == -1) {
-                alert("Winner Already Selected! " + winners.data[0].winner.name)
-            } else if (!winners.error) {
-                setWinners(winners.data[0]);
-                setShowModal(true);
+            let apiWinner = await fetch(`${process.env.REACT_APP_API_URL_GET}?func=selectWinners&video_id=` + videoid + `&email=` + email).then(response => response.json());
+            //console.log(apiWinner);
+            if (apiWinner.error == -1) {
+                alert(apiWinner.message);
+            } else if (!apiWinner.error) {
+                return apiWinner.data[0];
             } else {
                 if (email)
                     alert('Given Email Id Not Found');
@@ -63,14 +66,28 @@ const SelectWinners = () => {
                     alert('Something went wrong!');
             }
         }
+        return [];
     }
-    const confirmWinner = () => {
+    const getWinners = async (index) => {
+        if (videoid) {
+            let tmpmail = (emails[index]) ? emails[index] : "";
+            let apiwinner = await getWinnerFromAPI(tmpmail);
+            //console.log(apiwinner);
+            if (Object.keys(apiwinner).length > 0) {
+                //setWinners(wins => ({ ...wins, [index]: apiwinner }));
+                setModalData(apiwinner);
+                setCurrentWinner(index);
+
+            }
+        }
+    }
+    const submitWinners = () => {
         const requestOptionsTotal = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 func: 'confirmWinner', data: {
-                    user: winners,
+                    winners: winners,
                     video_id: videoid
                 }
             })
@@ -79,13 +96,23 @@ const SelectWinners = () => {
             .then(d => {
                 if (!d.error) {
                     alert("Updated successfully!");
-                    setTimeout(() => {
-                        setShowModal(false);
-                    }, 2000)
+                    window.location.reload();
                 }
             });
     }
-
+    let inputList = [];
+    for (let i = 1; i <= maxWinners; i++) {
+        inputList.push(<tr>
+            <td>
+                <input value={emails[i]} onChange={(e) => {
+                    let value = e.target.value;
+                    setEmails(ems => ({ ...ems, [i]: value }))
+                }} placeholder="Email" /></td>
+            <td><button className="btn btn-info" onClick={() => getWinners(i)}>Select Winner {i}</button></td>
+            <br></br>
+            <br></br>
+        </tr>);
+    }
     return (
         <>
 
@@ -93,9 +120,12 @@ const SelectWinners = () => {
 
                 <input value={videoid} onChange={(e) => { setVideoid(e.target.value) }} placeholder="contest id" />
                 <br></br>
-                <input value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" />
-                <br></br>
-                <button className="btn btn-info" onClick={getWinners}>Select Winner</button>
+                <table>
+                    <tbody>
+                        {inputList}
+                    </tbody>
+                </table>
+                <Button variant="warning" onClick={submitWinners}>Submit</Button>
             </div>
             <div className="mt-3">
                 <hr></hr>
@@ -103,25 +133,33 @@ const SelectWinners = () => {
                 <TodayReport />
             </div>
             <Modal
-                show={showModal}
+                show={Object.keys(modalData).length === 0 ? false : true}
                 size="sm"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
                 <Modal.Body>
-                    {winners.name ? <Card>
-                        <Card.Img variant="top" src={winners.picture.replace('=s96-c', '=s384-c')} />
+                    {Object.keys(modalData).length > 0 ? <Card>
+                        <Card.Img variant="top" src={modalData.picture.replace('=s96-c', '=s384-c')} />
                         <Card.Body>
-                            <Card.Title>{winners.name}</Card.Title>
-                            <Card.Text >{winners.email}</Card.Text>
+                            <Card.Title>{modalData.name}</Card.Title>
+                            <Card.Text >{modalData.email}</Card.Text>
                         </Card.Body>
-                    </Card> : <></>}
+                    </Card> : ""}
                 </Modal.Body>
                 <Modal.Footer>
 
-                    <Button variant="secondary" onClick={() => setShowModal(false)}>Close</Button>
-                    <Button variant="danger" onClick={getWinners}>Reset</Button>
-                    <Button variant="success" onClick={confirmWinner}>Confirm</Button>
+                    <Button variant="secondary" onClick={() => {
+                        setModalData({});
+                        setCurrentWinner(0);
+                    }}>Close</Button>
+                    <Button variant="danger" onClick={() => { getWinners(currentWinner) }}>Reset</Button>
+                    <Button variant="success" onClick={() => {
+                        setWinners(wins => ({ ...wins, [currentWinner]: modalData }));
+                        setEmails(ems => ({ ...ems, [currentWinner]: modalData.email }))
+                        setModalData({});
+                        setCurrentWinner(0);
+                    }}>Confirm</Button>
                 </Modal.Footer>
             </Modal>
         </>

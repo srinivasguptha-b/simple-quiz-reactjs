@@ -33,12 +33,13 @@ const WelcomeText = (props) => {
                     <div className="contest-btm-text p-0 pt-1">{labelsText.congrats_text}</div>
                     <div className="winner-date">
 
-                        {!props.resultData.winner.name ? <div className="winner-date-title">{props.resultData.result_date ? labelsText.check_winner_on.replace('DATE', props.resultData.result_date) : ""}</div> : <>
-                            <div>Winner</div>
-                            <div className="winner-photo"><img src={props.resultData.winner.image ? props.resultData.winner.image : process.env.PUBLIC_URL + '/user.jpeg'} alt="" /></div>
-                            <div className="winner-name">{props.resultData.winner.name}</div>
-                            <div className="winner-date-title">{props.resultData.result_date}</div>
-                        </>}
+                        {!props.resultData.winner.length > 0 ? <div className="winner-date-title">{props.resultData.result_date ? labelsText.check_winner_on.replace('DATE', props.resultData.result_date) : ""}</div> : <div className="d-flex flex-row justify-content-between px-2">
+                            {props.resultData.winner.map((win, i) => <div>
+                                <div>Winner {i + 1}</div>
+                                <div className="winner-photo"><img src={win.image ? win.image : process.env.PUBLIC_URL + '/user.jpeg'} alt="" /></div>
+                                <div className="winner-name">{win.name}</div>
+                            </div>)}
+                        </div>}
                     </div>
                     <div className="win-gift-msg">{labelsText.winner_text}</div>
                 </> : <>
