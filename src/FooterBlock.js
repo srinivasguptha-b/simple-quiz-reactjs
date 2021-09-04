@@ -61,7 +61,7 @@ const FooterBlock = () => {
                     <b>ABOUT THE CONTEST:</b> Duration – Sep 2nd, 2021 12:00:00 AM to Oct 3rd 2021 11:59:59 PM
                     <br></br>
                     <b>WINNER SELECTION</b>
-                    <p>50 lucky participants will be selected by a random draw of lots and eligible to receive the prize of ‘Rs.2000 Amazon Gift Card’ (only if they comply with the T&Cs of the contest). One participant will be eligible to win the contest only once in the entire contest duration. The winners, if eligible, will receive the prize (as Amazon Gift Card) before Oct 10, 2021.</p>
+                    <p>50 lucky winners will be selected by a random draw of lots and eligible to receive the prize of ‘Rs.2000 Amazon Gift Card’ (only if they comply with the T&Cs of the contest). One participant will be eligible to win the contest only once in the entire contest duration. The winners, if eligible, will receive the prize (as Amazon Gift Card) before Oct 10, 2021.</p>
                     <br></br>
                     <b>CONTEST TERMS AND CONDITIONS:</b><br></br>
                     <p>This ‘Watch & Win’ Contest is bought to you by Deutsche Welle and made available on www.oneindia.com by One.in Digitech Media Private Limited.</p>
