@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "16fa9f70003a2495aa4bbc7bac2168ae",
+    "revision": "90b927ed71a11ef791f2e07715c93592",
     "url": "/dwquiz/index.html"
   },
   {
