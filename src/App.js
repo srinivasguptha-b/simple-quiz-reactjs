@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import { MobileView } from 'react-device-detect';
+import { Helmet } from "react-helmet";
 import AppContext from './libs/contextLib';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import Navmenu from './NavMenu';
@@ -75,12 +76,6 @@ export default function App() {
         setContentLanguage(quizlang);
         setSabelsText(LabelsText[quizlang]);
 
-        let qst = quizlang == "www" ? "" : "?lang=" + quizlang;
-        createMeta("og:url", "https://videos.oneindia.com/dwquiz/" + qst);
-        createMeta("og:description", ogdesc[quizlang].desc);
-        // document.getElementsByTagName('meta')["og:url"].content = "https://videos.oneindia.com/dwquiz/" + qst;
-        // document.getElementsByTagName('meta')["og:description"].content = ogdesc[quizlang];
-
         ReactGa.initialize(uacodes[quizlang]);
         triggerPageView();
     }, []);
@@ -107,11 +102,19 @@ export default function App() {
         localStorage.setItem('userdata', '');
     }
 
-    const createMeta = (property, content) => {
-        var link = document.createElement('meta');
-        link.setAttribute('property', property);
-        link.content = content;
-        document.getElementsByTagName('head')[0].appendChild(link);
+    const CreateMeta = () => {
+        let quizlang = Object.keys(uacodes)[0];
+        let qst = quizlang == "www" ? "" : "?lang=" + quizlang;
+        let og_url = "https://videos.oneindia.com/dwquiz/" + qst;
+        let og_desc = ogdesc[quizlang].desc;
+        return (
+            <div>
+                <Helmet>
+                    <meta property="og:url" content={og_url} />
+                    <meta property="og:description" content={og_desc} />
+                </Helmet>
+            </div>
+        );
     }
 
     function PrivateRoute({ children, ...rest }) {
@@ -127,6 +130,7 @@ export default function App() {
     return (
         <AppContext.Provider value={{ isAuthenticated, setIsAuthenticated, userData, setUserData, contentLanguage, setContentLanguage, triggerPageView, triggerEvent, modalShow, setModalShow, handleLogout, resultType, setResultType, labelsText }}>
             <Container className="p-0">
+                <CreateMeta />
                 <Navmenu />
             </Container>
             <Container className="containerMain">
