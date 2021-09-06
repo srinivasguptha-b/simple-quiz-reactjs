@@ -30,6 +30,8 @@ const QuizMain = () => {
     const [startQuizBtnClick, setStartQuizBtnClick] = useState(false);
     const [videoData, setVideoData] = useState([]);
     const [selectedAnswer, setSelectedAnswer] = useState({});
+    let querystring = new URLSearchParams(window.location.search);
+    let contentL = querystring.get('lang') ? querystring.get('lang') : "www";
 
     useEffect(() => {
         if (Object.keys(QuestionsData).includes(contentLanguage)) {
@@ -116,7 +118,19 @@ const QuizMain = () => {
         } else {
             setIsLoading(false);
         }
-    }, [isAuthenticated]);
+    }, [isAuthenticated, currentVideo]);
+
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL_GET}?func=getActiveContest`).then(response => response.json())
+            .then(d => {
+                if (!d.error) {
+                    if (d.data.id !== currentVideo) {
+                        let ulx = (contentL == 'www' || contentL == '') ? "" : "?lang=" + contentL;
+                        history.push(`${process.env.REACT_APP_API_BASEPATH}` + d.data.id + ulx);
+                    }
+                }
+            });
+    }, []);
 
     // const handleAnswerOptionClick = () => {
     //     setClicked([...clicked, { qtnindex: currentQuestion, ansindex: selectedAnswer.index }]);

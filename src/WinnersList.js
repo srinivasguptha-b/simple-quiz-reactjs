@@ -11,13 +11,13 @@ const WinnerList = () => {
             .then(d => {
                 setWinners(d.data.filter(v => v.id != currentVideo));
             });
-    }, []);
+    }, [currentVideo]);
     return (
         <>
             {winners.length > 0 ? <div className="row m-0 py-2 p-md-4">
                 <hr className="m-0 mb-1"></hr>
                 <div className="oidw-heading  d-flex align-items-center fw-bold ps-0 pb-2">
-                    <span>Previous Contest &amp; Winners</span>
+                    <span>Previous Contest Winners</span>
                 </div>
                 <div className='col-md-12 oidw-morevideos-block winners-block p-0 m-0'>
                     <div className="row">

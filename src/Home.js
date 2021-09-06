@@ -33,15 +33,16 @@ const HomeVideo = () => {
                 <iframe style={{ width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden" }} frameBorder="0" type="text/html" src={videoD.embed_url} width="100%" height="100%" allowFullScreen allow="autoplay" >
                 </iframe>
             </div>
-            <div className="signin-title">{labelsText.ready_to_start}?</div>
-            <button onClick={() => {
-                if (isAuthenticated) {
-                    let ulx = (contentL == 'www' || contentL == '') ? "?openQuiz=true" : "?lang=" + contentL + "&openQuiz=true";
-                    history.push(`${process.env.REACT_APP_API_BASEPATH}` + activeVideo + ulx);
-                } else {
-                    setModalShow(true);
-                }
-            }} className="ready-btn">{labelsText.ready_to_play}?</button>
+            <div className="signin-title">
+                <button onClick={() => {
+                    if (isAuthenticated) {
+                        let ulx = (contentL == 'www' || contentL == '') ? "?openQuiz=true" : "?lang=" + contentL + "&openQuiz=true";
+                        history.push(`${process.env.REACT_APP_API_BASEPATH}` + activeVideo + ulx);
+                    } else {
+                        setModalShow(true);
+                    }
+                }} className="ready-btn">{labelsText.ready_to_play}?</button>
+            </div>
         </div> : <></>}
     </>);
 }
