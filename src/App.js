@@ -30,6 +30,16 @@ export default function App() {
         'kannada': 'UA-110466-40',
         'malayalam': 'UA-110466-40',
     };
+    let ogdesc = {
+        'www': {
+            desc: "Enter the lucky draw to win Amazon voucher by answering the question correctly"
+        },
+        'hindi': { desc: "Enter the lucky draw to win Amazon voucher by answering the question correctly" },
+        'tamil': { desc: "கேள்விகளுக்கு சரியான பதில்களை அளித்து அமேசான் கூப்பன் வெல்லும் வாய்ப்பை பெறுங்கள்" },
+        'telugu': { desc: "అమెజాన్ వోచర్ గెలిచేందుకు ఇచ్చిన ప్రశ్నకు సరైన సమాధానం చెప్పి లక్కీ డ్రాకు అర్హత పొందండి" },
+        'kannada': { desc: "ಪ್ರಶ್ನೆಗೆ ಸರಿಯಾಗಿ ಉತ್ತರಿಸಿ ಲಕ್ಕಿ ಡ್ರಾ ಮೂಲಕ ಅಮೆಜಾನ್ ವೋಚರ್ ಗೆದ್ದುಕೊಳ್ಳಿರಿ" },
+        'malayalam': { desc: "ശരിയുത്തരം നല്‍കൂ, ആമസോണ്‍ വൗച്ചര്‍ സമ്മാനം ലഭിക്കുന്ന ലക്കി ഡ്രോയില്‍ പങ്കെടുക്കൂ." },
+    };
     const [contentLanguage, setContentLanguage] = useState(Object.keys(uacodes)[0]);
     const [labelsText, setSabelsText] = useState(LabelsText[Object.keys(uacodes)[0]]);
     const triggerPageView = () => {
@@ -64,6 +74,13 @@ export default function App() {
         // console.log(quizlang);
         setContentLanguage(quizlang);
         setSabelsText(LabelsText[quizlang]);
+
+        let qst = quizlang == "www" ? "" : "?lang=" + quizlang;
+        createMeta("og:url", "https://videos.oneindia.com/dwquiz/" + qst);
+        createMeta("og:description", ogdesc[quizlang].desc);
+        // document.getElementsByTagName('meta')["og:url"].content = "https://videos.oneindia.com/dwquiz/" + qst;
+        // document.getElementsByTagName('meta')["og:description"].content = ogdesc[quizlang];
+
         ReactGa.initialize(uacodes[quizlang]);
         triggerPageView();
     }, []);
@@ -88,6 +105,13 @@ export default function App() {
         setIsAuthenticated(false);
         setModalShow(false);
         localStorage.setItem('userdata', '');
+    }
+
+    const createMeta = (property, content) => {
+        var link = document.createElement('meta');
+        link.setAttribute('property', property);
+        link.content = content;
+        document.getElementsByTagName('head')[0].appendChild(link);
     }
 
     function PrivateRoute({ children, ...rest }) {
