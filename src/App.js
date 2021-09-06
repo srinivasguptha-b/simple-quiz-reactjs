@@ -110,6 +110,7 @@ export default function App() {
         return (
             <div>
                 <Helmet>
+                    <link rel="canonical" href={og_url} />
                     <meta property="og:url" content={og_url} />
                     <meta property="og:description" content={og_desc} />
                 </Helmet>
