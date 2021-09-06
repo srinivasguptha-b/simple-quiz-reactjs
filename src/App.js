@@ -103,7 +103,7 @@ export default function App() {
     }
 
     const CreateMeta = () => {
-        let quizlang = Object.keys(uacodes)[0];
+        let quizlang = contentLanguage;
         let qst = quizlang == "www" ? "" : "?lang=" + quizlang;
         let og_url = "https://videos.oneindia.com/dwquiz/" + qst;
         let og_desc = ogdesc[quizlang].desc;
