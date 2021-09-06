@@ -107,6 +107,12 @@ const QuizMain = () => {
                         setVideoData(d.data);
                     });
             }
+
+            let querystring = new URLSearchParams(window.location.search);
+            if (querystring.get('openQuiz') && isAuthenticated) {
+                setQuizToggle(true);
+            }
+
         } else {
             setIsLoading(false);
         }

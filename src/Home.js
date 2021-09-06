@@ -1,8 +1,45 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import WelcomeText from './WelcomeText';
 import AppContext from './libs/contextLib';
+
+const HomeVideo = () => {
+    const [videoD, setVideoD] = useState([]);
+    const [activeVideo, setActiveVideo] = useState([]);
+    let history = useHistory();
+    let querystring = new URLSearchParams(window.location.search);
+    let contentL = querystring.get('lang') ? querystring.get('lang') : "www";
+    const { isAuthenticated, setModalShow, labelsText } = useContext(AppContext);
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL_GET}?func=getActiveContest`).then(response => response.json())
+            .then(d => {
+                if (!d.error) {
+                    setVideoD(d.data.videos[contentL]);
+                    setActiveVideo(d.data.id);
+                }
+            });
+    }, []);
+    return (<>
+        {videoD ? <div>
+            <div style={{ position: "relative", paddingBottom: "56.25%", height: "0", overflow: "hidden" }}>
+                <iframe style={{ width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden" }} frameBorder="0" type="text/html" src={videoD.embed_url} width="100%" height="100%" allowFullScreen allow="autoplay" >
+                </iframe>
+            </div>
+            <div className="signin-title">{labelsText.ready_to_start}?</div>
+            <button onClick={() => {
+                if (isAuthenticated) {
+                    let ulx = (contentL == 'www' || contentL == '') ? "?openQuiz=true" : "?lang=" + contentL + "&openQuiz=true";
+                    history.push(`${process.env.REACT_APP_API_BASEPATH}` + activeVideo + ulx);
+                } else {
+                    setModalShow(true);
+                }
+            }} className="ready-btn">{labelsText.ready_to_play}?</button>
+        </div> : <></>}
+    </>);
+}
+
 const Home = () => {
     const { labelsText } = useContext(AppContext);
     return (
@@ -24,7 +61,10 @@ const Home = () => {
                                 </a>
                             </div>
                         </div>
-                        <div className="google-signin-block mt-4">
+                        <div>
+                            <HomeVideo />
+                        </div>
+                        {/* <div className="google-signin-block mt-4">
                             <div className="signin-title">{labelsText.ready_to_start}?</div>
                             <div className="google-signin-btn">
                                 <LoginPage />
@@ -32,7 +72,7 @@ const Home = () => {
                             <div className="signin-bottom-text">
                                 {labelsText.sign_up_start}
                             </div>
-                        </div>
+                        </div> */}
                         {/* {isAuthenticated ? (
                             <>
                                 <p>Welcome {userData.name} </p>
