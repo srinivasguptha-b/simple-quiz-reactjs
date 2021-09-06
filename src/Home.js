@@ -11,7 +11,7 @@ const HomeVideo = () => {
     let history = useHistory();
     let querystring = new URLSearchParams(window.location.search);
     let contentL = querystring.get('lang') ? querystring.get('lang') : "www";
-    const { isAuthenticated, setModalShow, labelsText } = useContext(AppContext);
+    const { isAuthenticated, modalShow, setModalShow, labelsText } = useContext(AppContext);
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL_GET}?func=getActiveContest`).then(response => response.json())
             .then(d => {
@@ -22,7 +22,7 @@ const HomeVideo = () => {
             });
     }, []);
     useEffect(() => {
-        if (isAuthenticated) {
+        if (isAuthenticated && modalShow) {
             let ulx = (contentL == 'www' || contentL == '') ? "?openQuiz=true" : "?lang=" + contentL + "&openQuiz=true";
             history.push(`${process.env.REACT_APP_API_BASEPATH}` + activeVideo + ulx);
         }
