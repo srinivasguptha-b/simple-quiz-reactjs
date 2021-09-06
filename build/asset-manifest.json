@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/dwquiz-staging/static/css/main.62819280.chunk.css",
-    "main.js": "/dwquiz-staging/static/js/main.19b14dc3.chunk.js",
-    "main.js.map": "/dwquiz-staging/static/js/main.19b14dc3.chunk.js.map",
-    "runtime-main.js": "/dwquiz-staging/static/js/runtime-main.9a002184.js",
-    "runtime-main.js.map": "/dwquiz-staging/static/js/runtime-main.9a002184.js.map",
-    "static/css/2.07744ed8.chunk.css": "/dwquiz-staging/static/css/2.07744ed8.chunk.css",
-    "static/js/2.f3f20366.chunk.js": "/dwquiz-staging/static/js/2.f3f20366.chunk.js",
-    "static/js/2.f3f20366.chunk.js.map": "/dwquiz-staging/static/js/2.f3f20366.chunk.js.map",
-    "index.html": "/dwquiz-staging/index.html",
-    "precache-manifest.378ca50b001fda8c53b00e494eafe8eb.js": "/dwquiz-staging/precache-manifest.378ca50b001fda8c53b00e494eafe8eb.js",
-    "service-worker.js": "/dwquiz-staging/service-worker.js",
-    "static/css/2.07744ed8.chunk.css.map": "/dwquiz-staging/static/css/2.07744ed8.chunk.css.map",
-    "static/css/main.62819280.chunk.css.map": "/dwquiz-staging/static/css/main.62819280.chunk.css.map",
-    "static/js/2.f3f20366.chunk.js.LICENSE.txt": "/dwquiz-staging/static/js/2.f3f20366.chunk.js.LICENSE.txt"
+    "main.css": "/dwquiz/static/css/main.62819280.chunk.css",
+    "main.js": "/dwquiz/static/js/main.982a89d6.chunk.js",
+    "main.js.map": "/dwquiz/static/js/main.982a89d6.chunk.js.map",
+    "runtime-main.js": "/dwquiz/static/js/runtime-main.c264bcb8.js",
+    "runtime-main.js.map": "/dwquiz/static/js/runtime-main.c264bcb8.js.map",
+    "static/css/2.07744ed8.chunk.css": "/dwquiz/static/css/2.07744ed8.chunk.css",
+    "static/js/2.a2237fe3.chunk.js": "/dwquiz/static/js/2.a2237fe3.chunk.js",
+    "static/js/2.a2237fe3.chunk.js.map": "/dwquiz/static/js/2.a2237fe3.chunk.js.map",
+    "index.html": "/dwquiz/index.html",
+    "precache-manifest.babd7a147aa305f924f1895f459a6648.js": "/dwquiz/precache-manifest.babd7a147aa305f924f1895f459a6648.js",
+    "service-worker.js": "/dwquiz/service-worker.js",
+    "static/css/2.07744ed8.chunk.css.map": "/dwquiz/static/css/2.07744ed8.chunk.css.map",
+    "static/css/main.62819280.chunk.css.map": "/dwquiz/static/css/main.62819280.chunk.css.map",
+    "static/js/2.a2237fe3.chunk.js.LICENSE.txt": "/dwquiz/static/js/2.a2237fe3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.9a002184.js",
+    "static/js/runtime-main.c264bcb8.js",
     "static/css/2.07744ed8.chunk.css",
-    "static/js/2.f3f20366.chunk.js",
+    "static/js/2.a2237fe3.chunk.js",
     "static/css/main.62819280.chunk.css",
-    "static/js/main.19b14dc3.chunk.js"
+    "static/js/main.982a89d6.chunk.js"
   ]
 }
