@@ -109,7 +109,7 @@ const QuizMain = () => {
             }
 
             let querystring = new URLSearchParams(window.location.search);
-            if (querystring.get('openQuiz') && isAuthenticated) {
+            if ((querystring.get('openQuiz') || startQuizBtnClick) && isAuthenticated) {
                 setQuizToggle(true);
             }
 

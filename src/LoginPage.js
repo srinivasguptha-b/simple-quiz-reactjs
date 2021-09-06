@@ -6,26 +6,26 @@ import AppContext from './libs/contextLib';
 const LoginPage = () => {
     const { isAuthenticated, setIsAuthenticated, setUserData, userData, contentLanguage } = useContext(AppContext);
     let history = useHistory();
-    useEffect(function () {
-        if (isAuthenticated) {
-            const requestOptionsTotal = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    func: 'getTotalScore', data: {
-                        user_id: userData.user_id
-                    }
-                })
-            };
-            fetch(`${process.env.REACT_APP_API_URL_POST}`, requestOptionsTotal).then(response => response.json())
-                .then(d => {
-                    if (!d.error) {
-                        let ulx = (contentLanguage == 'www') ? "" : "?lang=" + contentLanguage;
-                        history.push(`${process.env.REACT_APP_API_BASEPATH}` + d.data.activeQuiz + ulx);
-                    }
-                });
-        }
-    }, [isAuthenticated]);
+    // useEffect(function () {
+    //     if (isAuthenticated) {
+    //         const requestOptionsTotal = {
+    //             method: 'POST',
+    //             headers: { 'Content-Type': 'application/json' },
+    //             body: JSON.stringify({
+    //                 func: 'getTotalScore', data: {
+    //                     user_id: userData.user_id
+    //                 }
+    //             })
+    //         };
+    //         fetch(`${process.env.REACT_APP_API_URL_POST}`, requestOptionsTotal).then(response => response.json())
+    //             .then(d => {
+    //                 if (!d.error) {
+    //                     let ulx = (contentLanguage == 'www') ? "" : "?lang=" + contentLanguage;
+    //                     history.push(`${process.env.REACT_APP_API_BASEPATH}` + d.data.activeQuiz + ulx);
+    //                 }
+    //             });
+    //     }
+    // }, [isAuthenticated]);
     const handleLogin = async googleData => {
 
         const res = await fetch(`${process.env.REACT_APP_API_URL_AUTH}/g-auth.php`, {
@@ -46,18 +46,9 @@ const LoginPage = () => {
         };
         fetch(`${process.env.REACT_APP_API_URL_POST}`, requestOptions).then(response => response.json())
             .then(data => {
-                fetch(`${process.env.REACT_APP_API_URL_GET}?func=getActiveContest`).then(response => response.json()).then(activeVid => {
-                    localStorage.setItem('userdata', JSON.stringify(data.data));
-                    setUserData(data.data);
-                    setIsAuthenticated(true);
-
-                    if (!activeVid.error) {
-                        let ulx = (contentLanguage == 'www') ? "?openQuiz=true" : "?lang=" + contentLanguage + "&openQuiz=true";
-                        history.push(`${process.env.REACT_APP_API_BASEPATH}` + activeVid.data.id + ulx);
-                    }
-                });
-
-
+                localStorage.setItem('userdata', JSON.stringify(data.data));
+                setUserData(data.data);
+                setIsAuthenticated(true);
             });
         // store returned user somehow
     }

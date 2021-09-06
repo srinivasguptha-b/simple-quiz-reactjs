@@ -21,6 +21,12 @@ const HomeVideo = () => {
                 }
             });
     }, []);
+    useEffect(() => {
+        if (isAuthenticated) {
+            let ulx = (contentL == 'www' || contentL == '') ? "?openQuiz=true" : "?lang=" + contentL + "&openQuiz=true";
+            history.push(`${process.env.REACT_APP_API_BASEPATH}` + activeVideo + ulx);
+        }
+    }, [isAuthenticated]);
     return (<>
         {videoD ? <div>
             <div style={{ position: "relative", paddingBottom: "56.25%", height: "0", overflow: "hidden" }}>
