@@ -53,7 +53,7 @@ const LoginPage = () => {
 
                     if (!activeVid.error) {
                         let ulx = (contentLanguage == 'www') ? "?openQuiz=true" : "?lang=" + contentLanguage + "&openQuiz=true";
-                        window.location.href = `${process.env.REACT_APP_API_BASEPATH}` + activeVid.data.id + ulx;
+                        history.push(`${process.env.REACT_APP_API_BASEPATH}` + activeVid.data.id + ulx);
                     }
                 });
 
