@@ -137,7 +137,7 @@ export default function App() {
             <Container className="containerMain">
                 <Row>
                     <Col md="12" sm="12">
-                        <Router basename='dwquiz'>
+                        <Router basename='dwquiz-staging'>
                             <Switch>
                                 <Route exact path="/" component={Home} />
                                 <PrivateRoute path="/selectwinner">
