@@ -45,17 +45,19 @@ const LoginPage = () => {
             body: JSON.stringify({ func: 'register_login_user', data: Logindata })
         };
         fetch(`${process.env.REACT_APP_API_URL_POST}`, requestOptions).then(response => response.json())
-            .then(async data => {
-                let activeVid = await fetch(`${process.env.REACT_APP_API_URL_GET}?func=getActiveContest`).then(response => response.json());
+            .then(data => {
+                fetch(`${process.env.REACT_APP_API_URL_GET}?func=getActiveContest`).then(response => response.json()).then(activeVid => {
+                    localStorage.setItem('userdata', JSON.stringify(data.data));
+                    setUserData(data.data);
+                    setIsAuthenticated(true);
 
-                localStorage.setItem('userdata', JSON.stringify(data.data));
-                setUserData(data.data);
-                setIsAuthenticated(true);
+                    if (!activeVid.error) {
+                        let ulx = (contentLanguage == 'www') ? "?openQuiz=true" : "?lang=" + contentLanguage + "&openQuiz=true";
+                        window.location.href = `${process.env.REACT_APP_API_BASEPATH}` + activeVid.data.id + ulx;
+                    }
+                });
 
-                if (!activeVid.error) {
-                    let ulx = (contentLanguage == 'www') ? "?openQuiz=true" : "?lang=" + contentLanguage + "&openQuiz=true";
-                    window.location.href = `${process.env.REACT_APP_API_BASEPATH}` + activeVid.data.id + ulx;
-                }
+
             });
         // store returned user somehow
     }
