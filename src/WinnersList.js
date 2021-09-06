@@ -26,19 +26,20 @@ const WinnerList = () => {
                             //let video = videoq.videos[contentLanguage];
                             let result_date = videoq.result_date;
                             return (
-                                <>
+                                <div className="row m-2">
                                     <b>Contest {videoq.id}</b>
                                     {videoq.winner.map(winner => <div className="col-md-4 col-sm-12 p-md-2 text-dark pe-0" key={i}>
                                         <Card style={{ background: "#eaf1fa" }}>
                                             <Card.Body>
-                                                <div className="winner-thumb" style={{ width: "50px", height: "50px", marginRight: "10px" }}><img src={winner.image ? winner.image : process.env.PUBLIC_URL + '/user.jpeg'} alt="" /></div>
+                                                <div className="winner-thumb" style={{ width: "50px", height: "50px" }}><img src={winner.image ? winner.image : process.env.PUBLIC_URL + '/user.jpeg'} alt="" /></div>
                                                 <Card.Text className="m-0">Contest {videoq.id}: Winner</Card.Text>
                                                 <Card.Text className="fw-bold m-0"><span className="fw-bold">{winner.name}</span></Card.Text>
                                                 <Card.Text className="m-0">{result_date}</Card.Text>
                                             </Card.Body>
                                         </Card>
                                     </div>)}
-                                </>
+
+                                </div>
                             )
                         })}
                     </div>

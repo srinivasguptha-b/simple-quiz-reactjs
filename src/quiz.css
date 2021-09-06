@@ -120,7 +120,7 @@ ul li {
   .main .options ul {padding: 0;margin: 0;}
   .oidw-quiz-no {padding-bottom: 10px;}
   
-  .oidw-morevideos-block .row {margin: 0!important;white-space: nowrap;width: 100%;overflow-x: scroll;display: block;}
+  .oidw-morevideos-block .row {white-space: nowrap;width: 100%;overflow-x: scroll;display: block;}
   .oidw-morevideos-block .col-md-4 {width: 200px;display: inline-block;float: none;white-space: normal;}
   .col-md-12.oidw-morevideos-block {margin-top: 20px;}
   .card-link {text-decoration: none;}
@@ -136,6 +136,7 @@ ul li {
   .oidw-heading{font-size: 18px;}
   .winners-block .card-text{font-size: 14px;}
   .winners-block .card-footer{font-size: 14px;padding: 8px 4px;}
+  .winners-block .card-body{text-align: center;}
   .btn-google {background-color: #fff;width: 100%;border-color: #dfe4e8;padding: .375rem .75rem;font-size: .875rem;line-height: 1.5;border: none;border-radius: .25rem;color: #000!important;}
 }
 
@@ -188,7 +189,7 @@ ul li {
 #dwlogo{height: 50px;}
 .winner-photo{margin: 0 auto;width: 50px;height: 50px;border-radius: 50%;overflow: hidden;}
 .winner-photo img, .winner-thumb img {max-width: 100%;border: 0 none;display: block;}
-.winner-thumb {float: left;margin: 0 auto;width: 40px;height: 40px;border-radius: 50%;overflow: hidden;}
+.winner-thumb {float: left;margin: 0 auto;width: 40px;height: 40px;border-radius: 50%;overflow: hidden;margin-right: 10px;}
 .winner-details {margin-left: 45px;}
 @media only screen and (max-width: 768px) {
   body {
@@ -203,4 +204,5 @@ ul li {
   .logo.w{background: #fff;color: #0376c9;text-align: center;position: relative;left: -5px;}
   .logo.d{color: #fff;margin: 0 auto;text-align: center;position: relative;z-index: 999;}
   .logo strong{margin: 0 auto;text-align: center;position: relative;top: -2px;}
+  .winner-thumb{float: none;overflow: visible;margin: 0 auto;}
 }
