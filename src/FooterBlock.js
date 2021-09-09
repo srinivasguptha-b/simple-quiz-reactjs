@@ -91,7 +91,7 @@ const FooterBlock = () => {
 
                     <p>The selected winners will automatically forfeit their claim to the Prize if they do not meet the eligibility criteria or do not comply with these T&Cs.</p>
 
-                    <p>There are no cash or other prize alternatives available in whole or in part. If any selected Participant does not respond back to any communications sent in relation to the Contest within the time period communicated by Oneindia, he/she shall not be eligible to be declared winner of the Prize. In such case, an alternate winner may not be selected.</p>
+                    <p>There are no cash or other prize alternatives available in whole or in part. If any selected Participant does not respond back to any communications sent in relation to the Contest within the time period communicated by Oneindia, he/she shall not be eligible to be declared winner of the Prize. In such case, an alternate winner will be selected.</p>
 
                     <b>ADDITIONAL TERMS:</b><br></br>
                     <p>One.in Digitech Media Private Limited may, to the maximum extent permitted by applicable law and in our sole discretion, change the T&Cs or cancel the Contest at any time; or modify, terminate, or suspend the Contest should viruses, worms, bugs, unauthorized human intervention or other causes beyond our control corrupt or impair the administration, security, fairness or proper play of the Contest or submission of entries.</p>
