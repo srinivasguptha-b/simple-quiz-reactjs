@@ -37,8 +37,7 @@ const TodayReport = () => {
                         <tr><td>New Registrations:</td> <td>{reports.users_count}</td></tr>
                         <tr><td>Correct Answered:</td><td> {reports.correct_count}</td></tr>
                         <tr><td>Total Participation:</td><td> {parseInt(reports.correct_count) + parseInt(reports.incorrect_count)}</td></tr>
-                        <tr><td>Repeated Participation:</td><td> {parseInt(reports.correct_count) + parseInt(reports.incorrect_count) - parseInt(reports.users_count)}</td></tr>
-                        <tr><td>Repeated Users:</td><td>{reports.repeated_users}</td></tr>
+                        <tr><td>Repeated Users:</td><td> {parseInt(reports.correct_count) + parseInt(reports.incorrect_count) - parseInt(reports.users_count)}</td></tr>
                     </>}
                 </tbody>
             </Table>
