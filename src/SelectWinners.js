@@ -36,6 +36,7 @@ const TodayReport = () => {
                     {Object.keys(reports).length > 0 && <>
                         <tr><td>New Registrations:</td> <td>{reports.users_count}</td></tr>
                         <tr><td>Correct Answered:</td><td> {reports.correct_count}</td></tr>
+                        <tr><td>Total Participation:</td><td> {parseInt(reports.correct_count) + parseInt(reports.incorrect_count)}</td></tr>
                     </>}
                 </tbody>
             </Table>

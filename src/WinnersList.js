@@ -33,7 +33,7 @@ const WinnerList = () => {
                                             <Card.Body>
                                                 <div className="winner-thumb" style={{ width: "50px", height: "50px" }}><img src={winner.image ? winner.image : process.env.PUBLIC_URL + '/user.jpeg'} alt="" /></div>
                                                 <Card.Text className="m-0">Contest {videoq.id}: Winner</Card.Text>
-                                                <Card.Text className="fw-bold m-0"><span className="fw-bold">{winner.name}</span></Card.Text>
+                                                <Card.Text className="fw-bold m-0"><span className="fw-bold">{winner.name}<small>{winner.alternate ? " (alternate)" : ""}</small></span></Card.Text>
                                                 <Card.Text className="m-0">{result_date}</Card.Text>
                                             </Card.Body>
                                         </Card>
