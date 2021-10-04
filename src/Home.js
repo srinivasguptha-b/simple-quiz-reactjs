@@ -7,7 +7,7 @@ import AppContext from './libs/contextLib';
 
 const HomeVideo = () => {
     const [videoD, setVideoD] = useState([]);
-    const [activeVideo, setActiveVideo] = useState([]);
+    const [activeVideo, setActiveVideo] = useState(null);
     let history = useHistory();
     let querystring = new URLSearchParams(window.location.search);
     let contentL = querystring.get('lang') ? querystring.get('lang') : "www";
@@ -15,7 +15,7 @@ const HomeVideo = () => {
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL_GET}?func=getActiveContest`).then(response => response.json())
             .then(d => {
-                if (!d.error) {
+                if (!d.error && d.data.videos) {
                     setVideoD(d.data.videos[contentL]);
                     setActiveVideo(d.data.id);
                 }
@@ -28,7 +28,7 @@ const HomeVideo = () => {
         }
     }, [isAuthenticated]);
     return (<>
-        {videoD ? <div>
+        {activeVideo ? <div>
             <div style={{ position: "relative", paddingBottom: "56.25%", height: "0", overflow: "hidden" }}>
                 <iframe style={{ width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden" }} frameBorder="0" type="text/html" src={videoD.embed_url} width="100%" height="100%" allowFullScreen allow="autoplay" >
                 </iframe>
@@ -54,8 +54,8 @@ const Home = () => {
             <Container>
                 <div className='row'>
                     <div className='col-md-12 text-center p-0'>
-                        <WelcomeText />
-                        <div className="win-chance mt-3">
+                        {/* <WelcomeText /> */}
+                        <div className="win-chance mt-3" style={{ width: "500px" }}>
                             <div className="win-title">{labelsText.chance_to_win}</div>
                             <div className="gift-chance clearfix">
                                 <a href="#" className="d-flex flex-row text-decoration-none">
