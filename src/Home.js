@@ -71,18 +71,15 @@ const Home = () => {
                         <div>
                             <HomeVideo />
                         </div>
-                        <div className="google-signin-btn">
-                            <LoginPage />
-                        </div>
-                        {/* <div className="google-signin-block mt-4">
-                            <div className="signin-title">{labelsText.ready_to_start}?</div>
+                        <div className="google-signin-block mt-4">
+                            {/* <div className="signin-title">{labelsText.ready_to_start}?</div> */}
                             <div className="google-signin-btn">
                                 <LoginPage />
                             </div>
                             <div className="signin-bottom-text">
                                 {labelsText.sign_up_start}
                             </div>
-                        </div> */}
+                        </div>
                         {/* {isAuthenticated ? (
                             <>
                                 <p>Welcome {userData.name} </p>
