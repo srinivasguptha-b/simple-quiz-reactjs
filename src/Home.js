@@ -54,7 +54,7 @@ const Home = () => {
             <Container>
                 <div className='row'>
                     <div className='col-md-12 text-center p-0'>
-                        <WelcomeText />
+                        {/* <WelcomeText /> */}
                         <div className="win-chance mt-3" style={{ width: "500px" }}>
                             <div className="win-title">{labelsText.chance_to_win}</div>
                             <div className="gift-chance clearfix">
@@ -68,12 +68,9 @@ const Home = () => {
                                 </a>
                             </div>
                         </div>
-                        <div>
+                        {/* <div>
                             <HomeVideo />
-                        </div>
-                        <div className="google-signin-btn">
-                            <LoginPage />
-                        </div>
+                        </div> */}
                         {/* <div className="google-signin-block mt-4">
                             <div className="signin-title">{labelsText.ready_to_start}?</div>
                             <div className="google-signin-btn">
