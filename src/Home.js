@@ -55,7 +55,7 @@ const Home = () => {
                 <div className='row'>
                     <div className='col-md-12 text-center p-0'>
                         <WelcomeText />
-                        <div className="win-chance mt-3" style={{ width: "500px" }}>
+                        <div className="win-chance mt-3">
                             <div className="win-title">{labelsText.chance_to_win}</div>
                             <div className="gift-chance clearfix">
                                 <a href="#" className="d-flex flex-row text-decoration-none">
