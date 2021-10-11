@@ -68,6 +68,9 @@ const Home = () => {
                                 </a>
                             </div>
                         </div>
+                        <div className="google-signin-btn">
+                            <LoginPage />
+                        </div>
                         {/* <div>
                             <HomeVideo />
                         </div> */}
